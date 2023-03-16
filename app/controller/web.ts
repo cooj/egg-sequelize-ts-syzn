@@ -2,8 +2,8 @@ import { Controller } from 'egg';
 
 export default class WebController extends Controller {
     public async index() {
-        const { ctx, app, service } = this;
-        console.log('thisNewsController :>> ', this);
+        const { ctx } = this;
+        // console.log('thisNewsController :>> ', this);
 
         await ctx.render('home.nj', { list: 'newsList, page, pageSize' });
     }

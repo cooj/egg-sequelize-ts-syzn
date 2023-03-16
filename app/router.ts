@@ -24,4 +24,6 @@ export default (app: Application) => {
     // router.post('/api/v1/banner/update', auth, controller.banner.update); // 修改banner
 
 
+    router.post('/api/upload', controller.common.index); // 查询banner
+
 };

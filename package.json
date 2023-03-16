@@ -15,7 +15,7 @@
         "cov": "egg-bin cov",
         "tsc": "tsc -p tsconfig.json",
         "ci": "npm run lint && npm run cov && npm run tsc",
-        "lint": "eslint .",
+        "lint": "eslint . --fix",
         "clean": "tsc -b --clean"
     },
     "dependencies": {
@@ -34,6 +34,7 @@
         "@eggjs/tsconfig": "^1.1.0",
         "@types/cheerio": "^0.22.1",
         "@types/lodash": "^4.14.191",
+        "@types/mkdirp": "^2.0.0",
         "@types/mocha": "^10.0.1",
         "cheerio": "^1.0.0-rc.2",
         "egg-bin": "^5.9.0",

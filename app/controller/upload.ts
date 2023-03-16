@@ -1,32 +1,32 @@
-import { Controller, error } from 'egg';
-import fs from 'fs';
+import { Controller } from 'egg';
+// import * as fs from 'fs';
 
 export default class UploadPictureController extends Controller {
     // async index() {
     //     await this.ctx.render('home/upload.tpl', {});
     // }
-    async upload() {
-        console.log(this.ctx.request);
-        var file = this.ctx.request.files[0];
-        console.log('file :>> ', file);
-        var name = file.filename;
-        var dist = 'app/public/upload/' + name;
-        let result = await new Promise((resolve, reject) => {
-            fs.copyFile(file.filepath, dist, (error) => {
-                if (error) {
-                    reject(error);
-                    console.log("fail");
-                } else {
-                    resolve(true);
-                    console.log("success");
-                }
-            });
-        });
-        this.ctx.response.body = {
-            state: result,
-            filename: name
-        };
-    }
+    // async upload() {
+    //     console.log(this.ctx.request);
+    //     const file = this.ctx.request.files[0];
+    //     console.log('file :>> ', file);
+    //     const name = file.filename;
+    //     const dist = 'app/public/upload/' + name;
+    //     const result = await new Promise((resolve, reject) => {
+    //         fs.promises.copyFile(file.filepath, dist, (error: any) => {
+    //             if (error) {
+    //                 reject(error);
+    //                 console.log('fail');
+    //             } else {
+    //                 resolve(true);
+    //                 console.log('success');
+    //             }
+    //         });
+    //     });
+    //     this.ctx.response.body = {
+    //         state: result,
+    //         filename: name,
+    //     };
+    // }
 
     // async create() {
     //     // 获取文件流

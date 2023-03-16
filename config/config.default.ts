@@ -33,18 +33,17 @@ export default (appInfo: EggAppConfig) => {
         pageSize: 10,
     };
 
-    config.common={
+    config.common = {
         is_paging: 0,
         page: 1,
         pageSize: 10,
-        uploadDir: 'app/public/upload',
-    }
+    };
 
     // override config from framework / plugin
     config.keys = appInfo.name + '123456';
 
     // 文件上传目录
-    config.uploadDir = 'app/public/images/upload';
+    config.uploadDir = 'app/public/upload';
 
     // 上传文件大小
     config.multipart = {

@@ -9,7 +9,7 @@ export default (app: Application) => {
     const { STRING, INTEGER } = app.Sequelize;
 
 
-    const News = app.model.define<ModelTypeInstances>('news', {
+    const table = app.model.define<ModelTypeInstances>('news', {
         id: { type: INTEGER, primaryKey: true, autoIncrement: true, comment: '主键id' },
         title: {
             type: STRING(80),
@@ -49,10 +49,10 @@ export default (app: Application) => {
             comment: '是否首页推荐 1:是，2：否',
         },
     }, {
-        comment: '用户表', // 数据库表描述
+        comment: '新闻表', // 数据库表描述
     });
 
 
-    // News.sync({ alter: true }); // 修改表结构或创建表
-    return News;
+    // table.sync({ alter: true }); // 修改表结构或创建表
+    return table;
 };

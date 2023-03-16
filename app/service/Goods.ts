@@ -9,15 +9,25 @@ export class GoodsService extends Service {
     /**
      * list 列表
      */
-    public async getList(data: any): Promise<GoodsTableItem[]> {
+    public async getList(data: any): Promise<GoodsTableType[]> {
+        const { Op } = this.app.Sequelize;
         console.log('data :>> ', data);
-        // const pageNum = Number.parseInt(data.pageNum || 1);
-        // const pageSize = Number.parseInt(data.pageSize || 10);
-        // const titleReg = new RegExp(data.title, 'ig');
-        // const params = {
-        //     title: '',
-        // };
+        const page = Number.parseInt(data.page || this.config.common.page);
+        const pageSize = Number.parseInt(data.pageSize || this.config.common.pageSize);
 
+        const keyword = data.title || '';
+
+        const { rows, count } = await this.ctx.model.Goods.findAndCountAll({
+            where: {
+                title: {
+                    [Op.like]: keyword,
+                },
+            },
+            offset: page,
+            limit: pageSize,
+        });
+
+        console.log('list :>> ', { rows, count });
         return [];
     }
 
@@ -25,7 +35,7 @@ export class GoodsService extends Service {
     /**
      * insert 新增
      */
-    public async insert(data: BannerTableItem) {
+    public async insert(data: GoodsTableType) {
         console.log('data :>> ', data);
         // 插入
         return '';

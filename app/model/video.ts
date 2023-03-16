@@ -3,7 +3,7 @@ import { Application } from 'egg';
 import { Model, Optional } from 'sequelize';
 
 
-type UserAttributes = MenuTableType;
+type UserAttributes = VideoTableType;
 
 // Some fields are optional when calling UserModel.create() or UserModel.build()
 interface UserCreationAttributes extends Optional<UserAttributes, 'id'> { }
@@ -15,29 +15,26 @@ export default (app: Application) => {
     const { STRING, INTEGER } = app.Sequelize;
 
 
-    const Menu = app.model.define<ModelTypeInstances>('menu', {
+    const table = app.model.define<ModelTypeInstances>('video', {
         id: { type: INTEGER, primaryKey: true, autoIncrement: true, comment: '主键id' },
-        parent_id: {
+        video_url: {
+            type: STRING(1000),
+            comment: '视频地址',
+        },
+        video_image_url: {
+            type: STRING(1000),
+            comment: '视频封面图片',
+        },
+        belong_id: {
             type: INTEGER,
-            defaultValue: 0,
-            comment: '上级id',
+            allowNull: false,
+            // defaultValue: 2,
+            comment: '所属分类id',
         },
-        title: {
-            type: STRING(80),
-            comment: '标题',
-        },
-        title_en: {
-            type: STRING(80),
-            comment: '英文标题',
-        },
-        href: {
-            type: STRING(255),
-            comment: '链接',
-        },
-        is_show: {
+        home_recommend: {
             type: INTEGER,
-            defaultValue: 1,
-            comment: '是否显示，1:是,2:否',
+            defaultValue: 2,
+            comment: '是否首页推荐 1:是,2:否',
         },
         sort: {
             type: INTEGER,
@@ -49,6 +46,6 @@ export default (app: Application) => {
     });
 
 
-    // Menu.sync({ alter: true }); // 修改表结构或创建表
-    return Menu;
+    // table.sync({ alter: true }); // 修改表结构或创建表
+    return table;
 };

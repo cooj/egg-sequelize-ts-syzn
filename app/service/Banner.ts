@@ -1,17 +1,5 @@
 import { Service } from 'egg';
 
-export interface NewsItem {
-    id: number;
-    score: number;
-    time: number;
-    title: string;
-    type: string;
-    url: string;
-    descendants: number;
-    kids: number[];
-    by: string;
-}
-
 
 /**
  * HackerNews Api Service
@@ -21,7 +9,7 @@ export class BannerService extends Service {
     /**
      * list 列表
      */
-    public async getList(data: any): Promise<BannerTableItem[]> {
+    public async getList(data: any) {
         // console.log('this.app.mysql :>> ', this.app.mysql);
         console.log('data :>> ', data);
 
@@ -32,7 +20,7 @@ export class BannerService extends Service {
     /**
      * insert 新增
      */
-    public async insert(data: BannerTableItem) {
+    public async insert(data: any) {
         // 插入
         // const result = await this.app.mysql.insert('banner', data);
         // // 判断插入成功

@@ -32,19 +32,19 @@ export class UserService extends Service {
     }
 
     // 注册
-    async register(data: UserTableItem) {
+    async register(data: UserTableType) {
 
         const _random = Math.ceil(Math.random() * 10) + 1;
-        const obj: UserTableItem = {
+        const obj = {
             account: data.account,
             password: this.ctx.helper.md5(data.password),
             username: data.username,
-            create_by: data.create_by,
+            // create_by: data.create_by,
 
             avatar: '/public/images/avatars/avatar' + _random + '.jpg',
             status: 1,
-            create_time: this.ctx.helper.formatTime(),
-            update_by: data.create_by,
+            // create_time: this.ctx.helper.formatTime(),
+            // update_by: data.create_by,
         };
 
         return obj;

@@ -1,8 +1,6 @@
 import { Controller } from 'egg';
 
-/**
- * @Controller bannerController
- */
+
 export default class bannerController extends Controller {
 
     /**

@@ -42,6 +42,8 @@ export default (appInfo: EggAppConfig) => {
     // override config from framework / plugin
     config.keys = appInfo.name + '123456';
 
+    // 文件主机
+    config.imgDomain = 'http://127.0.0.1:7001';
     // 文件上传目录
     config.uploadDir = 'app/public/upload';
 
@@ -130,6 +132,12 @@ export default (appInfo: EggAppConfig) => {
         },
     };
 
+    // config.validate = {
+    //     locale: 'zh-cn',
+    //     // convert: false,
+    //     // validateRoot: false,
+    // };
+
     // token秘钥
     config.jwt = {
         secret: '48d160d9-9fe8-479c-adf1-7ecf0f7d0539',
@@ -157,7 +165,7 @@ export default (appInfo: EggAppConfig) => {
         //     },
         // },
         // 将域名加入白名单
-        domainWhiteList: ['http://localhost:3008'],
+        domainWhiteList: ['http://localhost:8082/', 'http://localhost:3008/'],
     };
     // 配置允许跨域
     config.cors = {

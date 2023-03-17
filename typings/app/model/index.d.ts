@@ -3,16 +3,24 @@
 /* eslint-disable */
 
 import 'egg';
+import ExportClassify from '../../../app/model/classify';
+import ExportFile from '../../../app/model/file';
+import ExportGoods from '../../../app/model/goods';
+import ExportGoodsImage from '../../../app/model/goods_image';
 import ExportMenu from '../../../app/model/menu';
 import ExportNews from '../../../app/model/news';
 import ExportUser from '../../../app/model/user';
-import ExportGoods from '../../../app/model/goods';
+import ExportVideo from '../../../app/model/video';
 
 declare module 'egg' {
-    interface IModel {
-        Menu: ReturnType<typeof ExportMenu>;
-        News: ReturnType<typeof ExportNews>;
-        User: ReturnType<typeof ExportUser>;
-        Goods: ReturnType<typeof ExportGoods>;
-    }
+  interface IModel {
+    Classify: ReturnType<typeof ExportClassify>;
+    File: ReturnType<typeof ExportFile>;
+    Goods: ReturnType<typeof ExportGoods>;
+    GoodsImage: ReturnType<typeof ExportGoodsImage>;
+    Menu: ReturnType<typeof ExportMenu>;
+    News: ReturnType<typeof ExportNews>;
+    User: ReturnType<typeof ExportUser>;
+    Video: ReturnType<typeof ExportVideo>;
+  }
 }

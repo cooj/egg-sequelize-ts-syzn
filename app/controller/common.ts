@@ -6,31 +6,14 @@ import moment from 'moment';
 import mkdirp from 'mkdirp';
 
 
-// // 传入文件夹的路径看是否存在，存在不用管，不存在则直接创建文件夹
-// /**
-//  * 判断文件夹是否存在，不存在可以直接创建
-//  * @param reaPath String 文件路径
-//  * @return Promise<boolean>
-//  */
-// const exitsFolder = async (reaPath: string) => {
-//     const absPath = path.resolve(__dirname, reaPath);
-//     try {
-
-//         await fs.promises.stat(absPath);
-//     } catch (e) {
-
-//         // 不存在文件夹，直接创建 recursive: true 这个配置项是配置自动创建多个文件夹
-//         await fs.promises.mkdir(absPath, { recursive: true });
-//     }
-// };
-
-
 export default class CommonController extends Controller {
-    async index() {
+
+    async upload() {
         const { ctx } = this;
 
         const parts = ctx.multipart();
         let part;
+        let files = {};
         while ((part = await parts()) != null) {
             if (part.length) {
                 // 处理其他参数
@@ -48,34 +31,67 @@ export default class CommonController extends Controller {
                 console.log('filename: ' + part.filename);
                 console.log('encoding: ' + part.encoding);
                 console.log('mime: ' + part.mime);
-                // 4 获取当前日期
-                const day = moment(new Date()).format('YYYYMMDD');
-                console.log('day :>> ', day);
 
-                // 5 生成文件最后要保存的路径地址
-                const dir = path.join(this.config.uploadDir, day);
+                // 上传图片的目录
+                const dir = await this.getUploadFile(part.filename);
                 console.log('dir :>> ', dir);
-                await mkdirp(dir); // 6 这个方法是，如果 上述dir 路径存在，那就不创建，如果不存在则会创建
-
-                // if (!fs.existsSync(dir)) {
-                //     fs.mkdirSync(dir);
-                //     console.log(`Folder ${dir} created.`);
-                // } else {
-                //     console.log(`Folder ${dir} already exists.`);
-                // }
-
-                // await exitsFolder(dir);
-
-                // const writePath = path.join('./', `uploadfile/${new Date().getTime() + part.filename}`);
-                const filename = Date.now() + part.filename; // 定义文件名
-                const writePath = path.join(dir, filename);
+                const writePath = dir.uploadDir; // 文件写入的地址
                 console.log('writePath :>> ', writePath);
+
                 const writeStream = fs.createWriteStream(writePath);
-                const a = await part.pipe(writeStream);
-                console.log('a :>> ', a);
+                await part.pipe(writeStream);
+
+                files = Object.assign(files, {
+                    [part.fieldname]: dir.saveDir,
+                });
             }
         }
+        // console.log('files :>> ', files);
 
-        // ctx.body = { code: 200, message: '', data: result };
+        if (Object.keys(files).length > 0) {
+            // const data = await File.create({ link: dir.saveDir });
+            ctx.body = {
+                code: 200,
+                message: '文件上传成功',
+                data: files,
+            };
+        } else {
+            ctx.throw(422, '文件上传失败');
+        }
+
+    }
+
+
+    /**
+     * 获取文件上传目录
+     * @param {string} filename 上传的文件名
+     */
+    async getUploadFile(filename: string) {
+        // 1.获取当前日期
+        const day = moment(new Date()).format('YYYYMMDD');
+        // const day = sd.format(new Date(), 'YYYYMMDD');
+        // 2.创建图片保存的路径
+        const dir = path.join(this.config.uploadDir, day);
+        await mkdirp(dir); // 不存在就创建目录
+        const date = Date.now(); // 毫秒数
+        const suffix = path.extname(filename);
+        const _filename = filename.split(suffix)[0];
+        const shortFilename = _filename.slice(0, 20); // 只保留前面20位
+        // 返回图片保存的路径
+        const uploadDir = path.join(dir, shortFilename + '-' + date + suffix);
+
+
+        let imgDomain = this.config.imgDomain;
+        // 判断图片主机地址最后面是否有“/”,有就去掉
+        if (imgDomain.charAt(imgDomain.length - 1) === '/') {
+            imgDomain = imgDomain.slice(0, -1);
+        }
+
+
+        return {
+            filename: date + suffix,
+            uploadDir,
+            saveDir: imgDomain + uploadDir.slice(3).replace(/\\/g, '/'),
+        };
     }
 }

@@ -1,9 +1,11 @@
 declare interface TableBaseType {
-    readonly id: number;     // 主键id
+    readonly id?: number;     // 主键id
 
     created_at?: string;  // 创建时间
     updated_at?: string;    // 修改时间
 }
+
+
 
 /**
  * user 数据格式
@@ -25,7 +27,7 @@ declare interface UserTableType extends TableBaseType {
 
 declare interface NewsTableType extends TableBaseType {
 
-    type: string;   // 模块 1:公司新闻 2:行业资讯
+    type: number;   // 模块 1:公司新闻 2:行业资讯
     title: string;     // 标题
     title_en: string;      // 英文标题
 
@@ -155,4 +157,11 @@ declare interface CompanyTableType extends TableBaseType {
     service_after_sales_technical_team_tel: string; //
     beian: string; // 备案号
     honor: string; //
+}
+
+
+
+
+declare interface TableTypeNoID<T> extends Exclude<T,'id'>{
+
 }

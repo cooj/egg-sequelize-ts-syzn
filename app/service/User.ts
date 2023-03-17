@@ -16,6 +16,7 @@ export class UserService extends Service {
     // 生成token
     createToken(data: any) {
         const { app } = this;
+        console.log('data :>> ', data);
         console.log('app.config.jwt :>> ', app.config.jwt);
         const token = app.jwt.sign(data, app.config.jwt.secret,
             // {
@@ -26,7 +27,7 @@ export class UserService extends Service {
     }
 
     // 解析token
-    verifyToken(token: string) {
+    async verifyToken(token: string) {
         const { app } = this;
         return app.jwt.verify(token, app.config.jwt.secret);
     }

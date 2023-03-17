@@ -1,32 +1,83 @@
 import { Controller } from 'egg';
 
 export default class NewsController extends Controller {
+
+    get serviceFunc() {
+        return this.service.news;
+    }
+
+    /**
+     * @summary 获取列表
+     */
     public async list() {
-        const { ctx, app, service } = this;
-        // console.log('thisNewsController :>> ', this);
-        const pageSize = app.config.news.pageSize;
-        const page = parseInt(ctx.query.page, 10) || 1;
-
-        const idList = await service.news.getTopStories(page);
-
-        // get itemInfo parallel
-        const newsList = await Promise.all(idList.map(id => service.news.getItem(id)));
-        await ctx.render('news/list.nj', { list: newsList, page, pageSize });
-    }
-
-    public async detail() {
         const { ctx } = this;
-        const id = ctx.params.id;
-        const newsInfo = await ctx.service.news.getItem(id);
-        // get comment parallel
-        const commentList = await Promise.all(newsInfo.kids.map(_id => ctx.service.news.getItem(_id)));
-        await ctx.render('news/detail.nj', { item: newsInfo, comments: commentList });
+        const body = ctx.request.body;
+
+        const data = await this.serviceFunc.getList(body);
+        ctx.body = {
+            code: 200,
+            data,
+        };
     }
 
-    public async user() {
+    /**
+     * @summary 添加
+     */
+    async insert() {
         const { ctx } = this;
-        const id = ctx.params.id;
-        const userInfo = await ctx.service.news.getUser(id);
-        await ctx.render('news/user.nj', { user: userInfo });
+        const body = ctx.request.body;
+
+        const data = await this.serviceFunc.insert(body);
+        if (!data) {
+            ctx.throw(422, '添加失败');
+        }
+        ctx.body = {
+            code: 200,
+            message: '添加成功',
+        };
     }
+
+
+    /**
+     * @summary 修改
+     */
+    async update() {
+        const { ctx } = this;
+        const body = ctx.request.body;
+        ctx.validate({
+            id: 'number',
+        }, body);
+
+        const data = await this.serviceFunc.update(body);
+
+        // ctx.body = data;
+        if (!data) {
+            ctx.throw(422, 'id不正确！');
+        }
+        ctx.body = {
+            code: 200,
+            message: '修改成功',
+        };
+    }
+
+    /**
+     * @summary 删除
+     */
+    async delete() {
+        const { ctx } = this;
+        const body = ctx.request.body;
+
+        ctx.validate({
+            id: 'number',
+        }, body);
+        const data = await this.serviceFunc.delete(body.id);
+
+        if (!data) ctx.throw(422, '删除失败');
+        ctx.body = {
+            code: 200,
+            message: '删除成功',
+        };
+    }
+
+
 }

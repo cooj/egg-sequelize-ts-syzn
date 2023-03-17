@@ -1,159 +1,94 @@
 import { Service } from 'egg';
-
-export interface NewsItem {
-    id: number;
-    score: number;
-    time: number;
-    title: string;
-    type: string;
-    url: string;
-    descendants: number;
-    kids: number[];
-    by: string;
-}
+import { WhereOptions } from 'sequelize';
 
 /**
- * HackerNews Api Service
+ * NewsService Api Service
  */
-export class HackerNews extends Service {
+export class NewsService extends Service {
+    get Table() { // 获取数据表
+        return this.ctx.model.News;
+    }
     /**
-     * request hacker-news api
-     * @param api - Api name
-     * @param opts - urllib options
+     * 获取列表
+     * @param body body.page 分页
+     * @return
      */
-    public async request(api: string, opts?: any) {
-        // console.log('this :>> ', this.app);
-        // const user = await this.app.mysql.get('user', { id: 1 });
-        // console.log('user :>> ', user);
-        const options = {
-            dataType: 'json',
-            timeout: '30s',
-            ...opts,
-        };
+    public async getList(body: { [x: string]: string; page?: any; pageSize?: any; title?: any; type?: any; }) {
+        const { Op } = this.app.Sequelize;
+        const page = Number.parseInt(body.page || this.config.common.page);
+        const pageSize = Number.parseInt(body.pageSize || this.config.common.pageSize);
 
-        const result = await this.ctx.curl(`${this.config.news.serverUrl}/${api}`, options);
-        return result.data;
+        const where: WhereOptions<NewsTableType> = {};
+        if (body.title) where.title = { [Op.like]: body.title };
+        if (body.type) where.type = body.type;
+
+        const { rows, count } = await this.Table.findAndCountAll({
+            where,
+            offset: page,
+            limit: pageSize,
+        });
+        return { list: rows, total: count };
     }
 
     /**
-     * get top story ids
-     * @param page - page number, 1-ase
-     * @param pageSize - page count
+     * 添加数据
+     * @param body
+     * @return
      */
-    public async getTopStories(page?: number, pageSize?: number): Promise<number[]> {
-        page = page || 1;
-        const requestPageSize = pageSize ?? this.config.news.pageSize;
-
-        try {
-            const result = await this.request('topstories.json', {
-                data: {
-                    orderBy: '"$key"',
-                    startAt: `"${requestPageSize * (page - 1)}"`,
-                    endAt: `"${requestPageSize * page - 1}"`,
-                },
-            });
-            return Object.keys(result).map(key => result[key]);
-        } catch (e) {
-            this.ctx.logger.error(e);
-            return [];
-        }
+    public async insert(body: NewsTableType) {
+        return await this.Table.create(body);
     }
 
-    /**
-     * query item
-     * @param id - itemId
-     */
-    public async getItem(id: number): Promise<NewsItem> {
-        return await this.request(`item/${id}.json`);
+    // 修改数据
+    async update(body: NewsTableType) {
+
+        const _data = await this.Table.update(body, {
+            where: {
+                id: body.id!,
+            },
+        });
+
+        return _data;
+
+        // .findByIdAndUpdate(body.id, Object.assign(body, { updatedAt: Date.now() }));
+        // if (!_data) {
+        //     ctx.throw(422, '_id不正确！');
+        // }
+        // return {
+        //     code: 200,
+        //     msg: '修改成功',
+        // };
     }
 
-    /**
-     * get user info
-     * @param id - userId
-     */
-    public async getUser(id: number) {
-        return await this.request(`user/${id}.json`);
+
+    public async delete(id: number) {
+        const _data = await this.Table.destroy({
+            where: {
+                id,
+            },
+        });
+
+        // // 删除文件
+        // await ctx.model.File.deleteOne({ _id: _data._id });
+
+        return _data;
+
+        // const { ctx, service } = this;
+        // const _data = await this.File.findById(id);
+        // if (!_data) {
+        //     ctx.throw('_id不正确！');
+        // }
+        // _data.remove();
+        // // 删除文件
+        // await ctx.model.File.deleteOne({ _id: _data._id });
+        // service.toolService.deleteDiskFile(_data.link);
+        // return {
+        //     code: 200,
+        //     message: '删除成功',
+        // };
     }
+
+
 }
 
-export default HackerNews;
-
-
-// export class NewService extends Service {
-
-//     get News() {
-//         return this.app.mysql;
-//     }
-
-
-//     // 列表
-//     async list(query) {
-//         const pageNum = Number.parseInt(query.pageNum || 1);
-//         const pageSize = Number.parseInt(query.pageSize || 10);
-//         const titleReg = new RegExp(query.title, 'ig');
-//         const params = {};
-//         if (query.title) {
-//             params.title = titleReg;
-//         }
-//         if (query.type) params.type = query.type;
-//         const ret = await this.News.find(params).skip((pageNum - 1) * pageSize).limit(pageSize)
-//             .populate('img', 'url')
-//             .sort({ sortNum: -1 });
-//         const total = await this.News.countDocuments(params);
-//         return {
-//             code: 0,
-//             list: ret,
-//             total,
-//         };
-//     }
-
-//     // 新增
-//     async insert(body) {
-//         const data = await new this.News(body);
-//         data.save();
-//         return {
-//             code: 0,
-//             data,
-//         };
-//     }
-
-//     // 修改
-//     async update(body) {
-//         const findData = await this.News.findById(body.id);
-//         if (!findData) {
-//             return {
-//                 code: 1,
-//                 message: 'id不正确',
-//             };
-//         }
-//         const data = await this.News.findByIdAndUpdate(body.id, body);
-//         return {
-//             code: 0,
-//             data,
-//         };
-
-//     }
-
-//     // 删除
-//     async delete(query) {
-//         const findData = await this.News.findById(query.id);
-//         if (!findData) {
-//             return {
-//                 code: 1,
-//                 message: 'id不正确',
-//             };
-//         }
-//         const data = await this.News.findById(query.id).populate('img', '_id');
-//         const delData = await this.ctx.model.File.findByIdAndDelete(data.img._id);
-//         this.service.toolService.deleteDiskFile(delData.url);
-//         data.remove();
-//         return {
-//             code: 0,
-//             data,
-//         };
-
-//     }
-// }
-
-// export default NewService;
-
+export default NewsService;

@@ -5,7 +5,7 @@
 import 'egg';
 import ExportBanner from '../../../app/controller/banner';
 import ExportBase from '../../../app/controller/base';
-import ExportCommon copy from '../../../app/controller/common copy';
+import ExportCom from '../../../app/controller/com';
 import ExportCommon from '../../../app/controller/common';
 import ExportGoods from '../../../app/controller/goods';
 import ExportMenu from '../../../app/controller/menu';
@@ -19,7 +19,7 @@ declare module 'egg' {
   interface IController {
     banner: ExportBanner;
     base: ExportBase;
-    common copy: ExportCommon copy;
+    com: ExportCom;
     common: ExportCommon;
     goods: ExportGoods;
     menu: ExportMenu;

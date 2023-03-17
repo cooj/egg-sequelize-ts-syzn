@@ -4,7 +4,6 @@ import { Controller } from 'egg';
 /**
  * @Controller 用户
  */
-
 export default class UserController extends Controller {
     /**
      *  登录
@@ -13,7 +12,6 @@ export default class UserController extends Controller {
         const { ctx, service } = this;
         const body = ctx.request.body;
         const UserService = service.user;
-        console.log('body :>> ', body);
         ctx.validate({
             account: { type: 'string' },
             password: { type: 'string' },
@@ -21,17 +19,18 @@ export default class UserController extends Controller {
         const _user = await service.user.findByUsername({
             account: body.account,
         });
-        console.log('_user :>> ', _user);
 
         if (!_user) {
             return ctx.throw(422, '账号不存在');
         }
-        // // 密码忘记，重设密码
-        // await UserService.updatePassword({ id: _user.id, password: body.password });
-        // ctx.throw(422, '重设密码成功');
+
 
         // 判断密码
         if (_user.password !== ctx.helper.md5(body.password)) {
+            // // 密码忘记，重设密码
+            // await UserService.updatePassword({ id: _user.id!, password: body.password });
+            // ctx.throw(422, '重设密码成功');
+
             ctx.throw(422, '密码错误');
         }
         // 判断用户状态
@@ -83,7 +82,7 @@ export default class UserController extends Controller {
 
         ctx.body = {
             code: 200,
-            msg: '添加成功',
+            message: '添加成功',
             user: ctx.helper._.pick(user, 'id', 'username'),
         };
     }
@@ -130,7 +129,7 @@ export default class UserController extends Controller {
         if (body.password1 !== body.password2) {
             ctx.throw(422, '两次密码不一致！');
         }
-        await UserService.updatePassword({ id: _user.id, password: body.password1.trim() });
+        await UserService.updatePassword({ id: _user.id!, password: body.password1.trim() });
 
         ctx.body = {
             code: 200,

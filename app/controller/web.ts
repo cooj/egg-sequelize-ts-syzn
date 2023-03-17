@@ -8,6 +8,14 @@ export default class WebController extends Controller {
         await ctx.render('home.nj', { list: 'newsList, page, pageSize' });
     }
 
+    public async news() {
+        const { ctx } = this;
+        // console.log('thisNewsController :>> ', this);
+
+        await ctx.render('news.nj', { list: 'newsList, page, pageSize' });
+    }
+
+
     // public async list() {
     //     const { ctx, app, service } = this;
     //     console.log('thisNewsController :>> ', this);

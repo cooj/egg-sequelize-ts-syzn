@@ -1,3 +1,225 @@
-<header>
+<link rel="stylesheet" href="/public/css/style.css">
+<header class="header-box">
+    <div class="pc-header">
+        <a href="" class="logo">
+            <img src="/public/image/logo.png" alt="" class="logo-img logo-home">
+            <img src="/public/image/logo-m.png" alt="" class="logo-img logo-other">
+        </a>
+        <ul class="menu-ul">
+            <li class="navli on">
+                <a href="" rel="noopener noreferrer" class="navtl">
+                    <span class="cn">首页</span>
+                </a>
 
+            </li>
+            <li class="navli">
+                <a href="product_list.html" rel="noopener noreferrer" class="navtl">
+                    <span class="cn">产品中心</span>
+                </a>
+                <dl class="sub-dl">
+                    <dd>
+                        <a href="product_list1.html">Z系列（自动行走坡口机）</a>
+                    </dd>
+                    <dd>
+                        <a href="product_list2.html">X 系列（小板材坡口机）</a>
+                    </dd>
+                    <dd>
+                        <a href="product_list3.html">B 系列（便携式坡口机）</a>
+                    </dd>
+                    <dd>
+                        <a href="product_list4.html">Q系列（曲线坡口机）</a>
+                    </dd>
+                    <dd>
+                        <a href="product_list5.html">N系列（内涨式圆管坡口机）</a>
+                    </dd>
+                    <dd>
+                        <a href="product_list6.html">W系列（外卡式圆管坡口机）</a>
+                    </dd>
+                    <dd>
+                        <a href="product_list7.html">无上限圆管坡口机</a>
+                    </dd>
+                    <dd>
+                        <a href="product_list8.html">行星式坡口机</a>
+                    </dd>
+                    <dd>
+                        <a href="product_list9.html">C型外夹式圆管坡口机</a>
+                    </dd>
+
+                </dl>
+            </li>
+            <li class="navli">
+                <a href="product_video.html" rel="noopener noreferrer" class="navtl">
+                    <span class="cn">产品视频</span>
+                </a>
+
+            </li>
+            <li class="navli">
+                <a href="show_case.html" rel="noopener noreferrer" class="navtl">
+                    <span class="cn">使用案例</span>
+                </a>
+
+            </li>
+            <li class="navli">
+                <a href="company.html" rel="noopener noreferrer" class="navtl">
+                    <span class="cn">企业实力</span>
+                </a>
+
+            </li>
+            <li class="navli">
+                <a href="technical.html" rel="noopener noreferrer" class="navtl">
+                    <span class="cn">技术支持</span>
+                </a>
+                <dl class="sub-dl">
+                    <dd>
+                        <a href="technical.html">公司新闻</a>
+                    </dd>
+                    <dd>
+                        <a href="technical.html">资料下载</a>
+                    </dd>
+                </dl>
+            </li>
+            <li class="navli">
+                <a href="honor.html" rel="noopener noreferrer" class="navtl">
+                    <span class="cn">荣誉资质</span>
+                </a>
+
+            </li>
+            <li class="navli">
+                <a href="contact_us.html" rel="noopener noreferrer" class="navtl">
+                    <span class="cn">联系我们</span>
+                </a>
+
+            </li>
+        </ul>
+        <div class="header-version">
+            <div class="code-img">
+                <img src="/public/image/r3pn4gek.jpg" alt="">
+                <div class="preview-img">
+                    <img src="/public/image/r3pn4gek.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mo-header">
+        <div class="mo-head">
+            <a class="logobox"><img src="/public/image/logo-m.png"></a>
+            <div class="ico-menu btn-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="mo-mask btn-menu">
+            <img src="/public/image/close.png">
+        </div>
+        <ul class="mo-menu">
+            <li>
+                <div class="subtitle bignav selected">
+                    <a href="" rel="noopener noreferrer">首页</a>
+                </div>
+
+            </li>
+            <li>
+                <div class="subtitle bignav selected">
+                    <a href="product_list.html" rel="noopener noreferrer">产品中心</a>
+                </div>
+                <div class="subbox">
+                    <a href="product_list1.html">Z系列（自动行走坡口机）</a>
+                    <a href="product_list2.html">X 系列（小板材坡口机）</a>
+                    <a href="product_list3.html">B 系列（便携式坡口机）</a>
+                    <a href="product_list4.html">Q系列（曲线坡口机）</a>
+                    <a href="product_list5.html">N系列（内涨式圆管坡口机）</a>
+                    <a href="product_list6.html">W系列（外卡式圆管坡口机）</a>
+                    <a href="product_list7.html">无上限圆管坡口机</a>
+                    <a href="product_list8.html">行星式坡口机</a>
+                    <a href="product_list9.html">C型外夹式圆管坡口机</a>
+                </div>
+            </li>
+            <li>
+                <div class="subtitle bignav selected">
+                    <a href="product_video.html" rel="noopener noreferrer">产品视频</a>
+                </div>
+
+            </li>
+            <li>
+                <div class="subtitle bignav selected">
+                    <a href="show_case.html" rel="noopener noreferrer">使用案例</a>
+                </div>
+
+            </li>
+            <li>
+                <div class="subtitle bignav selected">
+                    <a href="company.html" rel="noopener noreferrer">企业实力</a>
+                </div>
+
+            </li>
+            <li>
+                <div class="subtitle bignav selected">
+                    <a href="technical.html" rel="noopener noreferrer">技术支持</a>
+                </div>
+                <div class="subbox">
+                    <a href="technical.html">公司新闻</a>
+                    <a href="technical.html">资料下载</a>
+                </div>
+            </li>
+            <li>
+                <div class="subtitle bignav selected">
+                    <a href="honor.html" rel="noopener noreferrer">荣誉资质</a>
+                </div>
+
+            </li>
+            <li>
+                <div class="subtitle bignav selected">
+                    <a href="contact_us.html" rel="noopener noreferrer">联系我们</a>
+                </div>
+
+            </li>
+
+            <li class="lang-menu my-lang">
+                <a href="javascript:;" lang="zh">中文版</a>
+                <a href="javascript:;" lang="en">English</a>
+            </li>
+            <li class="code-img">
+                <img src="/public/image/erweima.jpg" alt="">
+                <span class="header-code-text">扫一扫</span>
+            </li>
+        </ul>
+    </div>
 </header>
+
+<script>
+    $(".btn-menu").click(function () {
+        $(".mo-header").toggleClass("open")
+    })
+    if (location.pathname == '/') {
+        document
+            .querySelector('.logo-home')
+            .style
+            .display = 'block'
+        document
+            .querySelector('.logo-other')
+            .style
+            .display = 'none'
+    } else {
+        document
+            .querySelector('.logo-home')
+            .style
+            .display = 'none'
+        document
+            .querySelector('.logo-other')
+            .style
+            .display = 'block'
+    }
+    $(function () {
+        $('.my-lang a').click(function () {
+            var lang = $(this).attr('lang');
+            $.get('/setLanguage', {
+                "lang": lang
+            }, function () {
+                window
+                    .location
+                    .reload();
+            })
+        });
+    })
+</script>

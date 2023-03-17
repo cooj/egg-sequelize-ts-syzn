@@ -1,3 +1,180 @@
-<footer>
+<footer class="footer">
+    <div class="footer-top">
+        <div class="footer-nav">
+            <a href="">首页</a>
+            <a href="product_list.html">产品中心</a>
+            <a href="product_video.html">产品视频</a>
+            <a href="show_case.html">使用案例</a>
+            <a href="company.html">企业实力</a>
+            <a href="technical.html">技术支持</a>
+            <a href="honor.html">荣誉资质</a>
+            <a href="contact_us.html">联系我们</a>
+        </div>
+        <div class="footer-cont">
+            <a href="javascript:;" class="footer-logo"  >
+                <img src="/public/image/logo.png" alt="">
+            </a>
+            <ul class="company-info">
+                <li>
+                    <i class="iconfont icon-dashaxiaoqudizhi01"></i>公司：耐锐德坡口机械（深圳）有限公司
+                            </li>
+                <li>
+                    <i class="iconfont icon-dianhua"></i>电话：0755-21381289
+                            </li>
+                <li>
+                    <i class="iconfont icon-youjian"></i>邮箱：wenxing@goyojo.com
+                            </li>
+                <li>
+                    <i class="iconfont icon-dianhua"></i>售前：18018737376
+                            </li>
+                <li>
+                    <i class="iconfont icon-dianhua"></i>售后：19925153163
+                            </li>
+                <li>
+                    <i class="iconfont icon-xiazai20"></i>地址：中国~广东省深圳市光明区光明街道东周社区双明大道南侧云智科技园1栋A座18楼
+                            </li>
+            </ul>
+            <div class="code-img">
 
+                <div class="share-icon clearfix">
+                    <a href="javascript:;" class="hover-share">
+                        <img src="/public/image/weixin.png" alt="" class="icon-img">
+                        <div class="wx-img hover-hidden animate__animated animate__fadeinup">
+                            <div id="wximg" class="wx-code"></div>
+                            <p class="share-text">扫一扫即可分享到朋友圈</p>
+                        </div>
+                    </a>
+                    <a href="javascript:;" class="hover-share">
+                        <img src="/public/image/qq.png" alt="" class="icon-img">
+                        <div class="wx-img hover-hidden animate__animated animate__fadeinup">
+                            <div class="wx-code">
+                                <img src="/public/image/qq-code.png" alt=""
+                                                style="width:100%;height:100%;display:block">
+                            </div>
+                            <p class="share-text">扫一扫加我企业QQ</p>
+                        </div>
+                    </a>
+                    <a href="javascript:;" class="hover-share">
+                        <img src="/public/image/email.png" alt="" class="icon-img">
+                        <div class="hover-hidden animate__animated animate__fadeinup email-text">
+                                        Email: 3003430587@qq.com
+                                    </div>
+                    </a>
+                    <a href="javascript:;" class="share-link">
+                        <img src="/public/image/link.png" alt="" class="icon-img">
+                    </a>
+                </div>
+
+                <div class="code-flex">
+                    <a href="#" class="shop-img">
+                        <img src="/public/image/0uTFTiLT.jpg" alt="">
+                        <p>官方商城</p>
+                    </a>
+                    <a href="#" class="shop-img">
+                        <img src="/public/image/0uTFTiLT.jpg" alt="">
+                        <p>微信扫一扫</p>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="footer-bot">
+        <span>版权所有 &copy; 耐锐德坡口机械（深圳）有限公司 </span>
+        <a href="javascript:;" rel="noopener noreferrer">粤ICP备19156329号</a>
+    </div>
 </footer>
+<div class="go-top">
+    <div class="go-top-item scroll-top">
+        <i class="iconfont icon-shangyi"></i>
+    </div>
+</div>
+<script src="/public/js/qrcode.js"></script>
+<script>
+    var winW = document.body.clientWidth
+        /* if (winW > 1421) {
+            var wrapW = $('.wrap').css('width')
+            var footNavW = parseFloat($('.footer-nav').css('width'))
+            $('.footer-nav').css({
+                'margin-left': -footNavW / 2 + 'px'
+            })
+            var _disLeft = $('.footer-nav')
+                .offset()
+                .left
+            var logoImgWidth = parseFloat($('.footer-log-img').css('width'))
+            $('.footer-logo').css('left', _disLeft - logoImgWidth - 80 + 'px')
+            $('.footer .company-info').css('margin-left', _disLeft + 'px')
+            var _imgLeft = $('.footer-log-img')
+                .offset()
+                .left
+                $('.code-img')
+                .css('right', _imgLeft + 'px')
+        }
+        */
+
+        // 分享
+
+        /* var qrcode = new QRCode("wxImg", {
+                text: location.href,
+                width: 256,
+                height: 256,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            })
+            */
+
+        var _title,
+            _source,
+            _sourceUrl,
+            _pic,
+            _showcount,
+            _desc,
+            _summary,
+            _site,
+            _url;
+
+        $('.share-link').on('click', function () {
+            copy(location.href)
+        })
+
+        function copy(value) {
+            const input = document.createElement('input') // js创建一个input输入框
+            input.value = value // 将需要复制的文本赋值到创建的input输入框中
+            document
+                .body
+                .appendChild(input) // 将输入框暂时创建到实例里面
+            input.select() // 选中输入框中的内容
+            document.execCommand('Copy') // 执行复制操作
+            document
+                .body
+                .removeChild(input) // 最后删除实例中临时创建的input输入框，完成复制操作
+            VtMessage.success({duration: 0, content: '链接复制成功', offset: 'vt-top-center vt-fixed'})
+            setTimeout(function () {
+                $('.vt-message-package').css('display', 'none')
+            }, 2000)
+        }
+
+        $('.fixed-nav').on('click', '.scroll-top', function () {
+            if (location.pathname != '/') {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 300);
+            } else {
+                $('#fullpage').css("transform", "translate3d(0px, 0px, 0px)")
+                $('#fullpage .section')
+                    .eq(0)
+                    .addClass('active fp-completely')
+                    .siblings()
+                    .removeClass('active fp-completely')
+                $('#fp-nav ul li')
+                    .eq(0)
+                    .find('a')
+                    .addClass('active')
+                    .parent()
+                    .siblings()
+                    .find('a')
+                    .removeClass('active')
+            }
+        })
+</script>

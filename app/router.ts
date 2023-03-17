@@ -7,7 +7,7 @@ export default (app: Application) => {
     // router.redirect('/', '/news');
     router.get('/', controller.web.index);
 
-    // router.get('/news', controller.web.list);
+    router.get('/news', controller.web.news);
     // router.get('/news/item/:id', controller.web.detail);
     // router.get('/news/user/:id', controller.web.user);
 

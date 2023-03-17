@@ -6,37 +6,449 @@
 
 {% block content %}
 
- <input type="file" id='upload' />
+    <input type="file" id='upload'/>
     <script>
-      // 获取 input 标签的 dom
-      var input = document.getElementById('upload')
-      // 监听它的变化
-      input.addEventListener('change', function(e) {
-        // 获取到上传的 file 对象
-        var file = input.files[0]
-        // 声明 FormData 实例 formData
-        let formData = new FormData()
-        // 添加实例属性 file
-        formData.append('file', file)
-        console.log('formData', formData)
-        // 调用服务端上传接口。
-        fetch('http://localhost:7001/api/upload', {
-          method: 'POST',
-          body: formData
-        }).then(res => {
-          if(res.ok) {
-            console.log('success')
-            return res.json();
-          } else {
-            console.log('error')
-          }
-        }).then(res => {
-          console.log('res is', res);
+        // 获取 input 标签的 dom
+        var input = document.getElementById('upload')
+        // 监听它的变化
+        input.addEventListener('change', function (e) {
+            // 获取到上传的 file 对象
+            var file = input.files[0]
+            // 声明 FormData 实例 formData
+            let formData = new FormData()
+            // 添加实例属性 file
+            formData.append('file', file)
+            console.log('formData', formData)
+            // 调用服务端上传接口。
+            fetch('http://localhost:7001/api/upload', {
+                method: 'POST',
+                body: formData
+            })
+                .then(res => {
+                    if (res.ok) {
+                        console.log('success')
+                        return res.json();
+                    } else {
+                        console.log('error')
+                    }
+                })
+                .then(res => {
+                    console.log('res is', res);
+                })
         })
-      })
     </script>
-————————————————
-版权声明：本文为CSDN博主「赵小左」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/qq_31281245/article/details/127925008
+    <div id="fullpage" style="opacity:0">
+        <div class="ind_a section">
+            <div class="swiper-container" id="bannerswiper" style="width:100%;height:100%;">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="/public/image/jqyqj4rv.jpg" alt="" style="height:100%;width:100%;">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/public/image/qlmw9qjz.jpg" alt="" style="height:100%;width:100%;">
+                    </div>
+                </div>
+            </div>
+            <img src="http://www.nareed.com/uploads/nrd/static/pic_01.png;jsessionid=a59d95d3d371acacf39a6842294d8786"
+                alt="" class="fixed-banner-img">
+            <div class="indiv indiv-img">
+                <div class="custom-btn-box">
+                    <a href="contact_us.html" rel="noopener noreferrer" class="btn lt-btn">
+                        <i class="iconfont icon-shangdian"></i>加入耐锐德 </a>
+                    <a href="javascript:;" rel="noopener noreferrer" class="btn lt-btn">
+                        <i class="iconfont icon-a-ziyuan127"></i>店铺链接 </a>
+                    <a href="honor.html" rel="noopener noreferrer" class="btn lt-btn">
+                        <i class="iconfont icon-fuwuchengnuo"></i>服务承诺 </a>
+                    <a href="contact_us.html" rel="noopener noreferrer" class="btn lt-btn">
+                        <i class="iconfont icon-shouye"></i>售后服务 </a>
+                </div>
+            </div>
+        </div>
+        <div class="ind_b section" style="background: url(/public/image/5phceusx.jpg) no-repeat center center / cover;">
+            <div class="wrap">
+                <div class="indiv">
+                    <div class="title">做坡口行业的<span>领跑者</span></div>
+                    <div class="text">因为专注，所以专业<br> 精湛的一体化设计，柔美的线条转角与科技完美结合，给您带来非同一般的品质</div>
+                    <div class="btn-box">
+                        <a href="technical.html" rel="noopener noreferrer" class="btn rt-btn zx">技术支持</a>
+                        <a href="show_case.html" rel="noopener noreferrer" class="btn rt-btn zx">使用案例</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ind_c ind_e section"
+            style="background: url(/public/image/ntew5kmm.jpg) no-repeat center center / cover;">
+            <div class="wrap footer-wrap">
+                <div class="indiv">
+                    <div class="title">视频使用案例</div>
+                    <div class="text" style="width:50%;margin:0 auto;">公司始终把焊前使用坡口设备和坡口刀具作为开发和研究的重点同事在研发和生产及营销上不断的更新
+                    </div>
+                    <div class="arrow">
+                        <img src="/public/image/down-arrow.png" alt="">
+                    </div>
+                    <div class="swiper-box">
+                        <div class="btn prev_news">
+                            <img src="/public/image/prev_jt_01.png" alt="">
+                        </div>
+                        <div class="btn next_news">
+                            <img src="/public/image/next_jt_01.png" alt="">
+                        </div>
+                        <div class="swiper-container" id="news">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide hoverbtn">
+                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
+                                        src="7035971809363100174.html" referrerpolicy="unsafe-url"
+                                        allowfullscreen=""></iframe>
+                                </div>
+                                <div class="swiper-slide hoverbtn">
+                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
+                                        src="7036689990637584927.html" referrerpolicy="unsafe-url"
+                                        allowfullscreen=""></iframe>
+                                </div>
+                                <div class="swiper-slide hoverbtn">
+                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
+                                        src="7034486662910444039.html" referrerpolicy="unsafe-url"
+                                        allowfullscreen=""></iframe>
+                                </div>
+                                <div class="swiper-slide hoverbtn">
+                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
+                                        src="7024099875306340895.html" referrerpolicy="unsafe-url"
+                                        allowfullscreen=""></iframe>
+                                </div>
+                                <div class="swiper-slide hoverbtn">
+                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
+                                        src="7033727272913732126.html" referrerpolicy="unsafe-url"
+                                        allowfullscreen=""></iframe>
+                                </div>
+                                <div class="swiper-slide hoverbtn">
+                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
+                                        src="7033326798532411934.html" referrerpolicy="unsafe-url"
+                                        allowfullscreen=""></iframe>
+                                </div>
+                                <div class="swiper-slide hoverbtn">
+                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
+                                        src="7032103637501346318.html" referrerpolicy="unsafe-url"
+                                        allowfullscreen=""></iframe>
+                                </div>
+                                <div class="swiper-slide hoverbtn">
+                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
+                                        src="7031875436422693412.html" referrerpolicy="unsafe-url"
+                                        allowfullscreen=""></iframe>
+                                </div>
+                                <div class="swiper-slide hoverbtn">
+                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
+                                        src="7029196197663343141.html" referrerpolicy="unsafe-url"
+                                        allowfullscreen=""></iframe>
+                                </div>
+                                <div class="swiper-slide hoverbtn">
+                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
+                                        src="7030684275624280590.html" referrerpolicy="unsafe-url"
+                                        allowfullscreen=""></iframe>
+                                </div>
+                                <div class="swiper-slide hoverbtn">
+                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
+                                        src="7030688319616844302.html" referrerpolicy="unsafe-url"
+                                        allowfullscreen=""></iframe>
+                                </div>
+                                <div class="swiper-slide hoverbtn">
+                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
+                                        src="7031145865934799368.html" referrerpolicy="unsafe-url"
+                                        allowfullscreen=""></iframe>
+                                </div>
+                                <div class="swiper-slide hoverbtn">
+                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
+                                        src="7064729149532799524.html" referrerpolicy="unsafe-url"
+                                        allowfullscreen=""></iframe>
+                                </div>
+                                <div class="swiper-slide hoverbtn">
+                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
+                                        src="7064825560412717598.html" referrerpolicy="unsafe-url"
+                                        allowfullscreen=""></iframe>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="swiper-pagination mobanner" id="newssp"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ind_d section" style="background: url(/public/image/ebdlqgau.jpg) no-repeat center center / cover;">
+            <div class="wrap footer-wrap">
+                <div class="indiv">
+                    <div class="title black-color">产品中心</div>
+                    <div class="produt-img">
+                        <img src="/public/image/product-img.png;jsessionid=a59d95d3d371acacf39a6842294d8786" alt="">
+                    </div>
+                    <div class="text black-color">成熟的技术，售后的保障<br> 精湛的一体化设计，柔美的线条转角与科技完美结合，给您带来非同一般的品质</div>
+                    <div class="btn-box">
+                        <a href="product_list1.html" rel="noopener noreferrer" class="btn rt-btn zx">自动行走坡口机</a>
+                        <a href="product_list2.html" rel="noopener noreferrer" class="btn rt-btn zx">小板材坡口机</a>
+                        <a href="product_list4.html" rel="noopener noreferrer" class="btn rt-btn zx">曲线坡口机</a>
+                        <a href="product_list3.html" rel="noopener noreferrer" class="btn rt-btn zx">便携式坡口机</a>
+                        <a href="product_list5.html" rel="noopener noreferrer" class="btn rt-btn zx">内涨式圆管坡口机</a>
+                        <a href="product_list6.html" rel="noopener noreferrer" class="btn rt-btn zx">外卡式圆管坡口机</a>
+                        <a href="product_list7.html" rel="noopener noreferrer" class="btn rt-btn zx">无上限圆管坡口机</a>
+                        <a href="product_list9.html" rel="noopener noreferrer" class="btn rt-btn zx">C型外夹式圆管坡口机</a>
+                    </div>
+                </div>
+                <a href="product_detail_25.html" class="pro-01 pro-img">
+                    <img src="/public/image/5pad47jt.png" alt="">
+                </a>
+                <a href="product_detail_27.html" class="pro-02 pro-img">
+                    <img src="/public/image/ttiufjzc.png" alt="">
+                </a>
+                <a href="product_detail_23.html" class="pro-03 pro-img">
+                    <img src="/public/image/rvq6n08l.png" alt="">
+                </a>
+                <a href="product_detail_18.html" class="pro-04 pro-img">
+                    <img src="/public/image/gcoli1vg.png" alt="">
+                </a>
+
+            </div>
+        </div>
+        <div class="ind_d section ind_d-logo"
+            style="background: url(/public/image/m8cjvet6.jpg) no-repeat center center / cover;">
+            <div class="wrap">
+                <div class="indivs">
+                    <div class="title">合作客户</div>
+                    <div class="te">科学工艺流程控制和严格质量检测，为客户创造实在并且持久的价值</div>
+                    <div class="swiper-box clearfix">
+                        <div class="sbox">
+                            <div class="swiper-container" id="partnerswiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="/public/image/hehmdauj.jpg" alt="1">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="/public/image/y1bbfh8m.jpg" alt="2">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="/public/image/oqxuhbcv.jpg" alt="3">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="/public/image/2gbavzm7.jpg" alt="4">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="/public/image/wkiotmtp.jpg" alt="5">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="/public/image/mcx8nias.jpg" alt="9">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="/public/image/gyhhblqh.jpg" alt="7">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="/public/image/ayuwgfam.jpg" alt="11">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="/public/image/eegvklmj.jpg" alt="12">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="/public/image/gjr2ckm8.jpg" alt="13">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="/public/image/l6vgqa8p.jpg" alt="11">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="/public/image/dr8m7y7n.jpg" alt="12">
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="control-box">
+                                <div class="box clearfix">
+                                    <div class="btn prev_partnerswiper">
+                                        <img src="/public/image/prev_jt_01.png" alt="">
+                                    </div>
+                                    <div class="btn next_partnerswiper">
+                                        <img src="/public/image/next_jt_01.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--#include file="/public/html/footer.html"-->
+
+        <div id="footer" class="section footer">
+            <footer>
+                <div class="wrap top footer-wrap">
+                    <div class="footer-nav">
+                        <a href="">首页</a>
+                        <a href="product_list.html">产品中心</a>
+                        <a href="product_video.html">产品视频</a>
+                        <a href="show_case.html">使用案例</a>
+                        <a href="company.html">企业实力</a>
+                        <a href="technical.html">技术支持</a>
+                        <a href="honor.html">荣誉资质</a>
+                        <a href="contact_us.html">联系我们</a>
+                    </div>
+                    <div class="warp-box">
+                        <a href="javascript:;" rel="noopener noreferrer" class="footer-logo"
+                            style="top:50%;transform:translatey(-50%)">
+                            <img src="/public/image/logo.png" alt="" class="footer-log-img">
+                        </a>
+                        <ul class="company-info">
+                            <li>
+                                <i class="iconfont icon-dashaxiaoqudizhi01"></i>公司：耐锐德坡口机械（深圳）有限公司
+                            </li>
+                            <li>
+                                <i class="iconfont icon-dianhua"></i>电话：0755-21381289
+                            </li>
+                            <li>
+                                <i class="iconfont icon-youjian"></i>邮箱：wenxing@goyojo.com
+                            </li>
+                            <li>
+                                <i class="iconfont icon-dianhua"></i>售前：18018737376
+                            </li>
+                            <li>
+                                <i class="iconfont icon-dianhua"></i>售后：19925153163
+                            </li>
+                            <li>
+                                <i class="iconfont icon-xiazai20"></i>地址：中国~广东省深圳市光明区光明街道东周社区双明大道南侧云智科技园1栋A座18楼
+                            </li>
+                        </ul>
+                        <div class="code-img">
+
+                            <div class="share-icon clearfix">
+                                <a href="javascript:;" class="hover-share">
+                                    <img src="/public/image/weixin.png" alt="" class="icon-img">
+                                    <div class="wx-img hover-hidden animate__animated animate__fadeinup">
+                                        <div id="wximg" class="wx-code"></div>
+                                        <p class="share-text">扫一扫即可分享到朋友圈</p>
+                                    </div>
+                                </a>
+                                <a href="javascript:;" class="hover-share">
+                                    <img src="/public/image/qq.png" alt="" class="icon-img">
+                                    <div class="wx-img hover-hidden animate__animated animate__fadeinup">
+                                        <div class="wx-code">
+                                            <img src="/public/image/qq-code.png" alt=""
+                                                style="width:100%;height:100%;display:block">
+                                        </div>
+                                        <p class="share-text">扫一扫加我企业QQ</p>
+                                    </div>
+                                </a>
+                                <a href="javascript:;" class="hover-share">
+                                    <img src="/public/image/email.png" alt="" class="icon-img">
+                                    <div class="hover-hidden animate__animated animate__fadeinup email-text">
+                                        Email: 3003430587@qq.com
+                                    </div>
+                                </a>
+                                <a href="javascript:;" class="share-link">
+                                    <img src="/public/image/link.png" alt="" class="icon-img">
+                                </a>
+                            </div>
+
+                            <div class="erweima clearfix">
+                                <a href="#" class="shop-img">
+                                    <img src="/public/image/0utftilt.jpg" alt="">
+                                    <p>官方商城</p>
+                                </a>
+                                <a href="#" class="shop-img">
+                                    <img src="/public/image/r3pn4gek.jpg" alt="">
+                                    <p>微信扫一扫</p>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="bt wrap clearfix">
+                    <span>版权所有 &copy; 耐锐德坡口机械（深圳）有限公司 </span>
+                    <a href="javascript:;" rel="noopener noreferrer">粤ICP备19156329号</a>
+                </div>
+            </footer>
+        </div>
+        <script src="/public/js/qrcode.js"></script>
+        <script>
+            var winW = document.body.clientWidth
+                if (winW > 1421) {
+                    var wrapW = $('.wrap').css('width')
+                    var footNavW = parseFloat($('.footer-nav').css('width'))
+                    $('.footer-nav').css({
+                        'margin-left': -footNavW / 2 + 'px'
+                    })
+                    var _disLeft = $('.footer-nav')
+                        .offset()
+                        .left
+                    var logoImgWidth = parseFloat($('.footer-log-img').css('width'))
+                    $('.footer-logo').css('left', _disLeft - logoImgWidth - 80 + 'px')
+                    $('.footer .company-info').css('margin-left', _disLeft + 'px')
+                    var _imgLeft = $('.footer-log-img')
+                        .offset()
+                        .left
+                        $('.code-img')
+                        .css('right', _imgLeft + 'px')
+                }
+
+                // 分享
+
+                var qrcode = new QRCode("wxImg", {
+                        text: location.href,
+                        width: 256,
+                        height: 256,
+                        colorDark: "#000000",
+                        colorLight: "#ffffff",
+                        correctLevel: QRCode.CorrectLevel.H
+                    })
+
+                    var _title,
+                        _source,
+                        _sourceUrl,
+                        _pic,
+                        _showcount,
+                        _desc,
+                        _summary,
+                        _site,
+                        _url;
+
+                    $('.share-link').on('click', function () {
+                        copy(location.href)
+                    })
+
+                    function copy(value) {
+                        const input = document.createElement('input') // js创建一个input输入框
+                        input.value = value // 将需要复制的文本赋值到创建的input输入框中
+                        document
+                            .body
+                            .appendChild(input) // 将输入框暂时创建到实例里面
+                        input.select() // 选中输入框中的内容
+                        document.execCommand('Copy') // 执行复制操作
+                        document
+                            .body
+                            .removeChild(input) // 最后删除实例中临时创建的input输入框，完成复制操作
+                        VtMessage.success({duration: 0, content: '链接复制成功', offset: 'vt-top-center vt-fixed'})
+                        setTimeout(function () {
+                            $('.vt-message-package').css('display', 'none')
+                        }, 2000)
+                    }
+
+                    $('.fixed-nav').on('click', '.scroll-top', function () {
+                        if (location.pathname != '/') {
+                            $('html, body').animate({
+                                scrollTop: 0
+                            }, 300);
+                        } else {
+                            $('#fullpage').css("transform", "translate3d(0px, 0px, 0px)")
+                            $('#fullpage .section')
+                                .eq(0)
+                                .addClass('active fp-completely')
+                                .siblings()
+                                .removeClass('active fp-completely')
+                            $('#fp-nav ul li')
+                                .eq(0)
+                                .find('a')
+                                .addClass('active')
+                                .parent()
+                                .siblings()
+                                .find('a')
+                                .removeClass('active')
+                        }
+                    })
+        </script>
+    </div>
 
 {% endblock %}

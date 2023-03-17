@@ -23,7 +23,7 @@ export class GoodsService extends Service {
                     [Op.like]: keyword,
                 },
             },
-            offset: page,
+            offset: (page - 1) * pageSize,
             limit: pageSize,
         });
 

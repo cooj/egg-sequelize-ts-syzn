@@ -15,9 +15,11 @@
 
         <script src="/public/js/jquery-1.11.3.min.js"></script>
         <script src="/public/js/wow.min.js"></script>
+        <script src="/public/js/jquery.fullpage.min.js"></script>
+        <script src="/public/js/common.js"></script>
     </head>
 
-    <body>
+    <body class="main-box">
         <!--头部-->
         {% include "./header.nj" %}
         <!--头部 end-->
@@ -25,7 +27,9 @@
         {% block content %}{% endblock %}
 
         {# 底部 #}
-        {% include "./footer.nj" %}
+        {% if indexMenu.href !== "/" %}
+            {% include "./footer.nj" %}
+        {% endif %}
 
         {% block script %}{% endblock %}
 

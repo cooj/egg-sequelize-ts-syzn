@@ -1,18 +1,46 @@
 import { Controller } from 'egg';
 
 export default class WebController extends Controller {
-    public async index() {
+    // 公共数据
+    public async commonData() {
         const { ctx } = this;
         // console.log('thisNewsController :>> ', this);
+        const menu = await this.service.menu.getList({ pageSize: 10 });
+        // 首页菜单
+        const indexMenu = menu.list.find(item => item.href === '/');
+        let url = ctx.request.url;
+        // 判断url中有没有出现?
+        if (url.indexOf('?') !== -1) url = url.substring(0, url.indexOf('?'));
 
-        await ctx.render('home.nj', { list: 'newsList, page, pageSize' });
+        // 当前页菜单
+        const currentMenu = menu.list.find(item => item.href === url);
+
+        return {
+            menu: menu.list,
+            indexMenu,
+            currentMenu,
+        };
+    }
+
+
+    public async index() {
+        const { ctx } = this;
+        // 公共数据
+        const _commonData = await this.commonData();
+        console.log('_commonData :>> ', _commonData);
+        await ctx.render('home.nj', {
+            ..._commonData,
+        });
     }
 
     public async news() {
         const { ctx } = this;
-        // console.log('thisNewsController :>> ', this);
+        // 公共数据
+        const _commonData = await this.commonData();
 
-        await ctx.render('news.nj', { list: 'newsList, page, pageSize' });
+        await ctx.render('news.nj', {
+            ..._commonData,
+        });
     }
 
 

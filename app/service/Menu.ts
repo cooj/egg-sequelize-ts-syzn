@@ -10,7 +10,7 @@ export class MenuService extends Service {
      * @param body body.page 分页
      * @return
      */
-    public async getList(body: { [x: string]: string; page?: any; pageSize?: any; title?: any; type?: any; }) {
+    public async getList(body: { [x: string]: any; page?: any; pageSize?: any; title?: any; type?: any; }) {
         const { Op } = this.app.Sequelize;
 
         const page = Number.parseInt(body.page || this.config.common.page);

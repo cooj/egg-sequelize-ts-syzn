@@ -294,7 +294,7 @@ textarea {
 }
 
 
-.pc-header .menu-ul li.on,
+.pc-header .menu-ul li.on a,
 .pc-header .menu-ul li>a:hover {
     color: #e57c03;
     font-weight: bold;
@@ -860,4 +860,72 @@ textarea {
     .mo-header {
         display: block;
     }
+}
+
+
+
+.index-header .pc-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: unset;
+    z-index: 10;
+}
+
+.index-header .pc-header .menu-ul li {
+    color: #fff;
+}
+
+.index-a {
+    position: relative;
+}
+
+.index-a .fixed-banner-img {
+    position: absolute;
+    width: 50%;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9;
+}
+
+.index-a-box {
+    position: absolute;
+    bottom: 12%;
+    width: 80%;
+
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffffff;
+    z-index: 200;
+    display: flex;
+    justify-content: space-around;
+}
+
+.index-a-box a {
+    font-size: 30px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    background: #c40001;
+    width: 20%;
+    height: 75px;
+    line-height: 75px;
+}
+
+.index-a-box a i {
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.main-box #fp-nav ul li a span,
+.main-box .fp-slidesNav ul li a span {
+    background-color: #fff;
+}
+
+.main-box #fp-nav ul li .active span,
+.main-box .fp-slidesNav ul li .active span {
+    background: #1e76cf;
 }

@@ -5,63 +5,34 @@
 {% endblock %}
 
 {% block content %}
+    <link rel="stylesheet" href="/public/css/swiper-3.4.2.min.css">
+    <script src="/public/js/swiper-3.4.2.min.js"></script>
+    <link rel="stylesheet" href="/public/css//fullpage.min.css"/>
+    <script src="/public/js/fullpage.min.js"></script>
 
-    <input type="file" id='upload'/>
-    <script>
-        // 获取 input 标签的 dom
-        var input = document.getElementById('upload')
-        // 监听它的变化
-        input.addEventListener('change', function (e) {
-            // 获取到上传的 file 对象
-            var file = input.files[0]
-            // 声明 FormData 实例 formData
-            let formData = new FormData()
-            // 添加实例属性 file
-            formData.append('file', file)
-            console.log('formData', formData)
-            // 调用服务端上传接口。
-            fetch('http://localhost:7001/api/upload', {
-                method: 'POST',
-                body: formData
-            })
-                .then(res => {
-                    if (res.ok) {
-                        console.log('success')
-                        return res.json();
-                    } else {
-                        console.log('error')
-                    }
-                })
-                .then(res => {
-                    console.log('res is', res);
-                })
-        })
-    </script>
-    <div id="fullpage" style="opacity:0">
-        <div class="ind_a section">
+    <div id="fullpage">
+        <div class="index-a section">
             <div class="swiper-container" id="bannerswiper" style="width:100%;height:100%;">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="/public/image/jqyqj4rv.jpg" alt="" style="height:100%;width:100%;">
+                        <img src="/public/image/NTEW5KMm.jpg" alt="" style="height:100%;width:100%;">
                     </div>
                     <div class="swiper-slide">
-                        <img src="/public/image/qlmw9qjz.jpg" alt="" style="height:100%;width:100%;">
+                        <img src="/public/image/EbDLQGAu.jpg" alt="" style="height:100%;width:100%;">
                     </div>
                 </div>
             </div>
-            <img src="http://www.nareed.com/uploads/nrd/static/pic_01.png;jsessionid=a59d95d3d371acacf39a6842294d8786"
+            <img src="http://www.nareed.com/uploads/nrd/static/pic_01.png"
                 alt="" class="fixed-banner-img">
-            <div class="indiv indiv-img">
-                <div class="custom-btn-box">
-                    <a href="contact_us.html" rel="noopener noreferrer" class="btn lt-btn">
-                        <i class="iconfont icon-shangdian"></i>加入耐锐德 </a>
-                    <a href="javascript:;" rel="noopener noreferrer" class="btn lt-btn">
-                        <i class="iconfont icon-a-ziyuan127"></i>店铺链接 </a>
-                    <a href="honor.html" rel="noopener noreferrer" class="btn lt-btn">
-                        <i class="iconfont icon-fuwuchengnuo"></i>服务承诺 </a>
-                    <a href="contact_us.html" rel="noopener noreferrer" class="btn lt-btn">
-                        <i class="iconfont icon-shouye"></i>售后服务 </a>
-                </div>
+            <div class="index-a-box">
+                <a href="contact_us.html" rel="noopener noreferrer" class="btn lt-btn">
+                    <i class="iconfont icon-shangdian"></i>加入耐锐德 </a>
+                <a href="javascript:;" rel="noopener noreferrer" class="btn lt-btn">
+                    <i class="iconfont icon-a-ziyuan127"></i>店铺链接 </a>
+                <a href="honor.html" rel="noopener noreferrer" class="btn lt-btn">
+                    <i class="iconfont icon-fuwuchengnuo"></i>服务承诺 </a>
+                <a href="contact_us.html" rel="noopener noreferrer" class="btn lt-btn">
+                    <i class="iconfont icon-shouye"></i>售后服务 </a>
             </div>
         </div>
         <div class="ind_b section" style="background: url(/public/image/5phceusx.jpg) no-repeat center center / cover;">
@@ -100,71 +71,12 @@
                                         src="7035971809363100174.html" referrerpolicy="unsafe-url"
                                         allowfullscreen=""></iframe>
                                 </div>
-                                <div class="swiper-slide hoverbtn">
-                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
-                                        src="7036689990637584927.html" referrerpolicy="unsafe-url"
-                                        allowfullscreen=""></iframe>
-                                </div>
-                                <div class="swiper-slide hoverbtn">
-                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
-                                        src="7034486662910444039.html" referrerpolicy="unsafe-url"
-                                        allowfullscreen=""></iframe>
-                                </div>
-                                <div class="swiper-slide hoverbtn">
-                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
-                                        src="7024099875306340895.html" referrerpolicy="unsafe-url"
-                                        allowfullscreen=""></iframe>
-                                </div>
-                                <div class="swiper-slide hoverbtn">
-                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
-                                        src="7033727272913732126.html" referrerpolicy="unsafe-url"
-                                        allowfullscreen=""></iframe>
-                                </div>
-                                <div class="swiper-slide hoverbtn">
-                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
-                                        src="7033326798532411934.html" referrerpolicy="unsafe-url"
-                                        allowfullscreen=""></iframe>
-                                </div>
-                                <div class="swiper-slide hoverbtn">
-                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
-                                        src="7032103637501346318.html" referrerpolicy="unsafe-url"
-                                        allowfullscreen=""></iframe>
-                                </div>
-                                <div class="swiper-slide hoverbtn">
-                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
-                                        src="7031875436422693412.html" referrerpolicy="unsafe-url"
-                                        allowfullscreen=""></iframe>
-                                </div>
-                                <div class="swiper-slide hoverbtn">
-                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
-                                        src="7029196197663343141.html" referrerpolicy="unsafe-url"
-                                        allowfullscreen=""></iframe>
-                                </div>
-                                <div class="swiper-slide hoverbtn">
-                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
-                                        src="7030684275624280590.html" referrerpolicy="unsafe-url"
-                                        allowfullscreen=""></iframe>
-                                </div>
-                                <div class="swiper-slide hoverbtn">
-                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
-                                        src="7030688319616844302.html" referrerpolicy="unsafe-url"
-                                        allowfullscreen=""></iframe>
-                                </div>
-                                <div class="swiper-slide hoverbtn">
-                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
-                                        src="7031145865934799368.html" referrerpolicy="unsafe-url"
-                                        allowfullscreen=""></iframe>
-                                </div>
-                                <div class="swiper-slide hoverbtn">
-                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
-                                        src="7064729149532799524.html" referrerpolicy="unsafe-url"
-                                        allowfullscreen=""></iframe>
-                                </div>
-                                <div class="swiper-slide hoverbtn">
+
+                                {# <div class="swiper-slide hoverbtn">
                                     <iframe style="display:block;width:100%;height:100%;" frameborder="0"
                                         src="7064825560412717598.html" referrerpolicy="unsafe-url"
                                         allowfullscreen=""></iframe>
-                                </div>
+                                </div> #}
 
                             </div>
                         </div>
@@ -273,97 +185,11 @@
         </div>
         <!--#include file="/public/html/footer.html"-->
 
-        <div id="footer" class="section footer">
-            <footer>
-                <div class="wrap top footer-wrap">
-                    <div class="footer-nav">
-                        <a href="">首页</a>
-                        <a href="product_list.html">产品中心</a>
-                        <a href="product_video.html">产品视频</a>
-                        <a href="show_case.html">使用案例</a>
-                        <a href="company.html">企业实力</a>
-                        <a href="technical.html">技术支持</a>
-                        <a href="honor.html">荣誉资质</a>
-                        <a href="contact_us.html">联系我们</a>
-                    </div>
-                    <div class="warp-box">
-                        <a href="javascript:;" rel="noopener noreferrer" class="footer-logo"
-                            style="top:50%;transform:translatey(-50%)">
-                            <img src="/public/image/logo.png" alt="" class="footer-log-img">
-                        </a>
-                        <ul class="company-info">
-                            <li>
-                                <i class="iconfont icon-dashaxiaoqudizhi01"></i>公司：耐锐德坡口机械（深圳）有限公司
-                            </li>
-                            <li>
-                                <i class="iconfont icon-dianhua"></i>电话：0755-21381289
-                            </li>
-                            <li>
-                                <i class="iconfont icon-youjian"></i>邮箱：wenxing@goyojo.com
-                            </li>
-                            <li>
-                                <i class="iconfont icon-dianhua"></i>售前：18018737376
-                            </li>
-                            <li>
-                                <i class="iconfont icon-dianhua"></i>售后：19925153163
-                            </li>
-                            <li>
-                                <i class="iconfont icon-xiazai20"></i>地址：中国~广东省深圳市光明区光明街道东周社区双明大道南侧云智科技园1栋A座18楼
-                            </li>
-                        </ul>
-                        <div class="code-img">
-
-                            <div class="share-icon clearfix">
-                                <a href="javascript:;" class="hover-share">
-                                    <img src="/public/image/weixin.png" alt="" class="icon-img">
-                                    <div class="wx-img hover-hidden animate__animated animate__fadeinup">
-                                        <div id="wximg" class="wx-code"></div>
-                                        <p class="share-text">扫一扫即可分享到朋友圈</p>
-                                    </div>
-                                </a>
-                                <a href="javascript:;" class="hover-share">
-                                    <img src="/public/image/qq.png" alt="" class="icon-img">
-                                    <div class="wx-img hover-hidden animate__animated animate__fadeinup">
-                                        <div class="wx-code">
-                                            <img src="/public/image/qq-code.png" alt=""
-                                                style="width:100%;height:100%;display:block">
-                                        </div>
-                                        <p class="share-text">扫一扫加我企业QQ</p>
-                                    </div>
-                                </a>
-                                <a href="javascript:;" class="hover-share">
-                                    <img src="/public/image/email.png" alt="" class="icon-img">
-                                    <div class="hover-hidden animate__animated animate__fadeinup email-text">
-                                        Email: 3003430587@qq.com
-                                    </div>
-                                </a>
-                                <a href="javascript:;" class="share-link">
-                                    <img src="/public/image/link.png" alt="" class="icon-img">
-                                </a>
-                            </div>
-
-                            <div class="erweima clearfix">
-                                <a href="#" class="shop-img">
-                                    <img src="/public/image/0utftilt.jpg" alt="">
-                                    <p>官方商城</p>
-                                </a>
-                                <a href="#" class="shop-img">
-                                    <img src="/public/image/r3pn4gek.jpg" alt="">
-                                    <p>微信扫一扫</p>
-                                </a>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="bt wrap clearfix">
-                    <span>版权所有 &copy; 耐锐德坡口机械（深圳）有限公司 </span>
-                    <a href="javascript:;" rel="noopener noreferrer">粤ICP备19156329号</a>
-                </div>
-            </footer>
+        <div id="footer" class="section">
+            {% include "./layout/footer.nj" %}
         </div>
-        <script src="/public/js/qrcode.js"></script>
-        <script>
+        {# <script src="/public/js/qrcode.js"></script> #}
+        {# <script>
             var winW = document.body.clientWidth
                 if (winW > 1421) {
                     var wrapW = $('.wrap').css('width')
@@ -448,7 +274,16 @@
                                 .removeClass('active')
                         }
                     })
-        </script>
+        </script> #}
     </div>
+
+    <script>
+        new fullpage('#fullpage', {
+            //options here
+            autoScrolling: true,
+            scrollHorizontally: true,
+            navigation: true
+        });
+    </script>
 
 {% endblock %}

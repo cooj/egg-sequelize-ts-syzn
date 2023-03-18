@@ -1,70 +1,31 @@
 <link rel="stylesheet" href="/public/css/style.css">
-<header class="header-box">
+<header class="header-box {{ 'index-header' if (currentMenu.href=='/') else '' }}">
     <div class="pc-header">
-        <a href="" class="logo">
-            <img src="/public/image/logo.png" alt="" class="logo-img logo-home">
-            <img src="/public/image/logo-m.png" alt="" class="logo-img logo-other">
+        <a href="/" class="logo">
+            {% if currentMenu.href == '/' %}
+                <img src="/public/image/logo.png" alt="" class="logo-img logo-home">
+            {% else %}
+                <img src="/public/image/logo-m.png" alt="" class="logo-img logo-other">
+            {% endif %}
         </a>
         <ul class="menu-ul">
-            <li class="navli on">
-                <a href="" rel="noopener noreferrer" class="navtl">
-                    <span class="cn">首页</span>
-                </a>
+            {% for item in menu %}
+                <li class="{{'on' if item.href==currentMenu.href}}">
+                    <a href="{{item.href}}">
+                        <span class="cn">{{item.title}}</span>
+                    </a>
+                    {% if item.children.length %}
+                        <dl class="sub-dl">
+                            {% for sub in item.children %}
+                                <dd>
+                                    <a href="{{sub.href}}?id={{sub.id}}">{{sub.title}}</a>
+                                </dd>
+                            {% endfor %}
+                        </dl>
+                    {% endif %}
+                </li>
+            {% endfor %}
 
-            </li>
-            <li class="navli">
-                <a href="product_list.html" rel="noopener noreferrer" class="navtl">
-                    <span class="cn">产品中心</span>
-                </a>
-                <dl class="sub-dl">
-                    <dd>
-                        <a href="product_list1.html">Z系列（自动行走坡口机）</a>
-                    </dd>
-                    <dd>
-                        <a href="product_list2.html">X 系列（小板材坡口机）</a>
-                    </dd>
-                    <dd>
-                        <a href="product_list3.html">B 系列（便携式坡口机）</a>
-                    </dd>
-                    <dd>
-                        <a href="product_list4.html">Q系列（曲线坡口机）</a>
-                    </dd>
-                    <dd>
-                        <a href="product_list5.html">N系列（内涨式圆管坡口机）</a>
-                    </dd>
-                    <dd>
-                        <a href="product_list6.html">W系列（外卡式圆管坡口机）</a>
-                    </dd>
-                    <dd>
-                        <a href="product_list7.html">无上限圆管坡口机</a>
-                    </dd>
-                    <dd>
-                        <a href="product_list8.html">行星式坡口机</a>
-                    </dd>
-                    <dd>
-                        <a href="product_list9.html">C型外夹式圆管坡口机</a>
-                    </dd>
-
-                </dl>
-            </li>
-            <li class="navli">
-                <a href="product_video.html" rel="noopener noreferrer" class="navtl">
-                    <span class="cn">产品视频</span>
-                </a>
-
-            </li>
-            <li class="navli">
-                <a href="show_case.html" rel="noopener noreferrer" class="navtl">
-                    <span class="cn">使用案例</span>
-                </a>
-
-            </li>
-            <li class="navli">
-                <a href="company.html" rel="noopener noreferrer" class="navtl">
-                    <span class="cn">企业实力</span>
-                </a>
-
-            </li>
             <li class="navli">
                 <a href="technical.html" rel="noopener noreferrer" class="navtl">
                     <span class="cn">技术支持</span>
@@ -78,18 +39,7 @@
                     </dd>
                 </dl>
             </li>
-            <li class="navli">
-                <a href="honor.html" rel="noopener noreferrer" class="navtl">
-                    <span class="cn">荣誉资质</span>
-                </a>
 
-            </li>
-            <li class="navli">
-                <a href="contact_us.html" rel="noopener noreferrer" class="navtl">
-                    <span class="cn">联系我们</span>
-                </a>
-
-            </li>
         </ul>
         <div class="header-version">
             <div class="code-img">
@@ -191,7 +141,7 @@
     $(".btn-menu").click(function () {
         $(".mo-header").toggleClass("open")
     })
-    if (location.pathname == '/') {
+    /*if (location.pathname == '/') {
         document
             .querySelector('.logo-home')
             .style
@@ -209,7 +159,7 @@
             .querySelector('.logo-other')
             .style
             .display = 'block'
-    }
+    }*/
     $(function () {
         $('.my-lang a').click(function () {
             var lang = $(this).attr('lang');

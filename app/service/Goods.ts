@@ -1,34 +1,42 @@
 import { Service } from 'egg';
-
+import { WhereOptions } from 'sequelize';
+type TableOptionType = GoodsTableType;
 
 /**
  * HackerNews Api Service
  */
 export class GoodsService extends Service {
+    // 获取数据表
+    get Table() {
+        return this.ctx.model.Goods;
+    }
 
     /**
      * list 列表
      */
-    public async getList(data: any): Promise<GoodsTableType[]> {
+    public async getList(body: any) {
         const { Op } = this.app.Sequelize;
-        console.log('data :>> ', data);
-        const page = Number.parseInt(data.page || this.config.common.page);
-        const pageSize = Number.parseInt(data.pageSize || this.config.common.pageSize);
+        console.log('data body:>> ', body);
+        const page = Number.parseInt(body.page || this.config.common.page);
+        const pageSize = Number.parseInt(body.pageSize || this.config.common.pageSize);
 
-        const keyword = data.title || '';
 
-        const { rows, count } = await this.ctx.model.Goods.findAndCountAll({
-            where: {
-                title: {
-                    [Op.like]: keyword,
-                },
-            },
+        const where: WhereOptions<TableOptionType> = {
+            // parent_id: { [Op.eq]: 0 },
+        };
+        if (body.title) where.title = { [Op.like]: body.title };
+
+        const { rows, count } = await this.Table.findAndCountAll({
+            where,
             offset: (page - 1) * pageSize,
             limit: pageSize,
+            order: [
+                ['sort', 'DESC'],
+            ],
         });
 
         console.log('list :>> ', { rows, count });
-        return [];
+        return { list: rows, total: count };
     }
 
 

@@ -25,6 +25,29 @@ export default class MenuController extends Controller {
         };
     }
 
+    /**
+     * @summary 菜单分类
+     */
+    public async classify() {
+        const { ctx } = this;
+        const body = ctx.request.body;
+
+        const data = await this.serviceFunc.getList(body);
+
+        const node = this.config.common.menu.find(item => item.id === body.id);
+
+        let list: any[] = [];
+        if (node) {
+            const child = data.list.find(item => item.href === node.href);
+            if (child) list = child.children || [];
+        }
+
+        ctx.body = {
+            code: 200,
+            data: list,
+        };
+    }
+
 
     /**
      * @summary 添加

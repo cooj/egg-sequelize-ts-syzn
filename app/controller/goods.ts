@@ -1,11 +1,27 @@
 import { Controller } from 'egg';
 
 /**
- * @Controller 产品
+ * @Controller GoodsController 产品
  */
 
 export default class GoodsController extends Controller {
 
+    get serviceFunc() {
+        return this.service.goods;
+    }
+
+    /**
+     * @summary 获取banner列表
+     */
+    async list() {
+        const { ctx } = this;
+        const body = ctx.request.body;
+        const data = await this.serviceFunc.getList(body);
+        ctx.body = {
+            code: 200,
+            data,
+        };
+    }
 
     /**
      * @summary 添加banner
@@ -50,17 +66,6 @@ export default class GoodsController extends Controller {
         ctx.body = data;
     }
 
-    /**
-     * @summary 获取banner列表
-     */
-    async list() {
-        const { ctx, service } = this;
-        const body = ctx.request.query;
-        const data = await service.banner.getList(body);
-        ctx.body = {
-            code: 200,
-            data,
-        };
-    }
+
 }
 

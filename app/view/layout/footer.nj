@@ -1,4 +1,5 @@
 <footer class="footer">
+    
     <div class="footer-top">
         <div class="footer-nav">
             <a href="">首页</a>
@@ -80,8 +81,10 @@
         </div>
     </div>
     <div class="footer-bot">
+        <div class="container">
         <span>版权所有 &copy; 耐锐德坡口机械（深圳）有限公司 </span>
-        <a href="javascript:;" rel="noopener noreferrer">粤ICP备19156329号</a>
+        <a href="javascript:;" rel="noopener noreferrer">粤ICP备19156329号</a>       
+        </div>
     </div>
 </footer>
 <div class="go-top">

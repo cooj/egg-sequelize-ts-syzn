@@ -37,6 +37,12 @@ export default (appInfo: EggAppConfig) => {
         is_paging: 0,
         page: 1,
         pageSize: 10,
+        menu: [
+            { id: 1, name: '首页', href: '/' },
+            { id: 2, name: '商品页', href: '/product' },
+            { id: 3, name: '视频页', href: '/video' },
+            { id: 4, name: '案例页', href: '/case' },
+        ],
     };
 
     // override config from framework / plugin

@@ -17,26 +17,26 @@ export default class CommonController extends Controller {
         while ((part = await parts()) != null) {
             if (part.length) {
                 // 处理其他参数
-                console.log('field: ' + part[0]);
-                console.log('value: ' + part[1]);
-                console.log('valueTruncated: ' + part[2]);
-                console.log('fieldnameTruncated: ' + part[3]);
+                // console.log('field: ' + part[0]);
+                // console.log('value: ' + part[1]);
+                // console.log('valueTruncated: ' + part[2]);
+                // console.log('fieldnameTruncated: ' + part[3]);
             } else {
                 console.log('part :>> ', part);
                 if (!part.filename) {
                     continue;
                 }
                 // otherwise, it's a stream
-                console.log('field: ' + part.fieldname);
-                console.log('filename: ' + part.filename);
-                console.log('encoding: ' + part.encoding);
-                console.log('mime: ' + part.mime);
+                // console.log('field: ' + part.fieldname);
+                // console.log('filename: ' + part.filename);
+                // console.log('encoding: ' + part.encoding);
+                // console.log('mime: ' + part.mime);
 
                 // 上传图片的目录
                 const dir = await this.getUploadFile(part.filename);
-                console.log('dir :>> ', dir);
+                // console.log('dir :>> ', dir);
                 const writePath = dir.uploadDir; // 文件写入的地址
-                console.log('writePath :>> ', writePath);
+                // console.log('writePath :>> ', writePath);
 
                 const writeStream = fs.createWriteStream(writePath);
                 await part.pipe(writeStream);

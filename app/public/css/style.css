@@ -213,7 +213,7 @@ textarea {
 }
 
 .container {
-    width: 1200px;
+    width: 1400px;
     margin: 0 auto;
     padding: 0 15px;
     max-width: 100%;
@@ -244,12 +244,6 @@ textarea {
 }
 
 
-.container {
-    width: 1200px;
-    max-width: 100%;
-    padding: 0 15px;
-    margin: 0 auto;
-}
 
 .header-box {}
 
@@ -278,6 +272,7 @@ textarea {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    padding: 0 20px;
 }
 
 .pc-header .menu-ul li {
@@ -287,6 +282,7 @@ textarea {
 .pc-header .menu-ul li>a {
     display: block;
     padding: 20px 15px;
+    font-size: 20px;
 }
 
 .pc-header .menu-ul li .sub-dl {
@@ -308,7 +304,8 @@ textarea {
 
 
 .pc-header .header-version .code-img {
-    width: 60px;
+    width: 80px;
+    padding-left: 20px;
     height: 60px;
     position: relative;
 }
@@ -560,7 +557,7 @@ textarea {
 
 .news-flex .news-right {
     flex: 1;
-    padding-left: 20px;
+    padding-left: 30px;
 }
 
 
@@ -674,7 +671,7 @@ textarea {
 .footer .footer-top .footer-nav {
     display: flex;
     justify-content: center;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 .footer .footer-top .footer-nav a {
@@ -688,11 +685,20 @@ textarea {
 .footer-top .footer-cont {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    width: 1500px;
+    margin: 0 auto;
+    padding: 0 15px;
+    max-width: 100%;
 }
 
 .footer-top .footer-cont .footer-logo img {
     height: 100px
+}
+
+.footer-top .footer-cont .company-info {
+    flex: 1;
+    padding: 0 30px;
 }
 
 .footer-top .footer-cont .company-info li {
@@ -788,6 +794,10 @@ textarea {
 
 .footer .footer-bot {
     text-align: center;
+    padding: 15px;
+    color: #777;
+    font-size: 12px;
+    line-height: 2;
 }
 
 /* 新闻列表 */

@@ -95,7 +95,7 @@ declare interface GoodsTableType extends TableBaseType {
     title: string; //
     title_en: string; //
     video_url: string; // 视频地址
-    video_image_url: string; // 视频封面图片
+    image_url: string; // 视频封面图片
     description: string; // 描述
     description_en: string; //
     content: string; // 详细介绍

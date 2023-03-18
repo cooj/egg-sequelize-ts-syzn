@@ -55,9 +55,9 @@ export default (app: Application) => {
             type: STRING(1000),
             comment: '视频地址',
         },
-        video_image_url: {
+        image_url: {
             type: STRING(1000),
-            comment: '视频封面图片',
+            comment: '图片地址',
         },
         seo_keyword: {
             type: STRING(150),

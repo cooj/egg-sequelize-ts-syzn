@@ -32,9 +32,17 @@ export default (app: Application) => {
     router.post('/api/v1/news/delete', auth, controller.news.delete); // 删除新闻
     router.post('/api/v1/news/update', auth, controller.news.update); // 修改新闻
 
-    router.post('/api/v1/menu/list', app.middleware.auth({ required: false }), controller.menu.list); // 查询新闻
-    router.post('/api/v1/menu/insert', auth, controller.menu.insert); // 添加新闻
-    router.post('/api/v1/menu/delete', auth, controller.menu.delete); // 删除新闻
-    router.post('/api/v1/menu/update', auth, controller.menu.update); // 修改新闻
+    router.post('/api/v1/menu/list', app.middleware.auth({ required: false }), controller.menu.list); // 查询菜单
+    router.post('/api/v1/menu/insert', auth, controller.menu.insert); // 添加菜单
+    router.post('/api/v1/menu/delete', auth, controller.menu.delete); // 删除菜单
+    router.post('/api/v1/menu/update', auth, controller.menu.update); // 修改菜单
+
+    router.post('/api/v1/menu/classify', app.middleware.auth({ required: false }), controller.menu.classify); // 菜单分类
+
+
+    router.post('/api/v1/goods/list', app.middleware.auth({ required: false }), controller.goods.list); // 查询产品
+    router.post('/api/v1/goods/insert', auth, controller.goods.insert); // 添加产品
+    router.post('/api/v1/goods/delete', auth, controller.goods.delete); // 删除产品
+    router.post('/api/v1/goods/update', auth, controller.goods.update); // 修改产品
 
 };

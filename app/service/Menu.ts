@@ -12,7 +12,7 @@ export class MenuService extends Service {
      */
     public async getList(body: { [x: string]: string; page?: any; pageSize?: any; title?: any; type?: any; }) {
         const { Op } = this.app.Sequelize;
-        console.log('data :>> ', body);
+
         const page = Number.parseInt(body.page || this.config.common.page);
         const pageSize = Number.parseInt(body.pageSize || this.config.common.pageSize);
 
@@ -22,34 +22,38 @@ export class MenuService extends Service {
         if (body.title) where.title = { [Op.like]: body.title };
         // if (body.type) where.type = body.type;
 
+
         const { rows, count } = await this.Table.findAndCountAll({
             where,
             offset: (page - 1) * pageSize,
             limit: pageSize,
+            order: [
+                ['sort', 'DESC'],
+            ],
         });
-        console.log('{ rows, count } :>> ', rows, { count });
-        const list = await this.getChildList(rows);
 
+        const list = await this.getChildList(rows);
         return { list, total: count };
     }
 
     async getChildList(list: (TableOptionType & { children?: TableOptionType[] })[]) {
-        const expendPromise: any[] = [];
-        list.forEach(item => {
-            expendPromise.push(this.Table.findAll({
+
+        const arr:(TableOptionType & { children?: TableOptionType[] })[] = JSON.parse(JSON.stringify(list));
+
+        const child: any[] = await Promise.all(list.map(item => {
+            return this.Table.findAll({
                 where: {
                     parent_id: item.id,
                 },
-            }));
-        });
-        const child = await Promise.all(expendPromise);
+            });
+        }));
         for (let [idx, item] of child.entries()) {
             if (item.length > 0) {
                 item = await this.getChildList(item);
             }
-            list[idx].children = item;
+            arr[idx].children = item;
         }
-        return list;
+        return arr;
     }
 
 

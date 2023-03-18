@@ -16,8 +16,7 @@ export class UserService extends Service {
     // 生成token
     createToken(data: any) {
         const { app } = this;
-        console.log('data :>> ', data);
-        console.log('app.config.jwt :>> ', app.config.jwt);
+
         const token = app.jwt.sign(data, app.config.jwt.secret,
             // {
             //     expiresIn: app.config.jwt.sign.expiresIn,
@@ -55,7 +54,7 @@ export class UserService extends Service {
 
     // 修改密码
     async updatePassword(body: { id: number, password: string }) {
-        console.log('body :>> ', body);
+
         const newPassword: string = this.ctx.helper.md5(body.password);
 
         return await this.User.update({ password: newPassword }, {

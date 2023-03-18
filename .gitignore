@@ -11,7 +11,10 @@ logs/
 *.lock
 *.js
 
-app/**/*.js
+# 不排除database和public下的js文件
+!app/public/**/*.js   
+!database/**/*.js   
+
 test/**/*.js
 config/**/*.js
 app/**/*.map

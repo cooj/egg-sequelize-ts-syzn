@@ -15,7 +15,7 @@ export default (app: Application) => {
     const { STRING, INTEGER, TEXT } = app.Sequelize;
 
 
-    const table = app.model.define<ModelTypeInstances>('video', {
+    const table = app.model.define<ModelTypeInstances>('file', {
         id: { type: INTEGER, primaryKey: true, autoIncrement: true, comment: '主键id' },
         name: {
             type: STRING(50),

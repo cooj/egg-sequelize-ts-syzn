@@ -17,9 +17,21 @@ export default class GoodsController extends Controller {
         const { ctx } = this;
         const body = ctx.request.body;
         const data = await this.serviceFunc.getList(body);
+
+        const list = await Promise.all(data.list.map(async item => {
+            const node = await this.service.menu.info(Number(item.classify_id));
+            return {
+                ...item.dataValues,
+                classify_name: node?.title || '',
+            };
+        }));
+
         ctx.body = {
             code: 200,
-            data,
+            data: {
+                list,
+                total: data.total,
+            },
         };
     }
 
@@ -27,10 +39,11 @@ export default class GoodsController extends Controller {
      * @summary 添加banner
      */
     async insert() {
-        const { ctx, service } = this;
+        const { ctx } = this;
         const body = ctx.request.body;
 
-        await service.banner.insert(body);
+        const res = await this.serviceFunc.insert(body);
+        if (!res) ctx.throw(422, '添加失败');
         ctx.body = {
             code: 200,
             message: '添加成功',

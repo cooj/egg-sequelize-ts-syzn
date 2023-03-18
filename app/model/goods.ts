@@ -82,6 +82,18 @@ export default (app: Application) => {
     });
 
 
+    // table.associate = function () {
+    //     // 与Info存在一对多关系，因此是hasOne()
+    //     // app.model.Goods.hasOne(app.model.Info, { foreignKey: 'studentId' });
+    //     // 与Menu表存在多对一关系，因此使用belongsTo()
+    //     app.model.Goods.belongsTo(app.model.Menu, { foreignKey: 'classify_id', targetKey: 'id' });
+    // };
+    // table.hasMany(app.model.Menu, {
+    //     foreignKey: 'classify_id',
+    //     // targetKey: 'id',
+    // });
+
+
     // table.sync({ alter: true }); // 修改表结构或创建表
     return table;
 };

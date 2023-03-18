@@ -37,7 +37,7 @@ declare interface NewsTableType extends TableBaseType {
     content: string; // 内容
     content_en: string; // 内容
     home_recommend: 1 | 2; // 是否首页推荐 1:是，2：否
-
+    sort:number;    // 排序
 }
 
 

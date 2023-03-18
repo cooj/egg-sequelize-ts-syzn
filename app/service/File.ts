@@ -1,25 +1,26 @@
 import { Service } from 'egg';
 import { WhereOptions } from 'sequelize';
+type TableOptionType = FilesTableType;
 
 /**
- * NewsService Api Service
+ * FileService Api Service
  */
-export class NewsService extends Service {
+export class FileService extends Service {
     get Table() { // 获取数据表
-        return this.ctx.model.News;
+        return this.ctx.model.File;
     }
     /**
      * 获取列表
      * @param body body.page 分页
      * @return
      */
-    public async getList(body: { [x: string]: string; page?: any; pageSize?: any; title?: any; type?: any; }) {
+    public async getList(body: { [x: string]: string; page?: any; pageSize?: any; type?: any; }) {
         const { Op } = this.app.Sequelize;
         const page = Number.parseInt(body.page || this.config.common.page);
         const pageSize = Number.parseInt(body.pageSize || this.config.common.pageSize);
 
-        const where: WhereOptions<NewsTableType> = {};
-        if (body.title) where.title = { [Op.like]: body.title };
+        const where: WhereOptions<TableOptionType> = {};
+        if (body.name) where.name = { [Op.like]: body.name };
         if (body.type) where.type = body.type;
 
         const { rows, count } = await this.Table.findAndCountAll({
@@ -38,12 +39,12 @@ export class NewsService extends Service {
      * @param body
      * @return
      */
-    public async insert(body: NewsTableType) {
+    public async insert(body: TableOptionType) {
         return await this.Table.create(body);
     }
 
     // 修改数据
-    async update(body: NewsTableType) {
+    async update(body: TableOptionType) {
 
         const _data = await this.Table.update(body, {
             where: {
@@ -70,9 +71,9 @@ export class NewsService extends Service {
                 id,
             },
         });
-
+        console.log('_data :>> ', _data);
         // // 删除文件
-        // await ctx.model.File.deleteOne({ _id: _data._id });
+        // await this.app.controller.common.deleteDiskFile({ _id: _data._id });
 
         return _data;
 
@@ -94,4 +95,4 @@ export class NewsService extends Service {
 
 }
 
-export default NewsService;
+export default FileService;

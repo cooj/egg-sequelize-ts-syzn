@@ -38,7 +38,7 @@ export class MenuService extends Service {
 
     async getChildList(list: (TableOptionType & { children?: TableOptionType[] })[]) {
 
-        const arr:(TableOptionType & { children?: TableOptionType[] })[] = JSON.parse(JSON.stringify(list));
+        const arr: (TableOptionType & { children?: TableOptionType[] })[] = JSON.parse(JSON.stringify(list));
 
         const child: any[] = await Promise.all(list.map(item => {
             return this.Table.findAll({
@@ -87,7 +87,16 @@ export class MenuService extends Service {
         // };
     }
 
+    // 获取数据
+    public async info(id: number) {
+        const _data = await this.Table.findByPk(id);
 
+        return _data;
+
+    }
+
+
+    // 删除数据
     public async delete(id: number) {
         const _data = await this.Table.destroy({
             where: {

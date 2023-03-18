@@ -41,12 +41,18 @@ export default (app: Application) => {
         },
         type: {
             type: INTEGER,
-            comment: '模块 1:公司新闻 2:行业资讯',
+            comment: '模块 1:公司新闻 2:行业资讯，3:使用案例',
         },
         home_recommend: {
             type: INTEGER,
             defaultValue: 2,
             comment: '是否首页推荐 1:是，2：否',
+        },
+
+        sort: {
+            type: INTEGER,
+            defaultValue: 0,
+            comment: '排序',
         },
     }, {
         comment: '新闻表', // 数据库表描述

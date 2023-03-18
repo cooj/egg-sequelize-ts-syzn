@@ -5,18 +5,21 @@ import { Controller } from 'egg';
  * @Controller 用户
  */
 export default class UserController extends Controller {
+    get serviceFunc() {
+        return this.service.user;
+    }
+
     /**
      *  登录
      */
     async login() {
-        const { ctx, service } = this;
+        const { ctx } = this;
         const body = ctx.request.body;
-        const UserService = service.user;
         ctx.validate({
             account: { type: 'string' },
             password: { type: 'string' },
         }, body);
-        const _user = await service.user.findByUsername({
+        const _user = await this.serviceFunc.findByUsername({
             account: body.account,
         });
 
@@ -38,7 +41,7 @@ export default class UserController extends Controller {
             ctx.throw(422, '用户已被禁用');
         }
         // const token = UserService.createToken({ id: _user.id });
-        const token = UserService.createToken(_user.id);
+        const token = this.serviceFunc.createToken(_user.id);
 
         ctx.cookies.set('token', token, {
             maxAge: 1000 * 3600 * 5,
@@ -61,24 +64,22 @@ export default class UserController extends Controller {
      * @response 200 testResponse
      */
     async register() {
-        const { ctx, service } = this;
-        const UserService = service.user;
+        const { ctx } = this;
         const body = ctx.request.body;
         // 校验数据
         ctx.validate({
             account: { type: 'string' },
             password: { type: 'string' },
-            confirmPassword: { type: 'string' },
         });
-        if (body.confirmPassword !== body.password) {
-            ctx.throw(422, '两次密码不一致！');
-        }
+        // if (body.confirmPassword !== body.password) {
+        //     ctx.throw(422, '两次密码不一致！');
+        // }
 
 
-        if (await UserService.findByUsername({ account: body.account })) {
+        if (await this.serviceFunc.findByUsername({ account: body.account })) {
             ctx.throw(422, '用户已存在');
         }
-        const user = await UserService.register(body);
+        const user = await this.serviceFunc.register(body);
 
         ctx.body = {
             code: 200,
@@ -95,17 +96,26 @@ export default class UserController extends Controller {
      */
     async list() {
         const { ctx } = this;
-        const User = ctx.model.User;
-        console.log('User :>> ', User);
-        // const users = await User.find({
-        //     _id: {
-        //         $ne: ctx.user._id,
-        //     },
-        // }).select(['nickname', '_id', 'avatar', 'status']);
-        // ctx.body = {
-        //     code: 200,
-        //     data: users,
-        // };
+        const body = ctx.request.body;
+
+        const data = await this.serviceFunc.getList(body);
+        ctx.body = {
+            code: 200,
+            data,
+        };
+    }
+
+    /**
+     * 修改用户
+     */
+    async update() {
+        const { ctx } = this;
+        const body = ctx.request.body;
+        const data = await this.serviceFunc.update(body);
+        ctx.body = {
+            code: 200,
+            data,
+        };
     }
 
     /**

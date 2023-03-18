@@ -16,6 +16,9 @@ export default (app: Application) => {
     router.post('/api/v1/user/login', controller.user.login); // 登录
     router.post('/api/v1/user/register', controller.user.register); // 注册
     router.post('/api/v1/user/edit_password', controller.user.updatePassword); // 修改密码
+    router.post('/api/v1/user/list', app.middleware.auth({ required: false }), controller.user.list); // 用户列表
+    router.post('/api/v1/user/insert', auth, controller.user.register); // 添加用户
+    router.post('/api/v1/user/update', auth, controller.user.update); // 修改用户
 
 
     // router.post('/api/v1/banner/list', controller.banner.list); // 查询banner
@@ -44,5 +47,12 @@ export default (app: Application) => {
     router.post('/api/v1/goods/insert', auth, controller.goods.insert); // 添加产品
     router.post('/api/v1/goods/delete', auth, controller.goods.delete); // 删除产品
     router.post('/api/v1/goods/update', auth, controller.goods.update); // 修改产品
+
+
+    router.post('/api/v1/file/list', app.middleware.auth({ required: false }), controller.file.list); // 查询文件下载
+    router.post('/api/v1/file/insert', auth, controller.file.insert); // 添加文件下载
+    router.post('/api/v1/file/delete', auth, controller.file.delete); // 删除文件下载
+    router.post('/api/v1/file/update', auth, controller.file.update); // 修改文件下载
+
 
 };

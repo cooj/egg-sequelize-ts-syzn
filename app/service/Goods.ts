@@ -25,6 +25,7 @@ export class GoodsService extends Service {
             // parent_id: { [Op.eq]: 0 },
         };
         if (body.title) where.title = { [Op.like]: body.title };
+        if (body.classify_id) where.classify_id = { [Op.eq]: body.classify_id };
 
         const { rows, count } = await this.Table.findAndCountAll({
             where,
@@ -35,7 +36,6 @@ export class GoodsService extends Service {
             ],
         });
 
-        console.log('list :>> ', { rows, count });
         return { list: rows, total: count };
     }
 
@@ -43,10 +43,24 @@ export class GoodsService extends Service {
     /**
      * insert 新增
      */
-    public async insert(data: GoodsTableType) {
-        console.log('data :>> ', data);
-        // 插入
-        return '';
+    public async insert(body: GoodsTableType) {
+        return await this.Table.create(body);
+
+    }
+
+    // 删除数据
+    public async delete(id: number) {
+        const _data = await this.Table.destroy({
+            where: {
+                id,
+            },
+        });
+
+        // // 删除文件
+        // await ctx.model.File.deleteOne({ _id: _data._id });
+
+        return _data;
+
     }
 
 

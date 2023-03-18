@@ -22,7 +22,7 @@ export default class CommonController extends Controller {
                 // console.log('valueTruncated: ' + part[2]);
                 // console.log('fieldnameTruncated: ' + part[3]);
             } else {
-                console.log('part :>> ', part);
+                // console.log('part :>> ', part);
                 if (!part.filename) {
                     continue;
                 }
@@ -76,7 +76,7 @@ export default class CommonController extends Controller {
         const date = Date.now(); // 毫秒数
         const suffix = path.extname(filename);
         const _filename = filename.split(suffix)[0];
-        const shortFilename = _filename.slice(0, 20); // 只保留前面20位
+        const shortFilename = _filename.slice(0, 10); // 只保留前面10位
         // 返回图片保存的路径
         const uploadDir = path.join(dir, shortFilename + '-' + date + suffix);
 
@@ -94,4 +94,24 @@ export default class CommonController extends Controller {
             saveDir: imgDomain + uploadDir.slice(3).replace(/\\/g, '/'),
         };
     }
+
+
+    /**
+     * 删除磁盘文件
+     * @param {*} url
+     */
+    public deleteDiskFile(url: string) {
+        let imgDomain = this.config.imgDomain;
+        // 判断图片主机地址最后面是否有“/”,有就去掉
+        if (imgDomain.charAt(imgDomain.length - 1) === '/') {
+            imgDomain = imgDomain.slice(0, -1);
+        }
+        const filePath = url.split(imgDomain)[1];
+        try {
+            fs.unlinkSync(path.join(process.cwd(), '/app' + filePath));
+        } catch (error) {
+            // throw error(error)
+        }
+    }
+
 }

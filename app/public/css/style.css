@@ -544,21 +544,24 @@ textarea {
 }
 
 
-/* 新闻 */
 
-.news-flex {
+.conn-flex {
     display: flex;
     flex-wrap: wrap;
 }
 
-.news-flex .news-left {
+.conn-flex .conn-left {
     width: 280px;
 }
 
-.news-flex .news-right {
+.conn-flex .conn-right {
     flex: 1;
     padding-left: 30px;
 }
+
+
+/* 新闻 */
+
 
 
 .pane-box {
@@ -928,4 +931,308 @@ textarea {
 .main-box #fp-nav ul li .active span,
 .main-box .fp-slidesNav ul li .active span {
     background: #1e76cf;
+}
+
+.conn-slide {
+    border: solid 1px #dddddd;
+}
+
+.conn-slide .tle {
+    background-color: #fff;
+    text-align: center;
+    padding: 20px 0;
+
+}
+
+.conn-slide .tle .cn {
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 8px;
+}
+
+.conn-slide .tle .en {
+    font-size: 14px;
+    color: #555;
+}
+
+.conn-slide-menu li .a-tle {
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+}
+
+.conn-slide-menu li .a-tle .icon {
+    width: 20px;
+    height: 20px;
+    background: #1e76cf;
+    margin: 14px;
+    position: relative;
+    -webkit-transition: all ease 0.3s;
+    -o-transition: all ease 0.3s;
+    -moz-transition: all ease 0.3s;
+    transition: all ease 0.3s;
+    display: block;
+    cursor: pointer;
+}
+
+.conn-slide-menu li .a-tle .icon::before,
+.conn-slide-menu li .a-tle .icon::after {
+    content: "";
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: all ease 0.3s;
+    -o-transition: all ease 0.3s;
+    -moz-transition: all ease 0.3s;
+    transition: all ease 0.3s;
+}
+
+.conn-slide-menu li .a-tle .icon::before {
+    width: 1px;
+    height: 14px;
+}
+
+.conn-slide-menu li .a-tle .icon::after {
+    width: 14px;
+    height: 1px;
+}
+
+
+.conn-slide-menu li dl {
+    padding-left: 50px;
+    transition: all 0.5s;
+    transform-origin: top;
+    display: none;
+}
+
+.conn-slide-menu li dl a {
+    display: block;
+    position: relative;
+    font-size: 14px;
+    line-height: 46px;
+    padding-left: 8px;
+    color: #666;
+    -webkit-transition: all ease 0.3s;
+    -o-transition: all ease 0.3s;
+    -moz-transition: all ease 0.3s;
+    transition: all ease 0.3s;
+}
+
+.conn-slide-menu li dl a::before {
+    content: "";
+    width: 4px;
+    height: 4px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: #666;
+    -webkit-transition: all ease 0.3s;
+    -o-transition: all ease 0.3s;
+    -moz-transition: all ease 0.3s;
+    transition: all ease 0.3s;
+}
+
+.conn-slide-menu li dl a.act,
+.conn-slide-menu li dl a:hover {
+    color: #1e76cf;
+}
+
+
+
+.conn-slide-menu li.on .a-tle,
+.conn-slide-menu li .a-tle:hover {
+    color: #1e76cf;
+}
+
+.conn-slide-menu li.on .a-tle .icon {
+    transform: rotate(360deg);
+}
+
+.conn-slide-menu li.on .a-tle .icon::before {
+    width: 0;
+}
+
+.conn-slide-menu li.on dl {
+    display: block;
+}
+
+
+/* 商品列表 */
+
+.goods-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.goods-list li {
+    width: calc(100% / 3);
+    padding: 0 15px 30px;
+}
+
+.goods-list li a {
+    display: block;
+
+}
+
+.goods-list li a .goods-img {
+    padding-bottom: 100%;
+}
+
+.goods-list li a .goods-img::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: solid 1px #dddddd;
+}
+
+.goods-list li a .goods-tle {
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-color: #f5f5f5;
+    padding: 10px 20px;
+}
+
+.goods-list li a:hover {
+    color: #1e76cf;
+}
+
+.goods-list li .video-img {
+    padding-bottom: 75%;
+}
+
+.goods-list li .video-img video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 10;
+}
+
+/* 使用案例 */
+.case-box {
+    background: url(../image/case_bg.jpg) no-repeat center center / cover;
+}
+
+.case-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.case-list li {
+    width: 25%;
+    padding: 0 15px 30px;
+}
+
+.case-list li a {
+    display: block;
+    background-color: #fff;
+    padding: 10px 10px 0;
+}
+
+.case-list li a .case-img {
+    padding-bottom: 100%;
+}
+
+.case-list li a .case-img img {
+    transition: all ease 0.3s;
+}
+
+.case-list li a .case-img::after {
+    content: '';
+    width: 50px;
+    height: 50px;
+    background: url(../image/see-img.png);
+    background-size: 100% 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: all 1.2s;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.case-list li a .case-tle {
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 20px 15px;
+    position: relative;
+}
+
+.case-list li a .case-tle::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    -webkit-transition: all ease 0.3s;
+    -o-transition: all ease 0.3s;
+    -moz-transition: all ease 0.3s;
+    transition: all ease 0.3s;
+    background-color: #1e76cf;
+}
+
+.case-list li a:hover {
+    color: #1e76cf;
+}
+
+.case-list li a:hover .case-img img {
+    transform: scale(1.1);
+}
+
+.case-list li a:hover .case-img::after {
+    opacity: 1;
+}
+
+.case-list li a:hover .case-tle::after {
+    width: 100%;
+}
+
+.case-detail {
+    background-color: #f0f0f0;
+}
+
+.case-detail-box {
+    background-color: #fff;
+    padding: 50px;
+}
+
+.case-detail-box .top .tle {
+    font-size: 30px;
+    text-align: center;
+    padding: 15px;
+}
+
+.case-detail-box .info {
+    font-size: 14px;
+    text-align: center;
+
+}
+
+.case-detail-box .info span {
+    display: inline-block;
+    margin: 0 5px;
+
 }

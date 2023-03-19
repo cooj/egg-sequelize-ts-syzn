@@ -15,10 +15,14 @@ export default class WebController extends Controller {
         // 当前页菜单
         const currentMenu = menu.list.find(item => item.href === url);
 
+        // 当前页菜单的最上级菜单
+        const mostMenu = {};
+
         return {
             menu: menu.list,
             indexMenu,
             currentMenu,
+            mostMenu,
         };
     }
 
@@ -33,12 +37,70 @@ export default class WebController extends Controller {
         });
     }
 
+    // 新闻资讯
     public async news() {
         const { ctx } = this;
         // 公共数据
         const _commonData = await this.commonData();
 
         await ctx.render('news.nj', {
+            ..._commonData,
+        });
+    }
+
+    // 新闻详情
+    public async newsDetail() {
+        const { ctx } = this;
+        // 公共数据
+        const _commonData = await this.commonData();
+
+        await ctx.render('news-detail.nj', {
+            ..._commonData,
+        });
+    }
+
+    // 产品中心
+    public async product() {
+        const { ctx } = this;
+        // 公共数据
+        const _commonData = await this.commonData();
+
+        await ctx.render('product.nj', {
+            ..._commonData,
+        });
+    }
+
+
+    // 视频中心
+    public async video() {
+        const { ctx } = this;
+        // 公共数据
+        const _commonData = await this.commonData();
+
+        await ctx.render('video.nj', {
+            ..._commonData,
+        });
+    }
+
+    // 使用案例
+    public async case() {
+        const { ctx } = this;
+        // 公共数据
+        const _commonData = await this.commonData();
+
+        await ctx.render('case.nj', {
+            ..._commonData,
+        });
+    }
+
+
+    // 案例详情
+    public async caseDetail() {
+        const { ctx } = this;
+        // 公共数据
+        const _commonData = await this.commonData();
+
+        await ctx.render('case-detail.nj', {
             ..._commonData,
         });
     }

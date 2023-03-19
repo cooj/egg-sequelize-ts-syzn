@@ -25,9 +25,8 @@
         <!--头部 end-->
         {# 内容区域 #}
         {% block content %}{% endblock %}
-
         {# 底部 #}
-        {% if indexMenu.href !== "/" %}
+        {% if currentMenu.href !== "/" %}
             {% include "./footer.nj" %}
         {% endif %}
 

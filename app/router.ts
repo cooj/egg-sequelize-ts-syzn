@@ -13,6 +13,11 @@ export default (app: Application) => {
     router.get('/video', controller.web.video); // 视频中心
     router.get('/case', controller.web.case); // 使用案例
     router.get('/case-detail', controller.web.caseDetail); // 案例详情
+    router.get('/honor', controller.web.honor); // 荣誉资质
+    router.get('/contact', controller.web.contact); // 联系我们
+
+    router.get('/company', controller.web.company); // 公司简介
+    router.get('/cooper', controller.web.cooper); // 合作客户
 
     // router.get('/news/item/:id', controller.web.detail);
     // router.get('/news/user/:id', controller.web.user);

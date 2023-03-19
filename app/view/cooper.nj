@@ -1,0 +1,126 @@
+{% extends "./layout/layout.nj" %}
+
+{% block title %}
+    <title>首页</title>
+{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="/public/css/pagination.css">
+    <section class="sec-image">
+        <img src="/public/image/EbDLQGAu.jpg" alt="banner">
+        <div class="txt-box">
+            <h3 class="tle wow ">产品中心</h3>
+            <div class="info wow "></div>
+        </div>
+    </section>
+
+    <section class="section-box news-box">
+        <div class="container">
+            <div class="conn-flex">
+                <div class="conn-left">
+                    <div class="pane-box">
+                        <div class="pane-top">
+                            <h3 class="tle-cn">技术支持</h3>
+                            <p class="tle-en">Technical support</p>
+                        </div>
+                        <div class="pane-mid">
+                            <ul class="pane-menu">
+                                <li class="on">
+                                    <a href="">公司新闻</a>
+                                </li>
+                                <li>
+                                    <a href="">资料下载</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="pane-box">
+                        <div class="pane-top">
+                            <h3 class="tle-cn">咨询客服</h3>
+                            <p class="tle-en">Advisory Service</p>
+                        </div>
+                        <div class="pane-mid">
+                            <ul class="pane-menu pane-menu-item">
+                                <li>
+                                    <a href="javascript:;">
+                                        <img src="/public/image/qq.gif" alt="">
+                                        <div>客服</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <img src="/public/image/oclock.png" alt="">
+                                        <div>
+                                            <p>工作时间</p>
+                                            <p>08:00 - 21:00</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <img src="/public/image/wechart.png" alt="">
+                                        <div>
+                                            <p>电话</p>
+                                            <p>tel: 0755-21381289</p>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="conn-right">
+                    <div class="con-title">
+                        <span>新闻资讯</span>
+                        <i>News Information</i>
+                    </div>
+                    <div>
+                        <ul class="news-list">
+                            <li>
+                                <a href="/news_detail_20">
+                                    <div class="news-text">
+                                        <h3 class="news-title">坡口机长时间闲置应如何保养</h3>
+                                        <div class="news-desc">坡口机长时间不用该如何保养？机器长时间不用启动前需要怎样去检查机器？
+</div>
+                                        <div class="news-barge">
+                                            <span>公司新闻</span>
+                                        </div>
+                                    </div>
+                                    <div class="news-time">2023-02-10</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/news_detail_20">
+                                    <div class="news-text">
+                                        <h3 class="news-title">坡口机长时间闲置应如何保养</h3>
+                                        <div class="news-desc">坡口机长时间不用该如何保养？机器长时间不用启动前需要怎样去检查机器？
+</div>
+                                        <div class="news-barge">
+                                            <span>公司新闻</span>
+                                        </div>
+                                    </div>
+                                    <div class="news-time">2023-02-10</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/news_detail_20">
+                                    <div class="news-text">
+                                        <h3 class="news-title">坡口机长时间闲置应如何保养</h3>
+                                        <div class="news-desc">坡口机长时间不用该如何保养？机器长时间不用启动前需要怎样去检查机器？
+</div>
+                                        <div class="news-barge">
+                                            <span>公司新闻</span>
+                                        </div>
+                                    </div>
+                                    <div class="news-time">2023-02-10</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}

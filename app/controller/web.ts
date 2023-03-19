@@ -106,6 +106,50 @@ export default class WebController extends Controller {
     }
 
 
+    // 荣誉资质
+    public async honor() {
+        const { ctx } = this;
+        // 公共数据
+        const _commonData = await this.commonData();
+
+        await ctx.render('honor.nj', {
+            ..._commonData,
+        });
+    }
+
+    // 联系我们
+    public async contact() {
+        const { ctx } = this;
+        // 公共数据
+        const _commonData = await this.commonData();
+
+        await ctx.render('contact.nj', {
+            ..._commonData,
+        });
+    }
+
+    // 公司简介
+    public async company() {
+        const { ctx } = this;
+        // 公共数据
+        const _commonData = await this.commonData();
+
+        await ctx.render('company.nj', {
+            ..._commonData,
+        });
+    }
+
+    // 合作客户
+    public async cooper() {
+        const { ctx } = this;
+        // 公共数据
+        const _commonData = await this.commonData();
+
+        await ctx.render('cooper.nj', {
+            ..._commonData,
+        });
+    }
+
     // public async list() {
     //     const { ctx, app, service } = this;
     //     console.log('thisNewsController :>> ', this);

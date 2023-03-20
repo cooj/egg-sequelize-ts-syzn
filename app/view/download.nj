@@ -19,9 +19,9 @@
                         <div class="pane-mid">
                             <ul class="pane-menu">
                                 {% for item in mostMenu.children %}
-                                   <li class="on">
+                                    <li class="on">
                                         <a href="{{item.href}}?id={{item.id}}">{{item.title}}</a>
-                                    </li> 
+                                    </li>
                                 {% endfor %}
                                 {# <li>
                                     <a href="">资料下载</a>
@@ -70,20 +70,32 @@
                         <i>{{nowMenu.title_en}}</i>
                     </div>
                     <div>
-                        <ul class="news-list">
+                        <ul class="news-list download-list">
                             {% for item in list %}
-                            <li>
-                                <a href="/news-detail?id={{item.id}}" style="color:#1e50ae;">
-                                    <div class="news-text">
-                                        <h3 class="news-title">{{item.title}}</h3>
-                                        <div class="news-desc">{{item.description}}</div>
-                                        <div class="news-barge">
-                                            <span>公司新闻</span>
+                                <li>
+                                    <a style="color:#1e50ae;">
+                                        <div class="news-text">
+                                            <h3 class="news-title">{{item.name}}</h3>
                                         </div>
-                                    </div>
-                                    <div class="news-time">{{item.updated_at|showToDate}}</div>
-                                </a>
-                            </li>                                
+                                        <div class="news-time" style="margin:0 15px;padding:0 10px;">
+                                            <object>
+                                                <a href="{{item.url}}" download>立即下载</a>
+                                            </object>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a style="color:#1e50ae;">
+                                        <div class="news-text">
+                                            <h3 class="news-title">{{item.name}}</h3>
+                                        </div>
+                                        <div class="news-time" style="margin:0 15px;padding:0 10px;">
+                                            <object>
+                                                <a href="{{item.url}}" download>下载</a>
+                                            </object>
+                                        </div>
+                                    </a>
+                                </li>
                             {% endfor %}
                         </ul>
                     </div>

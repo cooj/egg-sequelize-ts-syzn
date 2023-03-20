@@ -28,16 +28,17 @@
                     </div>
                     <div>
                         <ul class="goods-list">
-                            <li>
-                                <a href="/news_detail_20">
-                                    <div class="pos video-img">
-                                        <video src="https://v9-xg-web-pc.ixigua.com/ff6ec4d3c0a3f1f2135ee3796773d2e6/6416e619/video/tos/cn/tos-cn-ve-0004c800/2ed843874dba4fb6bc1015aac606b5f2/?a=1768&ch=0&cr=0&dr=0&er=0&cd=0%7C0%7C0%7C0&br=710&bt=710&cs=0&ds=2&ft=_z7ehvvBQOBULry_8Z.BOMzJ4lcS5FzW2bLQCHZb8Zmka&mime_type=video_mp4&qs=0&rc=PDw4MzY0NWUzaDVkM2g4M0BpajQ0bGk6ZmZ5OTMzNDczM0A0YzJgMC0xXi8xYjAuY2JfYSMuajVpcjRfa2pgLS1kLS9zcw%3D%3D&l=2023031917374855E4B79DB38D79D80237&btag=18000" ></video>
-                                        {# <img src="/public/image/EbDLQGAu.jpg"/> #}
-                                    </div>
-                                    <div class="goods-tle">坡口机长时间</div>
-                                </a>
-                            </li>
-
+                            {% for item in list %}
+                                <li>
+                                    <a href="/video-detail?id={{item.id}}">
+                                        <div class="pos video-img">
+                                            {# <video src="{{item.video_url}}"  controls="controls"></video> #}
+                                            <img src="{{item.video_image_url}}"/>
+                                        </div>
+                                        <div class="goods-tle">{{item.title}}</div>
+                                    </a>
+                                </li>
+                            {% endfor %}
                         </ul>
                     </div>
 

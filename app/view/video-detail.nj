@@ -1,0 +1,26 @@
+{% extends "./layout/layout.nj" %}
+
+{% block title %}
+    <title>{{systemInfo.name}} - {{currentMenu.title}}</title>
+{% endblock %}
+
+{% block content %}
+    <section class="section-box case-detail">
+        <div class="container">
+            <div class="case-detail-box">
+                <div class="top">
+                    <h3 class="tle">{{data.title}}
+                    </h3>
+                    <div class="info">
+                        <span>{{data.updated_at|showToDate}}</span>
+                    </div>
+                </div>
+                <div class="cont">
+                    <iframe style="display:block;width:100%;height:100%;min-height:400px;" frameborder="0" src="{{data.video_url}}" referrerpolicy="unsafe-url" allowfullscreen=""></iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

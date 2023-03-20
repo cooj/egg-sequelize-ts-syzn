@@ -12,8 +12,8 @@
 
 ::-webkit-scrollbar {
     /*Chrome下隐藏滚动条（宽度设为0即可）*/
-    width: 8px;
-    height: 8px;
+    width: 12px;
+    height: 12px;
     background: #eee;
 }
 
@@ -904,6 +904,14 @@ textarea {
     margin-right: 8px;
 }
 
+.download-list li {
+    padding: 10px 0;
+}
+
+.download-list li .news-title {
+    font-size: 16px;
+}
+
 @media screen and (max-width:1200px) {
     .pc-header {
         display: none;
@@ -1126,16 +1134,17 @@ textarea {
     z-index: 999;
     background: #fff;
     height: 60px;
-    position: absolute;
+    position: relative;
     left: 0;
     top: 0;
     width: 100%;
     -webkit-box-shadow: 0px 6px 30px 0px rgba(153, 153, 153, 0.18);
     -moz-box-shadow: 0px 6px 30px 0px rgba(153, 153, 153, 0.18);
     box-shadow: 0px 6px 30px 0px rgba(153, 153, 153, 0.18);
-  }
-  
-  #navbar-box .inbox {
+}
+
+#navbar-box .inbox {
+    width: 100%;
     margin-left: 1px;
     position: absolute;
     left: 50%;
@@ -1149,9 +1158,10 @@ textarea {
     display: -moz-box;
     display: -ms-flexbox;
     display: flex;
-  }
-  
-  #navbar-box .inbox a {
+    justify-content: center;
+}
+
+#navbar-box .inbox a {
     float: left;
     width: 200px;
     height: 60px;
@@ -1166,10 +1176,11 @@ textarea {
     position: relative;
     z-index: 10;
     overflow: hidden;
-  }
-  
-  #navbar-box .inbox a::after {
+}
+
+#navbar-box .inbox a::after {
     content: "";
+    position: absolute;
     width: 100%;
     height: 100%;
     left: 0;
@@ -1180,26 +1191,134 @@ textarea {
     -o-transition: all ease 0.3s;
     -moz-transition: all ease 0.3s;
     transition: all ease 0.3s;
-  }
-  
-  #navbar-box .inbox .cur,
-  #navbar-box .inbox a:hover {
-    color: #fff;
-  }
-  
-  #navbar-box .inbox .cur::after,
-  #navbar-box .inbox a:hover::after {
-    top: 0;
-  }
-  
-  #navbar-box .inbox a:first-child {
-    border-left: 1px solid #dddddd;
-  }
-  
-  #navbar-box .inbox::after {
-    display: none;
-  }
+}
 
+#navbar-box .inbox .cur,
+#navbar-box .inbox a:hover {
+    color: #fff;
+}
+
+#navbar-box .inbox .cur::after,
+#navbar-box .inbox a:hover::after {
+    top: 0;
+}
+
+#navbar-box .inbox a:first-child {
+    border-left: 1px solid #dddddd;
+}
+
+#navbar-box .inbox::after {
+    display: none;
+}
+
+/* 公司简介 */
+.about-box {
+    padding-bottom: 0;
+}
+
+.about-a-tle .cn {
+    color: #333333;
+    font-size: 24px;
+    text-align: center;
+}
+
+.about-a-tle .en {
+    color: #999;
+    text-align: center;
+    margin: 8px auto 25px;
+
+}
+
+.about-a .content {
+    line-height: 32px;
+    color: #666666;
+    text-indent: 2em;
+    margin-bottom: 50px;
+}
+
+.about-b {
+    height: 300px;
+    background: url(../image/about_02.jpg);
+    background-size: cover;
+    position: relative;
+    padding: 30px 0;
+}
+
+.about-b-box {
+    display: inline-flex;
+    align-items: center;
+    background: #1e76cf;
+    color: #ffffff;
+    padding: 30px 40px;
+}
+
+.about-b-box .lt-box .tl {
+    font-size: 30px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(221, 221, 221, 0.4);
+    margin-bottom: 12px;
+}
+
+.about-b-box .lt-box .te {
+    font-size: 20px;
+}
+
+.about-b-box .rt-box {
+    display: flex;
+
+}
+
+.about-b-box .rt-box .box {
+    padding: 0 60px;
+
+}
+
+.about-b-box .rt-box .box+.box {
+    border-left: 1px solid rgba(221, 221, 221, 0.4);
+}
+
+.about-b-box .rt-box .box .tp .big {
+    font-size: 42px;
+    font-weight: bold;
+}
+
+.about-c {
+    padding: 50px 0;
+    background-color: #f8f8f8;
+}
+
+.about-c-box .img-text {
+    position: relative;
+}
+
+.about-c-box .img-text .im {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+}
+
+.about-c-box .img-text .im .pos {
+    padding-bottom: 55%;
+}
+
+.about-c-box .img-text .im img {
+    width: 100%;
+}
+
+.about-c-box .img-text .te {
+    position: relative;
+    float: right;
+    margin-top: 80px;
+    width: 55%;
+    min-height: 100%;
+    background-color: #fff;
+    box-shadow: 0px 6px 30px 0px rgba(153, 153, 153, 0.18);
+    padding: 50px;
+    color: #333333;
+    font-size: 20px;
+    line-height: 40px;
+}
 
 /* 商品列表 */
 
@@ -1401,10 +1520,37 @@ textarea {
 
 
 
+@media screen and (max-width:1560px) {
+    .container {
+        width: 1200px;
+    }
 
+    .about-b-box .lt-box .tl {
+        font-size: 24px;
+    }
+
+    .about-b-box .lt-box .te {
+        font-size: 18px;
+    }
+
+    .about-b-box .rt-box .box {
+        padding: 0 40px;
+
+    }
+
+    .about-c-box .img-text .te {
+        padding: 40px;
+        font-size: 18px;
+        line-height: 32px;
+    }
+}
 
 
 @media screen and (max-width:1365px) {
+    .container {
+        width: 1024px;
+    }
+
     .pc-header .menu-ul {
         padding: 0 10px;
     }
@@ -1412,6 +1558,12 @@ textarea {
     .pc-header .menu-ul li>a {
         font-size: 16px;
         padding: 20px 15px;
+    }
+
+    .about-c-box .img-text .te {
+        padding: 30px;
+        font-size: 16px;
+        line-height: 28px;
     }
 }
 
@@ -1424,7 +1576,8 @@ textarea {
     .sec-image {
         height: 400px;
     }
-    .sec-image .txt-box .tle{
+
+    .sec-image .txt-box .tle {
         font-size: 44px;
     }
 
@@ -1442,7 +1595,8 @@ textarea {
     .sec-image {
         height: 300px;
     }
-    .sec-image .txt-box .tle{
+
+    .sec-image .txt-box .tle {
         font-size: 28px;
     }
 

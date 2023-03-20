@@ -112,9 +112,41 @@ export default class WebController extends Controller {
         const { ctx } = this;
         // 公共数据
         const _commonData = await this.commonData();
+        const body = ctx.request.query;
+
+        const params = {
+            page: body.page || 1,
+            pageSize: body.pageSize || 10,
+            type: 3,
+        };
+
+        const data = await this.service.video.getList(params);
 
         await ctx.render('video.nj', {
             ..._commonData,
+            ...data,
+            page: params.page,
+            pageSize: params.pageSize,
+        });
+    }
+    // 视频中心
+    public async videoDetail() {
+        const { ctx } = this;
+
+        const query = ctx.request.query;
+        ctx.validate({
+            id: 'string',
+        }, query);
+        const id = Number.isNaN(Number(query.id)) ? 0 : Number(query.id);
+        const data = await this.service.video.info(id);
+
+        // 公共数据
+        const _commonData = await this.commonData();
+
+
+        await ctx.render('video-detail.nj', {
+            ..._commonData,
+            data,
         });
     }
 

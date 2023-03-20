@@ -60,6 +60,14 @@ export class VideoService extends Service {
         // };
     }
 
+    // 获取记录信息
+    async info(id: number) {
+
+        const _data = await this.Table.findByPk(id);
+
+        return _data;
+    }
+
 
     public async delete(id: number) {
         const _data = await this.Table.destroy({

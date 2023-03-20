@@ -12,6 +12,7 @@ export default (app: Application) => {
     router.get('/news-detail', controller.web.newsDetail); // 新闻详情
     router.get('/product', controller.web.product); // 产品中心
     router.get('/video', controller.web.video); // 视频中心
+    router.get('/video-detail', controller.web.videoDetail); // 视频中心
     router.get('/case', controller.web.case); // 使用案例
     router.get('/case-detail', controller.web.caseDetail); // 案例详情
     router.get('/honor', controller.web.honor); // 荣誉资质

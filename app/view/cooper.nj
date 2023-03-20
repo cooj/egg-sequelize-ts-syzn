@@ -1,19 +1,17 @@
 {% extends "./layout/layout.nj" %}
 
 {% block title %}
-    <title>首页</title>
+    <title>{{systemInfo.name}} - {{currentMenu.title}}</title>
 {% endblock %}
 
 {% block content %}
-    <link rel="stylesheet" href="/public/css/pagination.css">
-    <section class="sec-image">
-        <img src="/public/image/EbDLQGAu.jpg" alt="banner">
-        <div class="txt-box">
-            <h3 class="tle wow ">产品中心</h3>
-            <div class="info wow "></div>
+{% include  "./layout/sec-img.nj" %}
+<div id="navbar-box">
+        <div class="inbox clearfix">
+            <a href="/company" class="">公司介绍</a>
+            <a href="/cooper" class="cur">合作客户</a>
         </div>
-    </section>
-
+    </div>
     <section class="section-box news-box">
         <div class="container">
             <div class="conn-flex">

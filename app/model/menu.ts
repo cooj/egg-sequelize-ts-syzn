@@ -34,6 +34,10 @@ export default (app: Application) => {
             type: STRING(255),
             comment: '链接',
         },
+        img: {
+            type: STRING(1000),
+            comment: '图片',
+        },
         is_show: {
             type: INTEGER,
             defaultValue: 1,

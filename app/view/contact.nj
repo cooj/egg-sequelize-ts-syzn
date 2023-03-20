@@ -1,7 +1,7 @@
 {% extends "./layout/layout.nj" %}
 
 {% block title %}
-    <title>首页</title>
+    <title>{{systemInfo.name}} - {{currentMenu.title}}</title>
 {% endblock %}
 
 {% block content %}
@@ -153,13 +153,7 @@
         }
     </style>
 
-    <section class="sec-image">
-        <img src="/public/image/EbDLQGAu.jpg" alt="">
-        <div class="txt-box">
-            <h3 class="tle wow">联系我们</h3>
-            <div class="info wow"></div>
-        </div>
-    </section>
+{% include  "./layout/sec-img.nj" %}
 
     <section class="section-box contact-box">
         <div class="container">
@@ -179,7 +173,7 @@
                     </div>
                     <div class="text-box">
                         <div class="tl">服务热线</div>
-                        <div class="te">0755-21381289</div>
+                        <div class="te">{{systemInfo.tel}}</div>
                     </div>
                 </div>
                 <div class="box wow "  >
@@ -191,12 +185,12 @@
                     </div>
                     <div class="text-box">
                         <div class="tl">公司地址</div>
-                        <div class="te">地址：中国~广东省深圳市光明区光明街道东周社区双明大道南侧云智科技园1栋A座18楼</div>
+                        <div class="te">地址：{{systemInfo.address}}</div>
                     </div>
                 </div>
                 <div class="box wow "  >
                     <div class="icon">
-                        {# <img src="/uploads/nrd/20211231/R3Pn4gek.jpg" alt=""> #}
+                        <img src="{{systemInfo.wx_code}}" alt="">
                     </div>
                     <div class="text-box">
                         <div class="tl">官方微信</div>
@@ -212,7 +206,7 @@
                     </div>
                     <div class="text-box">
                         <div class="tl">邮箱</div>
-                        <div class="te">wenxing@goyojo.com</div>
+                        <div class="te">{{systemInfo.email}}</div>
                     </div>
                 </div>
             </div>
@@ -228,8 +222,8 @@
         //标注点数组
         var markerArr = [
             {
-                title: "金斗云精密仪器（江苏）有限公司",
-                content: "深圳市光明区公明街道木墩路75号",
+                title: "{{systemInfo.name}}",
+                content: "{{systemInfo.address}}",
                 // point: map_y + "|" + map_x,
                 point: "",
                 isOpen: 0,

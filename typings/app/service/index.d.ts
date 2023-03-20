@@ -13,6 +13,7 @@ import ExportMenu from '../../../app/service/Menu';
 import ExportNews from '../../../app/service/News';
 import ExportUser from '../../../app/service/User';
 import ExportVideo from '../../../app/service/Video';
+import ExportCompany from '../../../app/service/Company';
 
 declare module 'egg' {
   interface IService {
@@ -22,5 +23,6 @@ declare module 'egg' {
     news: AutoInstanceType<typeof ExportNews>;
     user: AutoInstanceType<typeof ExportUser>;
     video: AutoInstanceType<typeof ExportVideo>;
+    company: AutoInstanceType<typeof ExportCompany>;
   }
 }

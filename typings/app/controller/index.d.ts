@@ -14,6 +14,7 @@ import ExportUpload from '../../../app/controller/upload';
 import ExportUser from '../../../app/controller/user';
 import ExportVideo from '../../../app/controller/video';
 import ExportWeb from '../../../app/controller/web';
+import ExportCompany from '../../../app/controller/company';
 
 declare module 'egg' {
   interface IController {
@@ -28,5 +29,6 @@ declare module 'egg' {
     user: ExportUser;
     video: ExportVideo;
     web: ExportWeb;
+    company: ExportCompany;
   }
 }

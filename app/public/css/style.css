@@ -256,7 +256,7 @@ textarea {
 }
 
 .pc-header .logo {
-    margin-right: 50px;
+    margin-right: 20px;
 }
 
 .pc-header .logo img {
@@ -272,7 +272,7 @@ textarea {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 0 20px;
+    /* padding: 0 20px; */
 }
 
 .pc-header .menu-ul li {
@@ -281,23 +281,66 @@ textarea {
 
 .pc-header .menu-ul li>a {
     display: block;
-    padding: 20px 15px;
+    padding: 20px;
     font-size: 20px;
 }
 
 .pc-header .menu-ul li .sub-dl {
     position: absolute;
+    width: 200%;
     top: 100%;
-    left: 0;
-    width: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fafafa;
+    box-shadow: 2px 4px 10px 0px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    text-align: center;
     display: none;
+    z-index: 1;
+}
+
+.pc-header .menu-ul li .sub-dl a {
+    padding: 0 10px;
+    line-height: 40px;
+    display: block;
+    color: #1a1a1a;
+    position: relative;
+    transition: all .4s;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.pc-header .menu-ul li .sub-dl a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #00a0e9;
+    transition: all 0.5s;
 }
 
 
-.pc-header .menu-ul li.on a,
+.pc-header .menu-ul li:hover .sub-dl {
+    display: block;
+}
+
+.pc-header .menu-ul li.on>a,
 .pc-header .menu-ul li>a:hover {
     color: #e57c03;
     font-weight: bold;
+}
+
+
+.pc-header .menu-ul li .sub-dl a:hover {
+    color: #00a0e9;
+}
+
+.pc-header .menu-ul li .sub-dl a:hover::after {
+    width: 100%;
 }
 
 
@@ -513,8 +556,7 @@ textarea {
 /* 图片、文字 */
 
 .sec-image {
-    max-height: 500px;
-    min-height: 300px;
+    height: 500px;
     position: relative;
     overflow: hidden;
 }
@@ -759,18 +801,19 @@ textarea {
 
 .footer .code-img .share-icon a .email-text {
     position: absolute;
-    bottom: 70px;
+    width: 150px;
+    bottom: 55px;
     left: 50%;
+    transform: translateX(-50%);
     background: #fff;
     color: #333;
     font-size: 14px;
-    margin-left: -150px;
     height: 40px;
     line-height: 40px;
     border-radius: 6px;
     text-align: center;
     display: none;
-    padding: 0px 30px;
+    padding: 0px 20px;
     box-sizing: initial;
 }
 
@@ -795,6 +838,10 @@ textarea {
 .footer .code-flex .shop-img {
     width: 120px;
     height: 120px;
+}
+
+.footer .code-flex .shop-img img {
+    margin-bottom: 5px;
 }
 
 .footer .footer-bot {
@@ -1074,6 +1121,86 @@ textarea {
 }
 
 
+
+#navbar-box {
+    z-index: 999;
+    background: #fff;
+    height: 60px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    -webkit-box-shadow: 0px 6px 30px 0px rgba(153, 153, 153, 0.18);
+    -moz-box-shadow: 0px 6px 30px 0px rgba(153, 153, 153, 0.18);
+    box-shadow: 0px 6px 30px 0px rgba(153, 153, 153, 0.18);
+  }
+  
+  #navbar-box .inbox {
+    margin-left: 1px;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  
+  #navbar-box .inbox a {
+    float: left;
+    width: 200px;
+    height: 60px;
+    line-height: 60px;
+    border-right: 1px solid #dddddd;
+    text-align: center;
+    font-size: 16px;
+    -webkit-transition: all ease 0.3s;
+    -o-transition: all ease 0.3s;
+    -moz-transition: all ease 0.3s;
+    transition: all ease 0.3s;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+  }
+  
+  #navbar-box .inbox a::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 100%;
+    background: #1e76cf;
+    z-index: -1;
+    -webkit-transition: all ease 0.3s;
+    -o-transition: all ease 0.3s;
+    -moz-transition: all ease 0.3s;
+    transition: all ease 0.3s;
+  }
+  
+  #navbar-box .inbox .cur,
+  #navbar-box .inbox a:hover {
+    color: #fff;
+  }
+  
+  #navbar-box .inbox .cur::after,
+  #navbar-box .inbox a:hover::after {
+    top: 0;
+  }
+  
+  #navbar-box .inbox a:first-child {
+    border-left: 1px solid #dddddd;
+  }
+  
+  #navbar-box .inbox::after {
+    display: none;
+  }
+
+
 /* 商品列表 */
 
 .goods-list {
@@ -1227,6 +1354,7 @@ textarea {
 .case-detail-box {
     background-color: #fff;
     padding: 50px;
+    min-height: 300px;
 }
 
 .case-detail-box .top .tle {
@@ -1238,7 +1366,9 @@ textarea {
 .case-detail-box .info {
     font-size: 14px;
     text-align: center;
-
+    border-bottom: 1px solid #f5f5f5;
+    padding-bottom: 25px;
+    margin-bottom: 30px;
 }
 
 .case-detail-box .info span {
@@ -1274,11 +1404,50 @@ textarea {
 
 
 
+@media screen and (max-width:1365px) {
+    .pc-header .menu-ul {
+        padding: 0 10px;
+    }
 
+    .pc-header .menu-ul li>a {
+        font-size: 16px;
+        padding: 20px 15px;
+    }
+}
 
 
 @media screen and (max-width:1024px) {
     .footer-top {
         display: none;
+    }
+
+    .sec-image {
+        height: 400px;
+    }
+    .sec-image .txt-box .tle{
+        font-size: 44px;
+    }
+
+    .case-list {
+        margin: 0;
+    }
+
+    .case-list li {
+        width: 50%;
+    }
+}
+
+
+@media screen and (max-width:768px) {
+    .sec-image {
+        height: 300px;
+    }
+    .sec-image .txt-box .tle{
+        font-size: 28px;
+    }
+
+    .case-list li {
+        width: 100%;
+        padding-bottom: 15px;
     }
 }

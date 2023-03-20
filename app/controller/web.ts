@@ -4,6 +4,11 @@ export default class WebController extends Controller {
     // 公共数据
     public async commonData() {
         const { ctx } = this;
+        const query = ctx.request.query;
+        const id = Number.isNaN(Number(query.id)) ? 0 : Number(query.id);
+
+        const systemInfo = await this.service.company.getInfo();
+
         // console.log('thisNewsController :>> ', this);
         const menu = await this.service.menu.getList({ pageSize: 10 });
         // 首页菜单
@@ -15,14 +20,22 @@ export default class WebController extends Controller {
         // 当前页菜单
         const currentMenu = menu.list.find(item => item.href === url);
 
+        const nid = id || currentMenu!.id;
+        const item = ctx.helper.getParentNode(menu.list, nid);
+
         // 当前页菜单的最上级菜单
-        const mostMenu = {};
+        const mostMenu = item ? item[0] : {};
+
+        // 当前菜单
+        const nowMenu = ctx.helper.findNodeItem(menu.list, nid) || {};
 
         return {
+            systemInfo,
             menu: menu.list,
             indexMenu,
             currentMenu,
             mostMenu,
+            nowMenu,
         };
     }
 
@@ -40,22 +53,45 @@ export default class WebController extends Controller {
     // 新闻资讯
     public async news() {
         const { ctx } = this;
+        const body = ctx.request.query;
+
         // 公共数据
         const _commonData = await this.commonData();
 
+
+        const params = {
+            page: body.page || 1,
+            pageSize: body.pageSize || 10,
+            type: 1,
+        };
+
+        const data = await this.service.news.getList(params);
+
         await ctx.render('news.nj', {
             ..._commonData,
+            ...data,
+            page: params.page,
+            pageSize: params.pageSize,
         });
     }
 
     // 新闻详情
     public async newsDetail() {
         const { ctx } = this;
+        const query = ctx.request.query;
+        ctx.validate({
+            id: 'string',
+        }, query);
+        const id = Number.isNaN(Number(query.id)) ? 0 : Number(query.id);
+        const data = await this.service.news.info(id);
+
         // 公共数据
         const _commonData = await this.commonData();
 
+
         await ctx.render('news-detail.nj', {
             ..._commonData,
+            data,
         });
     }
 
@@ -87,9 +123,21 @@ export default class WebController extends Controller {
         const { ctx } = this;
         // 公共数据
         const _commonData = await this.commonData();
+        const body = ctx.request.query;
 
+        const params = {
+            page: body.page || 1,
+            pageSize: body.pageSize || 10,
+            type: 3,
+        };
+
+        const data = await this.service.news.getList(params);
+        // console.log('data :>> ', data.list);
         await ctx.render('case.nj', {
             ..._commonData,
+            ...data,
+            page: params.page,
+            pageSize: params.pageSize,
         });
     }
 
@@ -97,11 +145,21 @@ export default class WebController extends Controller {
     // 案例详情
     public async caseDetail() {
         const { ctx } = this;
+        // const body = ctx.request.body;
+        // console.log('body 12313 :>> ', body);
+        const query = ctx.request.query;
+        ctx.validate({
+            id: 'string',
+        }, query);
+        const id = Number.isNaN(Number(query.id)) ? 0 : Number(query.id);
+        const data = await this.service.news.info(id);
+
         // 公共数据
         const _commonData = await this.commonData();
 
         await ctx.render('case-detail.nj', {
             ..._commonData,
+            data,
         });
     }
 
@@ -148,6 +206,34 @@ export default class WebController extends Controller {
         await ctx.render('cooper.nj', {
             ..._commonData,
         });
+    }
+
+
+    // 资料下载
+    public async download() {
+        const { ctx } = this;
+
+        const body = ctx.request.query;
+
+        // 公共数据
+        const _commonData = await this.commonData();
+
+
+        const params = {
+            page: body.page || 1,
+            pageSize: body.pageSize || 10,
+            type: 1,
+        };
+
+        const data = await this.service.file.getList(params);
+
+        await ctx.render('download.nj', {
+            ..._commonData,
+            ...data,
+            page: params.page,
+            pageSize: params.pageSize,
+        });
+
     }
 
     // public async list() {

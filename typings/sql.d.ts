@@ -37,7 +37,7 @@ declare interface NewsTableType extends TableBaseType {
     content: string; // 内容
     content_en: string; // 内容
     home_recommend: 1 | 2; // 是否首页推荐 1:是，2：否
-    sort:number;    // 排序
+    sort: number;    // 排序
 }
 
 
@@ -49,6 +49,7 @@ declare interface MenuTableType extends TableBaseType {
     title: string;   // 标题 
     title_en: string;   //  
     href: string;   // 链接 
+    img: string;     // 图片
     sort: number;   //  排序
     is_show: 1 | 2;    // 是否显示
 }
@@ -68,6 +69,7 @@ declare interface ClassifyTableType extends TableBaseType {
  * video表 数据格式
  */
 declare interface VideoTableType extends TableBaseType {
+    title:string;   // 视频名称
     video_url: string; // 视频地址
     video_image_url: string; // 视频封面图片
     home_recommend: string; //
@@ -133,8 +135,8 @@ declare interface CompanyTableType extends TableBaseType {
     tel: string; // 电话
     address: string; // 地址
     address_en: string; //
-    weixin: string; // 微信二维码
-    shopmall: string; //
+    wx_code: string; // 微信二维码
+    shop_code: string; //    商城二维码
     qq: string; // QQ
     email: string; //
     profile: string; // 公司介绍
@@ -155,13 +157,13 @@ declare interface CompanyTableType extends TableBaseType {
     worth_en: string; //
     service_pre_sales_technical_team_tel: string; // 售前技术团队电话
     service_after_sales_technical_team_tel: string; //
-    beian: string; // 备案号
+    record: string; // 备案号
     honor: string; //
 }
 
 
 
 
-declare interface TableTypeNoID<T> extends Exclude<T,'id'>{
+declare interface TableTypeNoID<T> extends Exclude<T, 'id'> {
 
 }

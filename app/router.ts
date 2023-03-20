@@ -8,6 +8,7 @@ export default (app: Application) => {
     router.get('/', controller.web.index);
 
     router.get('/news', controller.web.news); // 新闻资讯
+    router.get('/download', controller.web.download); // 新闻资讯
     router.get('/news-detail', controller.web.newsDetail); // 新闻详情
     router.get('/product', controller.web.product); // 产品中心
     router.get('/video', controller.web.video); // 视频中心
@@ -30,6 +31,10 @@ export default (app: Application) => {
     router.post('/api/v1/user/list', app.middleware.auth({ required: false }), controller.user.list); // 用户列表
     router.post('/api/v1/user/insert', auth, controller.user.register); // 添加用户
     router.post('/api/v1/user/update', auth, controller.user.update); // 修改用户
+
+
+    router.get('/api/v1/company/info', auth, controller.company.info); // 获取公司信息
+    router.post('/api/v1/company/update', auth, controller.company.update); // 修改公司信息
 
 
     // router.post('/api/v1/banner/list', controller.banner.list); // 查询banner
@@ -64,6 +69,12 @@ export default (app: Application) => {
     router.post('/api/v1/file/insert', auth, controller.file.insert); // 添加文件下载
     router.post('/api/v1/file/delete', auth, controller.file.delete); // 删除文件下载
     router.post('/api/v1/file/update', auth, controller.file.update); // 修改文件下载
+
+
+    router.post('/api/v1/video/list', app.middleware.auth({ required: false }), controller.video.list); // 查询视频
+    router.post('/api/v1/video/insert', auth, controller.video.insert); // 添加视频
+    router.post('/api/v1/video/delete', auth, controller.video.delete); // 删除视频
+    router.post('/api/v1/video/update', auth, controller.video.update); // 修改视频
 
 
 };

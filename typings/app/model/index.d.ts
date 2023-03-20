@@ -11,6 +11,7 @@ import ExportMenu from '../../../app/model/menu';
 import ExportNews from '../../../app/model/news';
 import ExportUser from '../../../app/model/user';
 import ExportVideo from '../../../app/model/video';
+import ExportCompany from '../../../app/model/company';
 
 declare module 'egg' {
   interface IModel {
@@ -21,6 +22,7 @@ declare module 'egg' {
     Menu: ReturnType<typeof ExportMenu>;
     News: ReturnType<typeof ExportNews>;
     User: ReturnType<typeof ExportUser>;
+    Company: ReturnType<typeof ExportCompany>;
     Video: ReturnType<typeof ExportVideo>;
   }
 }

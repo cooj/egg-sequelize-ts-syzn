@@ -1,31 +1,26 @@
 {% extends "./layout/layout.nj" %}
 
 {% block title %}
-    <title>首页</title>
+    <title>{{systemInfo.name}} - {{currentMenu.title}}</title>
 {% endblock %}
 
 {% block content %}
-    <link rel="stylesheet" href="/public/css/pagination.css">
-    <section class="sec-image">
-        <img src="/public/image/EbDLQGAu.jpg" alt="banner">
-        <div class="txt-box">
-            <h3 class="tle wow">产品中心</h3>
-            <div class="info wow"></div>
-        </div>
-    </section>
+
+{% include  "./layout/sec-img.nj" %}
 
     <section class="section-box case-box">
         <div class="container">
             <ul class="case-list">
+                {% for item in list %}
                 <li>
-                    <a href="/news_detail_20">
+                    <a href="/case-detail?id={{item.id}}">
                         <div class="pos case-img">
-                            <img src="/public/image/EbDLQGAu.jpg"/>
+                            <img src="{{item.img}}"/>
                         </div>
-                        <div class="case-tle">坡口机长时间</div>
+                        <div class="case-tle">{{item.title}}</div>
                     </a>
                 </li>
-
+                {% endfor %}
             </ul>
         </div>
     </section>

@@ -17,6 +17,10 @@ export default (app: Application) => {
 
     const table = app.model.define<ModelTypeInstances>('video', {
         id: { type: INTEGER, primaryKey: true, autoIncrement: true, comment: '主键id' },
+        title: {
+            type: STRING(80),
+            comment: '标题',
+        },
         video_url: {
             type: STRING(1000),
             comment: '视频地址',

@@ -10,12 +10,10 @@
         <link rel="icon" href="/public/favicon.png" type="image/x-icon">
         <link rel="stylesheet" href="/public/css/animate.css">
         <link rel="stylesheet" href="/public/css/iconfont.css">
-        {# <link rel="stylesheet" href="/public/css/css.css"> #}
-        {# <link rel="stylesheet" href="/public/css/index.css"> #}
 
         <script src="/public/js/jquery-1.11.3.min.js"></script>
         <script src="/public/js/wow.min.js"></script>
-        <script src="/public/js/jquery.fullpage.min.js"></script>
+        <script src="/public/js/utils.js"></script>
         <script src="/public/js/common.js"></script>
     </head>
 

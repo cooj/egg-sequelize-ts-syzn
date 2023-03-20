@@ -6,7 +6,7 @@ interface ModelTypeInstances extends Model<NewsTableType> { }
 
 
 export default (app: Application) => {
-    const { STRING, INTEGER } = app.Sequelize;
+    const { STRING, INTEGER, TEXT } = app.Sequelize;
 
 
     const table = app.model.define<ModelTypeInstances>('news', {
@@ -28,11 +28,11 @@ export default (app: Application) => {
             comment: '英文描述',
         },
         content: {
-            type: STRING(255),
+            type: TEXT,
             comment: '内容',
         },
         content_en: {
-            type: STRING(255),
+            type: TEXT,
             comment: '英文内容',
         },
         img: {

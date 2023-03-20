@@ -31,7 +31,7 @@ export default (app: Application) => {
             type: INTEGER,
             allowNull: false,
             // defaultValue: 2,
-            comment: ' 1:合作伙伴，2：文件下载',
+            comment: ' 1:文件下载，2：合作伙伴',
         },
         content: {
             type: TEXT,

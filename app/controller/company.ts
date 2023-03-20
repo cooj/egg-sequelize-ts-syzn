@@ -1,10 +1,9 @@
 import { Controller } from 'egg';
 
-
-export default class VideoController extends Controller {
+export default class CompanyController extends Controller {
 
     get serviceFunc() {
-        return this.service.video;
+        return this.service.company;
     }
 
     /**
@@ -45,20 +44,44 @@ export default class VideoController extends Controller {
     async update() {
         const { ctx } = this;
         const body = ctx.request.body;
-        ctx.validate({
-            id: 'number',
-        }, body);
+        // ctx.validate({
+        //     id: 'number',
+        // }, body);
 
         const data = await this.serviceFunc.update(body);
 
         // ctx.body = data;
         if (!data) {
-            ctx.throw(422, 'id不正确！');
+            ctx.throw(422, '修改失败');
         }
         ctx.body = {
             code: 200,
             message: '修改成功',
         };
+    }
+
+    /**
+     * @summary 获取信息
+     */
+    public async info() {
+        const { ctx } = this;
+        const body = ctx.request.body;
+        // console.log('body :>> ', body);
+        // console.log('ctx.request :>> ', ctx.request);
+        // // ctx.validate({
+        // //     id: 'number',
+        // // }, body);
+        // return;
+
+        const data = await this.serviceFunc.getInfo(body);
+        console.log('data :>> ', data);
+        ctx.body = {
+            code: 200,
+            message: '成功',
+            data,
+        };
+
+
     }
 
     /**

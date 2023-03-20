@@ -1,24 +1,20 @@
 {% extends "./layout/layout.nj" %}
 
 {% block title %}
-    <title>首页</title>
+    <title>{{systemInfo.name}} - {{currentMenu.title}}</title>
 {% endblock %}
 
 {% block content %}
-
     <section class="section-box case-detail">
         <div class="container">
-            <div class="cade-detail-box">
+            <div class="case-detail-box">
                 <div class="top">
-                    <h3 class="tile">产品中心产品中心产品中心产品中心 </h3>
+                    <h3 class="tle">{{data.title}} </h3>
                     <div class="info">
-                        <span>2020-10-20</span>
-
+                        <span>{{data.updated_at|showToDate}}</span>
                     </div>
                 </div>
-                <div class="cont">
-                产品中心产品中心产品中心产品中心
-                产品中心产品中心产品中心产品中心
+                <div class="cont">{{data.content|safe}}
                 </div>
 
             </div>

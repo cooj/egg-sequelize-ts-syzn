@@ -2,25 +2,25 @@ import { Service } from 'egg';
 import { WhereOptions } from 'sequelize';
 
 /**
- * NewsService Api Service
+ * CompanyService Api Service
  */
-export class NewsService extends Service {
+export class CompanyService extends Service {
     get Table() { // 获取数据表
-        return this.ctx.model.News;
+        return this.ctx.model.Company;
     }
     /**
      * 获取列表
      * @param body body.page 分页
      * @return
      */
-    public async getList(body: { [x: string]: any; page?: any; pageSize?: any; title?: any; type?: any; }) {
-        const { Op } = this.app.Sequelize;
+    public async getList(body: { [x: string]: string; page?: any; pageSize?: any; title?: any; type?: any; }) {
+        // const { Op } = this.app.Sequelize;
         const page = Number.parseInt(body.page || this.config.common.page);
         const pageSize = Number.parseInt(body.pageSize || this.config.common.pageSize);
 
-        const where: WhereOptions<NewsTableType> = {};
-        if (body.title) where.title = { [Op.like]: body.title };
-        if (body.type) where.type = body.type;
+        const where: WhereOptions<CompanyTableType> = {};
+        // if (body.title) where.title = { [Op.like]: body.title };
+        // if (body.type) where.type = body.type;
 
         const { rows, count } = await this.Table.findAndCountAll({
             where,
@@ -34,16 +34,35 @@ export class NewsService extends Service {
     }
 
     /**
+     * getInfo  获取公司信息
+     */
+    public async getInfo(body?: CompanyTableType) {
+        const id = (body && body.id) ? body.id : 1;
+
+        const data = await this.Table.findOrCreate({
+            where: { id },
+            defaults: {
+                name: '',
+            } as CompanyTableType,
+        });
+        return data[0];
+    }
+
+    /**
      * 添加数据
      * @param body
      * @return
      */
-    public async insert(body: NewsTableType) {
+    public async insert(body: CompanyTableType) {
         return await this.Table.create(body);
     }
 
     // 修改数据
-    async update(body: NewsTableType) {
+    async update(body: CompanyTableType) {
+        console.log('body :>> ', body);
+        if (!body.id) {
+            return await this.insert(body);
+        }
 
         const _data = await this.Table.update(body, {
             where: {
@@ -52,33 +71,6 @@ export class NewsService extends Service {
         });
 
         return _data;
-
-        // .findByIdAndUpdate(body.id, Object.assign(body, { updatedAt: Date.now() }));
-        // if (!_data) {
-        //     ctx.throw(422, '_id不正确！');
-        // }
-        // return {
-        //     code: 200,
-        //     msg: '修改成功',
-        // };
-    }
-
-
-    // 获取记录信息
-    async info(id: number) {
-
-        const _data = await this.Table.findByPk(id);
-
-        return _data;
-
-        // .findByIdAndUpdate(body.id, Object.assign(body, { updatedAt: Date.now() }));
-        // if (!_data) {
-        //     ctx.throw(422, '_id不正确！');
-        // }
-        // return {
-        //     code: 200,
-        //     msg: '修改成功',
-        // };
     }
 
 
@@ -112,4 +104,4 @@ export class NewsService extends Service {
 
 }
 
-export default NewsService;
+export default CompanyService;

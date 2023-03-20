@@ -73,7 +73,7 @@
                         <ul class="news-list">
                             {% for item in list %}
                             <li>
-                                <a href="/news-detail?id={{item.id}}">
+                                <a href="/news-detail?id={{item.id}}" style="color:#1e50ae;">
                                     <div class="news-text">
                                         <h3 class="news-title">{{item.title}}</h3>
                                         <div class="news-desc">{{item.description}}</div>

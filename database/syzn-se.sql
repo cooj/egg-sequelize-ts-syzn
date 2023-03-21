@@ -11,7 +11,7 @@
  Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 21/03/2023 18:50:41
+ Date: 21/03/2023 22:34:46
 */
 
 SET NAMES utf8mb4;
@@ -30,7 +30,7 @@ CREATE TABLE `classify`  (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '分类表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '分类表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of classify
@@ -74,7 +74,7 @@ CREATE TABLE `company`  (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '菜单表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '菜单表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of company
@@ -95,7 +95,7 @@ CREATE TABLE `file`  (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '文件表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '文件表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of file
@@ -126,13 +126,13 @@ CREATE TABLE `goods`  (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '商品表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '商品表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of goods
 -- ----------------------------
-INSERT INTO `goods` VALUES (1, 'ssNRD-Z2自动行走坡口机', '', '动行走坡口机不锈钢倒角机碳钢电动板材平板铣边机器', '', '<p>sssss</p>', '', 3, NULL, 'http://127.0.0.1:7001/public/upload/20230318/0aeee7739e1f6f382a90-1679118880717.png,http://127.0.0.1:7001/public/upload/20230321/4ld2u9Nr-1679367678027.jpg,http://127.0.0.1:7001/public/upload/20230321/bxFP9s9B-1679377782780.jpg', '', '', 2, 0, '2023-03-18 13:54:44', '2023-03-21 13:49:59');
-INSERT INTO `goods` VALUES (2, 'NRD-Z2自动行走坡口机', '', '动行走坡口机不锈钢倒角机碳钢电动板材平板铣边机器', '', '<p>产品详情</p><p><img src=\"http://120.25.100.147:8087/uploads/nrd/20211112/8km98uQH.jpg\"/></p>', '', 12, NULL, 'http://127.0.0.1:7001/public/upload/20230321/5CYs4O1A-1679368180499.jpg', '', '', 2, 0, '2023-03-21 11:09:44', '2023-03-21 11:09:44');
+INSERT INTO `goods` VALUES (1, 'ssNRD-Z2自动行走坡口机', '', '动行走坡口机不锈钢倒角机碳钢电动板材平板铣边机器', '', '<p>sssss</p>', '', 3, NULL, 'http://127.0.0.1:7001/public/upload/20230318/0aeee7739e1f6f382a90-1679118880717.png,http://127.0.0.1:7001/public/upload/20230321/4ld2u9Nr-1679367678027.jpg,http://127.0.0.1:7001/public/upload/20230321/bxFP9s9B-1679377782780.jpg', '', '', 1, 0, '2023-03-18 13:54:44', '2023-03-21 13:49:59');
+INSERT INTO `goods` VALUES (2, 'NRD-Z2自动行走坡口机', '', '动行走坡口机不锈钢倒角机碳钢电动板材平板铣边机器', '', '<p>产品详情</p><p><img src=\"http://120.25.100.147:8087/uploads/nrd/20211112/8km98uQH.jpg\"/></p>', '', 12, NULL, 'http://127.0.0.1:7001/public/upload/20230321/5CYs4O1A-1679368180499.jpg', '', '', 1, 0, '2023-03-21 11:09:44', '2023-03-21 11:09:44');
 
 -- ----------------------------
 -- Table structure for goods_image
@@ -146,7 +146,7 @@ CREATE TABLE `goods_image`  (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '商品图片表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '商品图片表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of goods_image
@@ -169,7 +169,7 @@ CREATE TABLE `home_image`  (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 28 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '首页' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 28 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '首页' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of home_image
@@ -216,7 +216,7 @@ CREATE TABLE `menu`  (
   `is_show` int(11) NULL DEFAULT 1 COMMENT '是否显示，1:是,2:否',
   `img` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '图片',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '菜单表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '菜单表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of menu
@@ -256,7 +256,7 @@ CREATE TABLE `news`  (
   `created_at` datetime NOT NULL,
   `sort` int(11) NULL DEFAULT 0 COMMENT '排序',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '用户表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '用户表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of news
@@ -279,7 +279,7 @@ CREATE TABLE `user`  (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '用户表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '用户表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of user
@@ -302,11 +302,11 @@ CREATE TABLE `video`  (
   `updated_at` datetime NOT NULL,
   `title` varchar(80) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '标题',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '菜单表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '菜单表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of video
 -- ----------------------------
-INSERT INTO `video` VALUES (1, 'https://www.ixigua.com/iframe/7038559399958282782?autoplay=0', 'http://127.0.0.1:7001/public/upload/20230320/3f5AL8f4-1679302200064.jpg', 3, 2, 0, '2023-03-20 16:50:10', '2023-03-20 17:06:45', 'NRD-Z2自动行走坡口机');
+INSERT INTO `video` VALUES (1, 'https://www.ixigua.com/iframe/7038559399958282782?autoplay=0', 'http://127.0.0.1:7001/public/upload/20230320/3f5AL8f4-1679302200064.jpg', 3, 1, 0, '2023-03-20 16:50:10', '2023-03-20 17:06:45', 'NRD-Z2自动行走坡口机');
 
 SET FOREIGN_KEY_CHECKS = 1;

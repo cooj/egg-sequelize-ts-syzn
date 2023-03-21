@@ -11,7 +11,7 @@
  Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 20/03/2023 18:53:44
+ Date: 21/03/2023 18:50:41
 */
 
 SET NAMES utf8mb4;
@@ -79,7 +79,7 @@ CREATE TABLE `company`  (
 -- ----------------------------
 -- Records of company
 -- ----------------------------
-INSERT INTO `company` VALUES (1, '圣殷智能科技（深圳）有限公司', NULL, '010-56002354', '广东省深圳市光明区光明街道东周社区双明大道南侧云智科技园1栋A座18楼', NULL, 'http://127.0.0.1:7001/public/upload/20230320/0uTFTiLT-1679281270680.jpg', 'http://127.0.0.1:7001/public/upload/20230320/0uTFTiLT-1679280803537.jpg', '1008611', '1@1.com', '耐锐德坡口机械（深圳）有限公司专注于坡口机系列。精湛的一体化设计，柔美的线条转角，与科技完美结合，给您带来非同一般的品质。每一件优质的产品都源于耐锐德（Nareed）人严谨的工作态度，科学的工艺流程控制和严格的质量检测，为客户创造实实在在并且持久的价值。耐锐德坡口机械（深圳）有限公司始终把焊前使用的坡口设备和坡口刀具作为开发和研究的重点，同时在研发和生产及营销上不断的创新来满足客户的最新和最高的要求，经过不断的努力我们的平板系列坡口机，自动坡口速度已经最高3米/分钟，最高的光洁度达到3.2，加工出的坡口是符合各类焊接要求的标准，产品和技术已经处于世界领先，广泛应用于机械，电力，化工，核电，锅炉设备行业，食品设备行业，石化，矿山设备，等工矿领域，现场维修部门和机械制造单位。 我们随时为客户服务，永远在客户的身边，忠诚的实现对客户的承诺。领先的技术，卓越的产品，将竭诚为国内外客商和用户提供理想的品质，欢迎各界朋友光临参观，指导业务洽谈。我们引领平板与管道坡口加工技术!', NULL, '耐锐德坡口机械（深圳）有限公司专注于坡口机系列。精湛的一体化设计，柔美的线条转角，与科技完美结合，给您带来非同一般的品质。每一件优质的产品都源于耐锐德（Nareed）人严谨的工作态度，科学的工艺流程控制和严格的质量检测，为客户创造实实在在并且持久的价值。耐锐德坡口机械（深圳）有限公司始终把焊前使用的坡口设备和坡口刀具作为开发和研究的重点，同时在研发和生产及营销上不断的创新来满足客户的最新和最高的要求，经过不断的努力我们的平板系列坡口机，自动坡口速度已经最高3米/分钟，最高的光洁度达到3.2，加工出的坡口是符合各类焊接要求的标准，产品和技术已经处于世界领先，广泛应用于机械，电力，化工，核电，锅炉设备行业，食品设备行业，石化，矿山设备，等工矿领域，现场维修部门和机械制造单位。 我们随时为客户服务，永远在客户的身边，忠诚的实现对客户的承诺。领先的技术，卓越的产品，将竭诚为国内外客商和用户提供理想的品质，欢迎各界朋友光临参观，指导业务洽谈。我们引领平板与管道坡口加工技术!', NULL, 'http://127.0.0.1:7001/public/upload/20230320/1-1679281981217.jpg', NULL, NULL, '2023-03-20', '20', '30', '耐锐德坡口机械 深圳耐锐德坡口机械 坡口机 钢结构', '耐锐德坡口机械（深圳）有限公司位于中国最发达的经济中心城市--深圳市，专注于平板/圆管坡口机系列。精湛的一体化设计，柔美的线条转角，与科技完美结合，给您带来非同一般的品质。每一件优质的产品都源于耐锐德（Nareed）人严谨的工作态度，科学的工艺流程控制和严格的质量检测，为客户创造实实在在并且持久的价值。广泛应用于机械，电力，化工，核电，锅炉设备行业，食品设备行业，石化，矿山设备，等工矿领域。', 'http://127.0.0.1:7001/public/upload/20230320/logo-1679280534962.png', 'http://127.0.0.1:7001/public/upload/20230320/logo-m-1679281065451.png', '以客户为中心，以奋斗者为本 耐锐德坡口机械（深圳）有限公司', NULL, '18018737376', '19925153163', '粤ICP备19156329号', 'http://127.0.0.1:7001/public/upload/20230320/honor-1679281976589.jpg', '2023-03-20 10:27:08', '2023-03-20 11:15:54');
+INSERT INTO `company` VALUES (1, '圣殷智能科技（深圳）有限公司', NULL, '010-56002354', '广东省深圳市光明区光明街道东周社区双明大道南侧云智科技园1栋A座18楼', NULL, 'http://127.0.0.1:7001/public/upload/20230320/0uTFTiLT-1679281270680.jpg', 'http://127.0.0.1:7001/public/upload/20230320/0uTFTiLT-1679280803537.jpg', '1008611', '1@1.com', '耐锐德坡口机械（深圳）有限公司专注于坡口机系列。精湛的一体化设计，柔美的线条转角，与科技完美结合，给您带来非同一般的品质。每一件优质的产品都源于耐锐德（Nareed）人严谨的工作态度，科学的工艺流程控制和严格的质量检测，为客户创造实实在在并且持久的价值。耐锐德坡口机械（深圳）有限公司始终把焊前使用的坡口设备和坡口刀具作为开发和研究的重点，同时在研发和生产及营销上不断的创新来满足客户的最新和最高的要求，经过不断的努力我们的平板系列坡口机，自动坡口速度已经最高3米/分钟，最高的光洁度达到3.2，加工出的坡口是符合各类焊接要求的标准，产品和技术已经处于世界领先，广泛应用于机械，电力，化工，核电，锅炉设备行业，食品设备行业，石化，矿山设备，等工矿领域，现场维修部门和机械制造单位。 我们随时为客户服务，永远在客户的身边，忠诚的实现对客户的承诺。领先的技术，卓越的产品，将竭诚为国内外客商和用户提供理想的品质，欢迎各界朋友光临参观，指导业务洽谈。我们引领平板与管道坡口加工技术!', NULL, '耐锐德坡口机械（深圳）有限公司专注于坡口机系列。精湛的一体化设计，柔美的线条转角，与科技完美结合，给您带来非同一般的品质。每一件优质的产品都源于耐锐德（Nareed）人严谨的工作态度，科学的工艺流程控制和严格的质量检测，为客户创造实实在在并且持久的价值。耐锐德坡口机械（深圳）有限公司始终把焊前使用的坡口设备和坡口刀具作为开发和研究的重点，同时在研发和生产及营销上不断的创新来满足客户的最新和最高的要求，经过不断的努力我们的平板系列坡口机，自动坡口速度已经最高3米/分钟，最高的光洁度达到3.2，加工出的坡口是符合各类焊接要求的标准，产品和技术已经处于世界领先，广泛应用于机械，电力，化工，核电，锅炉设备行业，食品设备行业，石化，矿山设备，等工矿领域，现场维修部门和机械制造单位。 我们随时为客户服务，永远在客户的身边，忠诚的实现对客户的承诺。领先的技术，卓越的产品，将竭诚为国内外客商和用户提供理想的品质，欢迎各界朋友光临参观，指导业务洽谈。我们引领平板与管道坡口加工技术!', NULL, 'http://127.0.0.1:7001/public/upload/20230320/1-1679281981217.jpg', NULL, NULL, '2023-03-20', '20', '30', '耐锐德坡口机械 深圳耐锐德坡口机械 坡口机 钢结构', '耐锐德坡口机械（深圳）有限公司位于中国最发达的经济中心城市--深圳市，专注于平板/圆管坡口机系列。精湛的一体化设计，柔美的线条转角，与科技完美结合，给您带来非同一般的品质。每一件优质的产品都源于耐锐德（Nareed）人严谨的工作态度，科学的工艺流程控制和严格的质量检测，为客户创造实实在在并且持久的价值。广泛应用于机械，电力，化工，核电，锅炉设备行业，食品设备行业，石化，矿山设备，等工矿领域。', 'http://127.0.0.1:7001/public/upload/20230320/logo-1679280534962.png', 'http://127.0.0.1:7001/public/upload/20230320/logo-m-1679281065451.png', '以客户为中心，以奋斗者为本', NULL, '18018737376', '19925153163', '粤ICP备19156329号', 'http://127.0.0.1:7001/public/upload/20230320/honor-1679281976589.jpg', '2023-03-20 10:27:08', '2023-03-21 10:41:32');
 
 -- ----------------------------
 -- Table structure for file
@@ -126,12 +126,13 @@ CREATE TABLE `goods`  (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '商品表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '商品表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of goods
 -- ----------------------------
-INSERT INTO `goods` VALUES (1, 'ss', '', 'ss', '', '<p>sssss</p>', '', 0, NULL, 'http://127.0.0.1:7001/public/upload/20230318/0aeee7739e1f6f382a90-1679118880717.png', '', '', 2, 0, '2023-03-18 13:54:44', '2023-03-18 13:54:44');
+INSERT INTO `goods` VALUES (1, 'ssNRD-Z2自动行走坡口机', '', '动行走坡口机不锈钢倒角机碳钢电动板材平板铣边机器', '', '<p>sssss</p>', '', 3, NULL, 'http://127.0.0.1:7001/public/upload/20230318/0aeee7739e1f6f382a90-1679118880717.png,http://127.0.0.1:7001/public/upload/20230321/4ld2u9Nr-1679367678027.jpg,http://127.0.0.1:7001/public/upload/20230321/bxFP9s9B-1679377782780.jpg', '', '', 2, 0, '2023-03-18 13:54:44', '2023-03-21 13:49:59');
+INSERT INTO `goods` VALUES (2, 'NRD-Z2自动行走坡口机', '', '动行走坡口机不锈钢倒角机碳钢电动板材平板铣边机器', '', '<p>产品详情</p><p><img src=\"http://120.25.100.147:8087/uploads/nrd/20211112/8km98uQH.jpg\"/></p>', '', 12, NULL, 'http://127.0.0.1:7001/public/upload/20230321/5CYs4O1A-1679368180499.jpg', '', '', 2, 0, '2023-03-21 11:09:44', '2023-03-21 11:09:44');
 
 -- ----------------------------
 -- Table structure for goods_image
@@ -152,6 +153,54 @@ CREATE TABLE `goods_image`  (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for home_image
+-- ----------------------------
+DROP TABLE IF EXISTS `home_image`;
+CREATE TABLE `home_image`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键id',
+  `title` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '标题',
+  `title_en` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '英文标题',
+  `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '描述',
+  `description_en` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '英文描述',
+  `url` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '链接地址',
+  `image_url` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '图片地址',
+  `screen` int(11) NOT NULL COMMENT '第几屏',
+  `type` int(11) NOT NULL COMMENT '1：按钮链接，2：图片链接，3：首页产品中心推荐产品,4:背景大图',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 28 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '首页' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of home_image
+-- ----------------------------
+INSERT INTO `home_image` VALUES (1, '1', '', '1', '', '', 'http://127.0.0.1:7001/public/upload/20230321/qlMW9qJz-1679387360922.jpg', 1, 2, '2023-03-21 16:29:22', '2023-03-21 16:29:22');
+INSERT INTO `home_image` VALUES (2, '2', '', '2', '', '', 'http://127.0.0.1:7001/public/upload/20230321/jqYqJ4rV-1679387507974.jpg', 1, 2, '2023-03-21 16:31:49', '2023-03-21 16:31:49');
+INSERT INTO `home_image` VALUES (4, '加入耐锐德', 'JOIN NEREID', 'iconfont icon-shangdian', '111', '/contact', NULL, 1, 1, '2023-03-21 16:29:22', '2023-03-21 16:39:32');
+INSERT INTO `home_image` VALUES (5, '店铺链接', 'Store link', 'iconfont icon-a-ziyuan127', 'iconfont icon-a-ziyuan127', 'https://shop354738390.taobao.com/?spm=a230r.7195193.1997079397.2.70ff4a819fhGMI', NULL, 1, 1, '2023-03-21 16:29:22', '2023-03-21 16:29:22');
+INSERT INTO `home_image` VALUES (6, '服务承诺', 'Service commitment', 'iconfont icon-fuwuchengnuo', 'iconfont icon-fuwuchengnuo', '/honor', NULL, 1, 1, '2023-03-21 16:29:22', '2023-03-21 16:39:35');
+INSERT INTO `home_image` VALUES (7, '售后服务', 'After-sale service', 'iconfont icon-shouye', 'iconfont icon-shouye', '/contact', NULL, 1, 1, '2023-03-21 16:29:22', '2023-03-21 16:39:39');
+INSERT INTO `home_image` VALUES (8, '做坡口行业的<span>领跑者</span>', 'Be the <span> leader in the groove industry</span>', '因为专注，所以专业<br/>                    精湛的一体化设计，柔美的线条转角与科技完美结合，给您带来非同一般的品质', 'Leading technology, excellent products < br / >\n\nExquisite integrated design, soft lines, corners and perfect combination of science and technology bring you extraordinary quality', '/static/image/home/banner2.jpg', 'http://127.0.0.1:7001/public/upload/20230321/5PhceUSx-1679388350429.jpg', 2, 2, '2023-03-21 16:29:22', '2023-03-21 16:45:51');
+INSERT INTO `home_image` VALUES (9, '技术支持', 'Technical support', '技术支持', 'Technical support', '/company', NULL, 2, 1, '2023-03-21 16:29:22', '2023-03-21 16:39:48');
+INSERT INTO `home_image` VALUES (10, '使用案例', 'Use case', '使用案例', 'Use case', '/case', NULL, 2, 1, '2023-03-21 16:29:22', '2023-03-21 16:39:56');
+INSERT INTO `home_image` VALUES (11, '视频使用案例', 'Video use cases', '公司始终把焊前使用坡口设备和坡口刀具作为开发和研究的重点同事在研发和生产及营销上不断的更新', 'The company always takes the use of groove equipment and groove tools before welding as the focus of development and research, and colleagues continue to innovate in R & D, production and marketing', '/static/image/home/banner3.jpg', 'http://127.0.0.1:7001/public/upload/20230321/NTEW5KMm-1679388363924.jpg', 3, 2, '2023-03-21 16:29:22', '2023-03-21 16:46:05');
+INSERT INTO `home_image` VALUES (12, '产品中心', 'Product Center', '成熟的技术，售后的保障<br/>                    精湛的一体化设计，柔美的线条转角与科技完美结合，给您带来非同一般的品质', 'Leading technology, excellent products < br / >\n\nExquisite integrated design, soft lines, corners and perfect combination of science and technology bring you extraordinary quality', '/uploads/nrd/20220707/HVmxbGJH.jpg', 'http://127.0.0.1:7001/public/upload/20230321/qlMW9qJz-1679387360922.jpg', 4, 2, '2023-03-21 16:29:22', '2023-03-21 16:46:57');
+INSERT INTO `home_image` VALUES (13, '自动行走坡口机', 'Automatic traveling beveling machine', '自动行走坡口机', 'Automatic traveling beveling machine', 'http://www.nareed.com/product_list?s=66', NULL, 4, 1, '2023-03-21 16:29:22', '2023-03-21 16:29:22');
+INSERT INTO `home_image` VALUES (14, '小板材坡口机', 'Small plate beveling machine', '小板材坡口机', 'Small plate beveling machine', 'http://www.nareed.com/product_list?s=67', NULL, 4, 1, '2023-03-21 16:29:22', '2023-03-21 16:29:22');
+INSERT INTO `home_image` VALUES (15, '曲线坡口机', 'Curve beveling machine', '曲线坡口机', 'Curve beveling machine', 'http://www.nareed.com/product_list?s=69', NULL, 4, 1, '2023-03-21 16:29:22', '2023-03-21 16:29:22');
+INSERT INTO `home_image` VALUES (16, '便携式坡口机', 'Portable beveling machine', '便携式坡口机', 'Portable beveling machine', 'http://www.nareed.com/product_list?s=68', NULL, 4, 1, '2023-03-21 16:29:22', '2023-03-21 16:29:22');
+INSERT INTO `home_image` VALUES (17, '内涨式圆管坡口机', 'External card type round pipe beveling machine', '内涨式圆管坡口机', 'External card type round pipe beveling machine', 'http://www.nareed.com/product_detail_25', '/uploads/nrd/20220707/5paD47jt.png', 4, 3, '2023-03-21 16:29:22', '2023-03-21 16:29:22');
+INSERT INTO `home_image` VALUES (18, '无上限圆管坡口机', 'Internal expansion round pipe beveling machine', '无上限圆管坡口机', 'Internal expansion round pipe beveling machine', 'http://www.nareed.com/product_detail_27', '/uploads/nrd/20211125/TTiUFJZC.png', 4, 3, '2023-03-21 16:29:22', '2023-03-21 16:29:22');
+INSERT INTO `home_image` VALUES (19, '平板坡口机', 'Planetary pipe beveling machine', '平板坡口机', 'Planetary pipe beveling machine', 'http://www.nareed.com/product_detail_23', '/uploads/nrd/20211120/rVQ6n08l.png', 4, 3, '2023-03-21 16:29:22', '2023-03-21 16:29:22');
+INSERT INTO `home_image` VALUES (20, '自动行走坡口机', 'Round pipe beveling machine without upper limit', '自动行走坡口机', 'Round pipe beveling machine without upper limit', 'http://www.nareed.com/product_detail_18', '/uploads/nrd/20211120/GcoLi1vg.png', 4, 3, '2023-03-21 16:29:22', '2023-03-21 16:29:22');
+INSERT INTO `home_image` VALUES (21, '合作客户', 'Cooperative customers', '科学工艺流程控制和严格质量检测，为客户创造实在并且持久的价值', 'Cooperative customers', '/static/image/home/banner5.jpg', 'http://127.0.0.1:7001/public/upload/20230321/m8CJvET6-1679388431274.jpg', 5, 2, '2023-03-21 16:29:22', '2023-03-21 16:47:12');
+INSERT INTO `home_image` VALUES (23, '内涨式圆管坡口机', 'Internal expansion round pipe beveling machine', '内涨式圆管坡口机', 'Internal expansion round pipe beveling machine', 'http://www.nareed.com/product_list?s=70', NULL, 4, 1, '2023-03-21 16:29:22', '2023-03-21 16:29:22');
+INSERT INTO `home_image` VALUES (24, '外卡式圆管坡口机', 'External card type round pipe beveling machine', '外卡式圆管坡口机', 'External card type round pipe beveling machine', 'http://www.nareed.com/product_list?s=71', NULL, 4, 1, '2023-03-21 16:29:22', '2023-03-21 16:29:22');
+INSERT INTO `home_image` VALUES (25, '无上限圆管坡口机', 'Round pipe beveling machine without upper limit', '无上限圆管坡口机', 'Round pipe beveling machine without upper limit', 'http://www.nareed.com/product_list?s=72', NULL, 4, 1, '2023-03-21 16:29:22', '2023-03-21 16:29:22');
+INSERT INTO `home_image` VALUES (26, 'C型外夹式圆管坡口机', 'C-type external clamp type round pipe beveling machine', 'C型外夹式圆管坡口机', 'C-type external clamp type round pipe beveling machine', 'http://www.nareed.com/product_list?s=74', NULL, 4, 1, '2023-03-21 16:29:22', '2023-03-21 16:29:22');
+INSERT INTO `home_image` VALUES (27, '3', '', '3', '', '3', 'http://127.0.0.1:7001/public/upload/20230321/pic_01-1679388634339.png', 1, 3, '2023-03-21 16:50:49', '2023-03-21 16:50:49');
+
+-- ----------------------------
 -- Table structure for menu
 -- ----------------------------
 DROP TABLE IF EXISTS `menu`;
@@ -167,7 +216,7 @@ CREATE TABLE `menu`  (
   `is_show` int(11) NULL DEFAULT 1 COMMENT '是否显示，1:是,2:否',
   `img` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '图片',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '菜单表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '菜单表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of menu
@@ -175,7 +224,7 @@ CREATE TABLE `menu`  (
 INSERT INTO `menu` VALUES (1, 0, '首页', '', '/', 100, '2023-03-20 13:49:19', '2023-03-17 18:26:55', 2, '');
 INSERT INTO `menu` VALUES (2, 0, '产品中心', '', '/product', 1, '2023-03-17 18:39:53', '2023-03-17 18:39:53', 2, NULL);
 INSERT INTO `menu` VALUES (3, 2, 'Z系列（自动行走坡口机）', '', '/product', 0, '2023-03-18 09:50:08', '2023-03-18 09:02:18', 2, NULL);
-INSERT INTO `menu` VALUES (4, 0, '产品视频', '', '/video', 0, '2023-03-18 16:12:15', '2023-03-18 16:12:15', 2, NULL);
+INSERT INTO `menu` VALUES (4, 0, '产品视频', '', '/video', 0, '2023-03-21 09:04:14', '2023-03-18 16:12:15', 2, 'http://127.0.0.1:7001/public/upload/20230321/about_02-1679360652831.jpg');
 INSERT INTO `menu` VALUES (5, 0, '使用案例', '', '/case', 0, '2023-03-20 09:00:29', '2023-03-18 16:12:31', 2, 'http://127.0.0.1:7001/public/upload/20230320/show-case-1679274026624.jpg');
 INSERT INTO `menu` VALUES (6, 0, '企业实力', '', '/company', 0, '2023-03-20 08:36:46', '2023-03-18 16:12:59', 2, NULL);
 INSERT INTO `menu` VALUES (7, 0, '技术支持', '', '/news', 0, '2023-03-18 16:13:59', '2023-03-18 16:13:59', 2, NULL);
@@ -183,6 +232,10 @@ INSERT INTO `menu` VALUES (8, 0, '荣誉资质', '', '/honor', 0, '2023-03-18 16
 INSERT INTO `menu` VALUES (9, 0, '联系我们', '', '/contact', 0, '2023-03-18 16:15:02', '2023-03-18 16:15:02', 2, NULL);
 INSERT INTO `menu` VALUES (10, 7, '公司新闻', '', '/news', 0, '2023-03-18 16:16:16', '2023-03-18 16:16:16', 2, NULL);
 INSERT INTO `menu` VALUES (11, 7, '资料下载', '', '/download', 0, '2023-03-18 16:16:39', '2023-03-18 16:16:33', 2, NULL);
+INSERT INTO `menu` VALUES (12, 2, 'X 系列（小板材坡口机）', '', '/product', 0, '2023-03-21 08:55:34', '2023-03-21 08:55:01', 2, '');
+INSERT INTO `menu` VALUES (13, 2, 'B 系列（便携式坡口机）', '', '/product', 0, '2023-03-21 09:03:08', '2023-03-21 08:58:22', 2, '');
+INSERT INTO `menu` VALUES (14, 6, '公司简介', '', '/company', 0, '2023-03-21 09:19:30', '2023-03-21 09:17:31', 1, '');
+INSERT INTO `menu` VALUES (15, 6, '合作客户', '', '/cooper', 0, '2023-03-21 09:18:53', '2023-03-21 09:18:42', 1, '');
 
 -- ----------------------------
 -- Table structure for news

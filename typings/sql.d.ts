@@ -69,7 +69,7 @@ declare interface ClassifyTableType extends TableBaseType {
  * video表 数据格式
  */
 declare interface VideoTableType extends TableBaseType {
-    title:string;   // 视频名称
+    title: string;   // 视频名称
     video_url: string; // 视频地址
     video_image_url: string; // 视频封面图片
     home_recommend: string; //
@@ -119,13 +119,6 @@ declare interface GoodsImageTableType extends TableBaseType {
 
 
 
-
-
-
-
-
-
-
 /**
  * company 公司简介表 数据格式
  */
@@ -159,6 +152,20 @@ declare interface CompanyTableType extends TableBaseType {
     service_after_sales_technical_team_tel: string; //
     record: string; // 备案号
     honor: string; //
+}
+
+/**
+ * home_image 首页表 数据格式
+ */
+declare interface HomeImageTableType extends TableBaseType {
+    title: string; //
+    title_en: string; //
+    url: string; // 链接地址
+    image_url: string; // 视频封面图片
+    description: string; // 描述
+    description_en: string; //
+    screen: number; // 第几屏
+    type: number; // 1：按钮链接，2：图片链接，3：首页产品中心推荐产品
 }
 
 

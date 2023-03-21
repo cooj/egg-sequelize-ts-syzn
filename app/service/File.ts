@@ -14,7 +14,7 @@ export class FileService extends Service {
      * @param body body.page 分页
      * @return
      */
-    public async getList(body: { [x: string]: string; page?: any; pageSize?: any; type?: any; }) {
+    public async getList(body: { [x: string]: any; page?: any; pageSize?: any; type?: any; }) {
         const { Op } = this.app.Sequelize;
         const page = Number.parseInt(body.page || this.config.common.page);
         const pageSize = Number.parseInt(body.pageSize || this.config.common.pageSize);

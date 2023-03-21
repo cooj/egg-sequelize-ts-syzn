@@ -79,4 +79,8 @@ export default (app: Application) => {
     router.post('/api/v1/video/update', auth, controller.video.update); // 修改视频
 
 
+    router.post('/api/v1/home/list', app.middleware.auth({ required: false }), controller.home.list); // 查询首页模块
+    router.post('/api/v1/home/insert', auth, controller.home.insert); // 添加首页模块
+    router.post('/api/v1/home/delete', auth, controller.home.delete); // 删除首页模块
+    router.post('/api/v1/home/update', auth, controller.home.update); // 修改首页模块
 };

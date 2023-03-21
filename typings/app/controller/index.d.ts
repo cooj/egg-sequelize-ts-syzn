@@ -7,14 +7,16 @@ import ExportBanner from '../../../app/controller/banner';
 import ExportBase from '../../../app/controller/base';
 import ExportCom from '../../../app/controller/com';
 import ExportCommon from '../../../app/controller/common';
+import ExportCompany from '../../../app/controller/company';
+import ExportFile from '../../../app/controller/file';
 import ExportGoods from '../../../app/controller/goods';
+import ExportHome from '../../../app/controller/home';
 import ExportMenu from '../../../app/controller/menu';
 import ExportNews from '../../../app/controller/news';
 import ExportUpload from '../../../app/controller/upload';
 import ExportUser from '../../../app/controller/user';
 import ExportVideo from '../../../app/controller/video';
 import ExportWeb from '../../../app/controller/web';
-import ExportCompany from '../../../app/controller/company';
 
 declare module 'egg' {
   interface IController {
@@ -22,13 +24,15 @@ declare module 'egg' {
     base: ExportBase;
     com: ExportCom;
     common: ExportCommon;
+    company: ExportCompany;
+    file: ExportFile;
     goods: ExportGoods;
+    home: ExportHome;
     menu: ExportMenu;
     news: ExportNews;
     upload: ExportUpload;
     user: ExportUser;
     video: ExportVideo;
     web: ExportWeb;
-    company: ExportCompany;
   }
 }

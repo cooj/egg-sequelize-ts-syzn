@@ -14,25 +14,20 @@
         <div class="index-a section">
             <div class="swiper banner-swiper">
                 <div class="swiper-wrapper">
+                    {% for item in data1.bgList %}
                     <div class="swiper-slide">
-                        <img src="/public/image/NTEW5KMm.jpg" alt="" style="height:100%;width:100%;">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="/public/image/EbDLQGAu.jpg" alt="" style="height:100%;width:100%;">
-                    </div>
+                        <img src="{{item.image_url}}" alt="">
+                    </div>  
+                    {% endfor %}
                 </div>
             </div>
-            <img src="http://www.nareed.com/uploads/nrd/static/pic_01.png"
+            <img src="{{data1.other[0].image_url}}"
                 alt="" class="fixed-banner-img">
             <div class="index-a-box">
-                <a href="/contact" rel="noopener noreferrer" class="btn lt-btn">
-                    <i class="iconfont icon-shangdian"></i>加入耐锐德 </a>
-                <a href="javascript:;" rel="noopener noreferrer" class="btn lt-btn">
-                    <i class="iconfont icon-a-ziyuan127"></i>店铺链接 </a>
-                <a href="/honor" rel="noopener noreferrer" class="btn lt-btn">
-                    <i class="iconfont icon-fuwuchengnuo"></i>服务承诺 </a>
-                <a href="/contact" rel="noopener noreferrer" class="btn lt-btn">
-                    <i class="iconfont icon-shouye"></i>售后服务 </a>
+                {% for item in data1.link %}
+                    <a href="{{item.url}}" class="btn lt-btn">
+                    <i class="{{item.description}}"></i>{{item.title}} </a>
+                {% endfor %}
             </div>
         </div>
         <div class="ind_b section" style="background: url(/public/image/5phceusx.jpg) no-repeat center center / cover;">
@@ -278,7 +273,7 @@
     </div>
 
     <script>
-
+      var swiper = new Swiper(".banner-swiper", {});
         new fullpage('#fullpage', {
             //options here
             autoScrolling: true,
@@ -286,6 +281,7 @@
             navigation: true,
             responsiveWidth: 900, // 屏幕小于时，正常网站
         });
+
     </script>
 
 {% endblock %}

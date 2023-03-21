@@ -6,12 +6,9 @@
 
 {% block content %}
     <link rel="stylesheet" href="/public/css/fullpage.min.css"/>
+    <link rel="stylesheet" href="/public/css/index.css"/>
     <script src="/public/js/fullpage.min.js"></script>
-    <style>
-        .fp-watermark {
-            display: none;
-        }
-    </style>
+
 
     <div id="fullpage">
         <div class="index-a section">

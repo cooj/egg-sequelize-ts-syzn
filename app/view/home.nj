@@ -9,15 +9,14 @@
     <link rel="stylesheet" href="/public/css/index.css"/>
     <script src="/public/js/fullpage.min.js"></script>
 
-
     <div id="fullpage">
         <div class="index-a section">
             <div class="swiper banner-swiper">
                 <div class="swiper-wrapper">
                     {% for item in data1.bgList %}
-                    <div class="swiper-slide">
-                        <img src="{{item.image_url}}" alt="">
-                    </div>  
+                        <div class="swiper-slide">
+                            <img src="{{item.image_url}}" alt="">
+                        </div>
                     {% endfor %}
                 </div>
             </div>
@@ -26,152 +25,100 @@
             <div class="index-a-box">
                 {% for item in data1.link %}
                     <a href="{{item.url}}" class="btn lt-btn">
-                    <i class="{{item.description}}"></i>{{item.title}} </a>
+                        <i class="{{item.description}}"></i>{{item.title}}
+                    </a>
                 {% endfor %}
             </div>
         </div>
-        <div class="ind_b section" style="background: url(/public/image/5phceusx.jpg) no-repeat center center / cover;">
-            <div class="wrap">
-                <div class="indiv">
-                    <div class="title">做坡口行业的<span>领跑者</span></div>
-                    <div class="text">因为专注，所以专业<br> 精湛的一体化设计，柔美的线条转角与科技完美结合，给您带来非同一般的品质</div>
+        <div class="index-b section" style="background: url({{data2.bgList[0].image_url}}) no-repeat center center / cover;">
+
+            <div class="container">
+                <div class="index-b-box">
+                    <div class="title">{{data2.bgList[0].title|safe}}</div>
+                    <div class="text">{{data2.bgList[0].description|safe}}</div>
                     <div class="btn-box">
-                        <a href="technical.html" rel="noopener noreferrer" class="btn rt-btn zx">技术支持</a>
-                        <a href="show_case.html" rel="noopener noreferrer" class="btn rt-btn zx">使用案例</a>
+                        {% for item in data2.link %}
+                            <a href="{{item.url}}"  class="btn rt-btn zx">{{item.title}}</a>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
         </div>
-        <div class="ind_c ind_e section"
-            style="background: url(/public/image/ntew5kmm.jpg) no-repeat center center / cover;">
-            <div class="wrap footer-wrap">
-                <div class="indiv">
-                    <div class="title">视频使用案例</div>
-                    <div class="text" style="width:50%;margin:0 auto;">公司始终把焊前使用坡口设备和坡口刀具作为开发和研究的重点同事在研发和生产及营销上不断的更新
+        <div class="index-b index-c section"
+            style="background: url({{data3.bgList[0].image_url}}) no-repeat center center / cover;">
+            <div class="container">
+                <div class="index-b-box">
+                    <div class="title">{{data3.bgList[0].title}}</div>
+                    <div class="text" style="width:50%;margin:0 auto;">{{data3.bgList[0].description}}
                     </div>
                     <div class="arrow">
                         <img src="/public/image/down-arrow.png" alt="">
                     </div>
-                    <div class="swiper-box">
-                        <div class="btn prev_news">
+                    <div class="video-swiper">
+                        <div class="btn prev-btn">
                             <img src="/public/image/prev_jt_01.png" alt="">
                         </div>
-                        <div class="btn next_news">
+                        <div class="btn next-btn">
                             <img src="/public/image/next_jt_01.png" alt="">
                         </div>
-                        <div class="swiper-container" id="news">
+                        <div class="swiper swp-video" >
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide hoverbtn">
-                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
-                                        src="7035971809363100174.html" referrerpolicy="unsafe-url"
-                                        allowfullscreen=""></iframe>
-                                </div>
-
-                                {# <div class="swiper-slide hoverbtn">
-                                    <iframe style="display:block;width:100%;height:100%;" frameborder="0"
-                                        src="7064825560412717598.html" referrerpolicy="unsafe-url"
-                                        allowfullscreen=""></iframe>
-                                </div> #}
-
+                                {% for item in video %}
+                                    <div class="swiper-slide hoverbtn">
+                                        {# <iframe style="display:block;width:100%;height:100%;" frameborder="0"
+                                        src="{{item.video_url}}" referrerpolicy="unsafe-url"
+                                        allowfullscreen=""></iframe> #}
+                                        <div class="pos">
+                                            <img src="{{item.video_image_url}}" alt="">
+                                        </div>
+                                    </div>
+                                {% endfor %}
                             </div>
                         </div>
-                        <div class="swiper-pagination mobanner" id="newssp"></div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="ind_d section" style="background: url(/public/image/ebdlqgau.jpg) no-repeat center center / cover;">
-            <div class="wrap footer-wrap">
-                <div class="indiv">
-                    <div class="title black-color">产品中心</div>
+        <div class="index-b index-d section" style="background: url({{data4.bgList[0].image_url}}) no-repeat center center / cover;">
+            <div class="container">
+                <div class="index-b-box">
+                    <div class="title">{{data4.bgList[0].title}}</div>
                     <div class="produt-img">
-                        <img src="/public/image/product-img.png;jsessionid=a59d95d3d371acacf39a6842294d8786" alt="">
+                        <img src="{{data4.other[0].image_url}}" alt="">
                     </div>
-                    <div class="text black-color">成熟的技术，售后的保障<br> 精湛的一体化设计，柔美的线条转角与科技完美结合，给您带来非同一般的品质</div>
+                    <div class="text">{{data4.bgList[0].description|safe}}</div>
                     <div class="btn-box">
-                        <a href="product_list1.html" rel="noopener noreferrer" class="btn rt-btn zx">自动行走坡口机</a>
-                        <a href="product_list2.html" rel="noopener noreferrer" class="btn rt-btn zx">小板材坡口机</a>
-                        <a href="product_list4.html" rel="noopener noreferrer" class="btn rt-btn zx">曲线坡口机</a>
-                        <a href="product_list3.html" rel="noopener noreferrer" class="btn rt-btn zx">便携式坡口机</a>
-                        <a href="product_list5.html" rel="noopener noreferrer" class="btn rt-btn zx">内涨式圆管坡口机</a>
-                        <a href="product_list6.html" rel="noopener noreferrer" class="btn rt-btn zx">外卡式圆管坡口机</a>
-                        <a href="product_list7.html" rel="noopener noreferrer" class="btn rt-btn zx">无上限圆管坡口机</a>
-                        <a href="product_list9.html" rel="noopener noreferrer" class="btn rt-btn zx">C型外夹式圆管坡口机</a>
+                        {% for item in goods %}
+                            <a href="/prroduct-detail?id={{item.id}}" class="btn">{{item.title}}</a>
+                        {% endfor %}
                     </div>
                 </div>
-                <a href="product_detail_25.html" class="pro-01 pro-img">
-                    <img src="/public/image/5pad47jt.png" alt="">
-                </a>
-                <a href="product_detail_27.html" class="pro-02 pro-img">
-                    <img src="/public/image/ttiufjzc.png" alt="">
-                </a>
-                <a href="product_detail_23.html" class="pro-03 pro-img">
-                    <img src="/public/image/rvq6n08l.png" alt="">
-                </a>
-                <a href="product_detail_18.html" class="pro-04 pro-img">
-                    <img src="/public/image/gcoli1vg.png" alt="">
-                </a>
-
             </div>
         </div>
-        <div class="ind_d section ind_d-logo"
-            style="background: url(/public/image/m8cjvet6.jpg) no-repeat center center / cover;">
-            <div class="wrap">
-                <div class="indivs">
-                    <div class="title">合作客户</div>
-                    <div class="te">科学工艺流程控制和严格质量检测，为客户创造实在并且持久的价值</div>
-                    <div class="swiper-box clearfix">
-                        <div class="sbox">
-                            <div class="swiper-container" id="partnerswiper">
-                                <div class="swiper-wrapper">
+        <div class="index-b section"
+            style="background: url({{data5.bgList[0].image_url}}) no-repeat center center / cover;">
+            <div class="container">
+                <div class="index-b-box">
+                    <div class="title">{{data5.bgList[0].title}}</div>
+                    <div class="te">{{data5.bgList[0].description|safe}}</div>
+                    <div class="swp-cooper-box">
+                        <div class="swiper swp-cooper">
+                            <div class="swiper-wrapper">
+                                {% for item in cooper %}
                                     <div class="swiper-slide">
-                                        <img src="/public/image/hehmdauj.jpg" alt="1">
+                                        <div class="pos">
+                                            <img src="{{item.url}}" alt="{{item.name}}">
+                                        </div>
                                     </div>
-                                    <div class="swiper-slide">
-                                        <img src="/public/image/y1bbfh8m.jpg" alt="2">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="/public/image/oqxuhbcv.jpg" alt="3">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="/public/image/2gbavzm7.jpg" alt="4">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="/public/image/wkiotmtp.jpg" alt="5">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="/public/image/mcx8nias.jpg" alt="9">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="/public/image/gyhhblqh.jpg" alt="7">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="/public/image/ayuwgfam.jpg" alt="11">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="/public/image/eegvklmj.jpg" alt="12">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="/public/image/gjr2ckm8.jpg" alt="13">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="/public/image/l6vgqa8p.jpg" alt="11">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="/public/image/dr8m7y7n.jpg" alt="12">
-                                    </div>
-
-                                </div>
+                                {% endfor %}
                             </div>
-                            <div class="control-box">
-                                <div class="box clearfix">
-                                    <div class="btn prev_partnerswiper">
-                                        <img src="/public/image/prev_jt_01.png" alt="">
-                                    </div>
-                                    <div class="btn next_partnerswiper">
-                                        <img src="/public/image/next_jt_01.png" alt="">
-                                    </div>
-                                </div>
+                        </div>
+                        <div class="control-box">
+                            <div class="btn cooper-prev">
+                                <img src="/public/image/prev_jt_01.png" alt="">
+                            </div>
+                            <div class="btn next_partnerswiper">
+                                <img src="/public/image/next_jt_01.png" alt="">
                             </div>
                         </div>
                     </div>
@@ -183,105 +130,40 @@
         <div id="footer" class="section fp-auto-height">
             {% include "./layout/footer.nj" %}
         </div>
-        {# <script src="/public/js/qrcode.js"></script> #}
-        {# <script>
-            var winW = document.body.clientWidth
-                if (winW > 1421) {
-                    var wrapW = $('.wrap').css('width')
-                    var footNavW = parseFloat($('.footer-nav').css('width'))
-                    $('.footer-nav').css({
-                        'margin-left': -footNavW / 2 + 'px'
-                    })
-                    var _disLeft = $('.footer-nav')
-                        .offset()
-                        .left
-                    var logoImgWidth = parseFloat($('.footer-log-img').css('width'))
-                    $('.footer-logo').css('left', _disLeft - logoImgWidth - 80 + 'px')
-                    $('.footer .company-info').css('margin-left', _disLeft + 'px')
-                    var _imgLeft = $('.footer-log-img')
-                        .offset()
-                        .left
-                        $('.code-img')
-                        .css('right', _imgLeft + 'px')
-                }
-
-                // 分享
-
-                var qrcode = new QRCode("wxImg", {
-                        text: location.href,
-                        width: 256,
-                        height: 256,
-                        colorDark: "#000000",
-                        colorLight: "#ffffff",
-                        correctLevel: QRCode.CorrectLevel.H
-                    })
-
-                    var _title,
-                        _source,
-                        _sourceUrl,
-                        _pic,
-                        _showcount,
-                        _desc,
-                        _summary,
-                        _site,
-                        _url;
-
-                    $('.share-link').on('click', function () {
-                        copy(location.href)
-                    })
-
-                    function copy(value) {
-                        const input = document.createElement('input') // js创建一个input输入框
-                        input.value = value // 将需要复制的文本赋值到创建的input输入框中
-                        document
-                            .body
-                            .appendChild(input) // 将输入框暂时创建到实例里面
-                        input.select() // 选中输入框中的内容
-                        document.execCommand('Copy') // 执行复制操作
-                        document
-                            .body
-                            .removeChild(input) // 最后删除实例中临时创建的input输入框，完成复制操作
-                        VtMessage.success({duration: 0, content: '链接复制成功', offset: 'vt-top-center vt-fixed'})
-                        setTimeout(function () {
-                            $('.vt-message-package').css('display', 'none')
-                        }, 2000)
-                    }
-
-                    $('.fixed-nav').on('click', '.scroll-top', function () {
-                        if (location.pathname != '/') {
-                            $('html, body').animate({
-                                scrollTop: 0
-                            }, 300);
-                        } else {
-                            $('#fullpage').css("transform", "translate3d(0px, 0px, 0px)")
-                            $('#fullpage .section')
-                                .eq(0)
-                                .addClass('active fp-completely')
-                                .siblings()
-                                .removeClass('active fp-completely')
-                            $('#fp-nav ul li')
-                                .eq(0)
-                                .find('a')
-                                .addClass('active')
-                                .parent()
-                                .siblings()
-                                .find('a')
-                                .removeClass('active')
-                        }
-                    })
-        </script> #}
     </div>
 
     <script>
-      var swiper = new Swiper(".banner-swiper", {});
+        var swiper = new Swiper(".banner-swiper", {});
+        var swp_video = new Swiper(".swp-video", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            },
+            navigation: {
+                nextEl: ".video-swiper .next-btn",
+                prevEl: ".video-swiper .prev-btn"
+            }
+        });
+        var swp_cooper = new Swiper(".swp-cooper", {
+            slidesPerView: 4,
+            grid: {
+                rows: 3
+            },
+            spaceBetween: 30,
+            navigation: {
+                nextEl: ".cooper-prev",
+                prevEl: ".cooper-next"
+            }
+        });
         new fullpage('#fullpage', {
             //options here
             autoScrolling: true,
             scrollHorizontally: true,
             navigation: true,
-            responsiveWidth: 900, // 屏幕小于时，正常网站
+            responsiveWidth: 1024, // 屏幕小于时，正常网站
         });
-
     </script>
 
 {% endblock %}

@@ -1612,7 +1612,7 @@ textarea {
     font-size: 14px;
 }
 
-.swiper-pag{
+.swiper-pag {
     height: 40px;
     position: relative;
 }
@@ -1783,7 +1783,7 @@ textarea {
     flex-wrap: wrap;
     justify-content: center;
     margin: 0 -20px;
-min-height: 250px;
+    min-height: 250px;
 }
 
 .cooper-list li {
@@ -1846,6 +1846,10 @@ min-height: 250px;
 
 
 @media screen and (max-width:1024px) {
+    body {
+        width: 1024px;
+    }
+
     .footer-top {
         display: none;
     }

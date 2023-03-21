@@ -53,11 +53,46 @@ export default class WebController extends Controller {
             link: allData.list.filter(item => item.screen === 1 && item.type === 1),
             other: allData.list.filter(item => item.screen === 1 && item.type === 3),
         };
+        const data2 = {
+            bgList: allData.list.filter(item => item.screen === 2 && item.type === 2),
+            link: allData.list.filter(item => item.screen === 2 && item.type === 1),
+            other: allData.list.filter(item => item.screen === 2 && item.type === 3),
+        };
+        const data3 = {
+            bgList: allData.list.filter(item => item.screen === 3 && item.type === 2),
+            link: allData.list.filter(item => item.screen === 3 && item.type === 1),
+            other: allData.list.filter(item => item.screen === 3 && item.type === 3),
+        };
+        const data4 = {
+            bgList: allData.list.filter(item => item.screen === 4 && item.type === 2),
+            link: allData.list.filter(item => item.screen === 4 && item.type === 1),
+            other: allData.list.filter(item => item.screen === 4 && item.type === 3),
+        };
+        const data5 = {
+            bgList: allData.list.filter(item => item.screen === 5 && item.type === 2),
+            link: allData.list.filter(item => item.screen === 5 && item.type === 1),
+            other: allData.list.filter(item => item.screen === 5 && item.type === 3),
+        };
 
+        const video = await this.service.video.getList({ home_recommend: 1 });
+        const goods = await this.service.goods.getList({ pageSize: 12, home_recommend: 1 });
+        const params = {
+            pageSize: 24,
+            type: 2,
+        };
+
+        const cooper = await this.service.file.getList(params);
 
         await ctx.render('home.nj', {
             ..._commonData,
             data1,
+            data2,
+            data3,
+            data4,
+            data5,
+            video: video.list,
+            goods: goods.list,
+            cooper: cooper.list,
         });
     }
 

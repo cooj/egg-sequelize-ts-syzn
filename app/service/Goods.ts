@@ -48,6 +48,29 @@ export class GoodsService extends Service {
 
     }
 
+    // 修改数据
+    async update(body: NewsTableType) {
+
+        const _data = await this.Table.update(body, {
+            where: {
+                id: body.id!,
+            },
+        });
+
+        return _data;
+
+    }
+
+
+    // 获取记录信息
+    async info(id: number) {
+
+        const _data = await this.Table.findByPk(id);
+
+        return _data;
+
+    }
+
     // 删除数据
     public async delete(id: number) {
         const _data = await this.Table.destroy({

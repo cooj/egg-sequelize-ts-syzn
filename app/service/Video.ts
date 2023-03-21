@@ -18,6 +18,7 @@ export class VideoService extends Service {
 
         const where: WhereOptions<TableOptionType> = {};
         if (body.title) where.title = { [Op.like]: body.title };
+        if (body.belong_id) where.belong_id = { [Op.eq]: body.belong_id };
 
         const { rows, count } = await this.Table.findAndCountAll({
             where,
@@ -64,8 +65,18 @@ export class VideoService extends Service {
     async info(id: number) {
 
         const _data = await this.Table.findByPk(id);
+        let videoInfo = {};
+        if (_data) {
+            const res = await this.ctx.curl('https://www.ixigua.com/api/public/get_iframe_info?url=' + _data.video_url);
+            if (res.status === 200) videoInfo = JSON.parse(res.data);
 
-        return _data;
+        }
+
+        // console.log('videoInfo :>> ', videoInfo);
+        return {
+            data: _data,
+            videoInfo,
+        };
     }
 
 

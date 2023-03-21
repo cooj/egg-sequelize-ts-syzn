@@ -1,13 +1,11 @@
 {% extends "./layout/layout.nj" %}
 
-{% block title %}
+{# {% block title %}
     <title>首页</title>
-{% endblock %}
+{% endblock %} #}
 
 {% block content %}
-    <link rel="stylesheet" href="/public/css/swiper-3.4.2.min.css">
-    <script src="/public/js/swiper-3.4.2.min.js"></script>
-    <link rel="stylesheet" href="/public/css//fullpage.min.css"/>
+    <link rel="stylesheet" href="/public/css/fullpage.min.css"/>
     <script src="/public/js/fullpage.min.js"></script>
     <style>
         .fp-watermark {
@@ -17,7 +15,7 @@
 
     <div id="fullpage">
         <div class="index-a section">
-            <div class="swiper-container" id="bannerswiper" style="width:100%;height:100%;">
+            <div class="swiper banner-swiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <img src="/public/image/NTEW5KMm.jpg" alt="" style="height:100%;width:100%;">
@@ -30,13 +28,13 @@
             <img src="http://www.nareed.com/uploads/nrd/static/pic_01.png"
                 alt="" class="fixed-banner-img">
             <div class="index-a-box">
-                <a href="contact_us.html" rel="noopener noreferrer" class="btn lt-btn">
+                <a href="/contact" rel="noopener noreferrer" class="btn lt-btn">
                     <i class="iconfont icon-shangdian"></i>加入耐锐德 </a>
                 <a href="javascript:;" rel="noopener noreferrer" class="btn lt-btn">
                     <i class="iconfont icon-a-ziyuan127"></i>店铺链接 </a>
-                <a href="honor.html" rel="noopener noreferrer" class="btn lt-btn">
+                <a href="/honor" rel="noopener noreferrer" class="btn lt-btn">
                     <i class="iconfont icon-fuwuchengnuo"></i>服务承诺 </a>
-                <a href="contact_us.html" rel="noopener noreferrer" class="btn lt-btn">
+                <a href="/contact" rel="noopener noreferrer" class="btn lt-btn">
                     <i class="iconfont icon-shouye"></i>售后服务 </a>
             </div>
         </div>

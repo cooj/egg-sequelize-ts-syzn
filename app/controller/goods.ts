@@ -54,29 +54,39 @@ export default class GoodsController extends Controller {
      * @summary 删除banner
      */
     async delete() {
-        const { ctx, service } = this;
+        const { ctx } = this;
         const body = ctx.request.body;
         ctx.validate({
-            id: 'string',
+            id: 'number',
         }, body);
-        const data = await service.bannerService.delete(body.id);
+        const data = await this.serviceFunc.delete(body.id);
 
-        ctx.body = data;
+        // ctx.body = data;
+        if (!data) ctx.throw(422, '删除失败');
+        ctx.body = {
+            code: 200,
+            message: '删除成功',
+        };
     }
 
     /**
      * @summary 修改banner
      */
     async update() {
-        const { ctx, service } = this;
+        const { ctx } = this;
         const body = ctx.request.body;
         ctx.validate({
-            id: 'string',
+            id: 'number',
         }, body);
 
-        const data = await service.bannerService.update(body);
+        const data = await this.serviceFunc.update(body);
 
-        ctx.body = data;
+        if (!data) ctx.throw(422, '修改失败');
+        ctx.body = {
+            code: 200,
+            message: '修改成功',
+        };
+        // ctx.body = data;
     }
 
 

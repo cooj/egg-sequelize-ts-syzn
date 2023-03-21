@@ -1,25 +1,56 @@
 {% extends "./layout/layout.nj" %}
 
-{% block title %}
-    <title>首页</title>
-{% endblock %}
+{# {% block title %}
+    <title>{{systemInfo.name}} - {{currentMenu.title}}</title>
+{% endblock %} #}
 
 {% block content %}
-    <link rel="stylesheet" href="/public/css/pagination.css">
-    <section class="sec-image">
-        <img src="/public/image/EbDLQGAu.jpg" alt="banner">
-        <div class="txt-box">
-            <h3 class="tle wow">产品中心</h3>
-            <div class="info wow"></div>
-        </div>
-    </section>
+ {% include  "./layout/sec-img.nj" %}
 
     <section class="section-box">
+        
         <div class="container">
             <div class="conn-flex">
                 <div class="conn-left">
-                    <!-- 子菜单 -->
-                    {% include "./layout/left.nj" %}
+<div class="conn-slide">
+    <div class="tle">
+        <h3 class="cn">{{currentMenu.title}}</h3>
+        <p class="en">{{currentMenu.title_en}}</p>
+    </div>
+    <ul class="conn-slide-menu">
+        {% for item in classify.children %}
+        <li class="{{'on' if item.id==currentId}}">
+            <div class="a-tle">
+                <i class="icon"></i>
+                <a href="/video?type={{item.id}}">
+                    {{item.title}}
+                </a>
+            </div>
+            {% if item.children?.length>0 %}
+                
+            {% endif %}
+            <dl>
+                {% for sub in item.children %}
+                   <dd class="">
+                    <a href="/video?type={{sub.id}}">
+                    {{sub.title}}
+                </a>
+                </dd> 
+                {% endfor %}
+            </dl>
+        </li>            
+        {% endfor %}
+    </ul>
+</div>
+<script>
+    $(".conn-slide-menu>li .a-tle .icon").click(function (e) {
+        let parentLi = $(this).parents("li")
+        let dl = parentLi.children("dl")
+        if (dl[0]) {
+            parentLi.toggleClass("on")
+        }
+    })
+</script>
                 </div>
                 <div class="conn-right">
                     <div class="con-title">
@@ -29,7 +60,7 @@
                     <div>
                         <ul class="goods-list">
                             {% for item in list %}
-                                <li>
+                                <li class="lis">
                                     <a href="/video-detail?id={{item.id}}">
                                         <div class="pos video-img">
                                             {# <video src="{{item.video_url}}"  controls="controls"></video> #}

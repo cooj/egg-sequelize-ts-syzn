@@ -5,13 +5,18 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {% block title %}
-            <title>耐锐德坡口机械（深圳）有限公司</title>
+            <title>{{systemInfo.name}}</title>
+            <meta name="keywords" content="{{systemInfo.seo_keyword}}">
+            <meta name="description" content="{{systemInfo.seo_description}}">
         {% endblock %}
         <link rel="icon" href="/public/favicon.png" type="image/x-icon">
+        <link rel="stylesheet" href="/public/css/swiper-bundle.min.css">
+        
         <link rel="stylesheet" href="/public/css/animate.css">
         <link rel="stylesheet" href="/public/css/iconfont.css">
 
         <script src="/public/js/jquery-1.11.3.min.js"></script>
+        <script src="/public/js/swiper-bundle.min.js"></script>
         <script src="/public/js/wow.min.js"></script>
         <script src="/public/js/utils.js"></script>
         <script src="/public/js/common.js"></script>

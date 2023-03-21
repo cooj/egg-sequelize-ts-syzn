@@ -5,7 +5,7 @@ export default class WebController extends Controller {
     public async commonData() {
         const { ctx } = this;
         const query = ctx.request.query;
-        const id = Number.isNaN(Number(query.id)) ? 0 : Number(query.id);
+        const id = Number.isNaN(Number(query.id)) ? 0 : Number.parseInt(query.id);
 
         const systemInfo = await this.service.company.getInfo();
 
@@ -82,7 +82,7 @@ export default class WebController extends Controller {
         ctx.validate({
             id: 'string',
         }, query);
-        const id = Number.isNaN(Number(query.id)) ? 0 : Number(query.id);
+        const id = Number.isNaN(Number(query.id)) ? 0 : Number.parseInt(query.id);
         const data = await this.service.news.info(id);
 
         // 公共数据
@@ -98,11 +98,64 @@ export default class WebController extends Controller {
     // 产品中心
     public async product() {
         const { ctx } = this;
+        const body = ctx.request.query;
         // 公共数据
         const _commonData = await this.commonData();
 
+        const url = '/product';
+        // 当前页菜单
+        const classify = _commonData.menu.find(item => item.href === url);
+
+
+        const params: any = {
+            page: body.page || 1,
+            pageSize: body.pageSize || 10,
+
+        };
+        const id = Number.isNaN(Number(body.id)) ? 0 : Number.parseInt(body.id);
+        if (id) params.classify_id = id;
+        const data = await this.service.goods.getList(params);
+
+
         await ctx.render('product.nj', {
             ..._commonData,
+            ...data,
+            page: body.page,
+            pageSize: body.pageSize,
+            classify,
+            currentId: id,
+        });
+    }
+
+
+    // 产品详情
+    public async productDetail() {
+        const { ctx } = this;
+        const query = ctx.request.query;
+        // 公共数据
+        const _commonData = await this.commonData();
+
+
+        ctx.validate({
+            id: 'string',
+        }, query);
+        const id = Number.isNaN(Number(query.id)) ? 0 : Number.parseInt(query.id);
+        const data = await this.service.goods.info(id);
+        const download = await this.service.menu.getInfo({ href: '/download' });
+        const download_url = download ? download.href + '?id=' + download.id : '';
+
+        let relevanceList: any[] = [];
+        if (data?.id) {
+
+            const res = await this.service.goods.getList({ pageSize: 9, classify_id: data.classify_id });
+            relevanceList = res.list;
+        }
+
+        await ctx.render('product-detail.nj', {
+            ..._commonData,
+            data,
+            download_url,
+            relevanceList,
         });
     }
 
@@ -114,22 +167,28 @@ export default class WebController extends Controller {
         const _commonData = await this.commonData();
         const body = ctx.request.query;
 
-        const params = {
+        const params: any = {
             page: body.page || 1,
             pageSize: body.pageSize || 10,
-            type: 3,
+            belong_id: Number.parseInt(body.type),
         };
+        if (!params.belong_id) delete params.belong_id;
 
         const data = await this.service.video.getList(params);
+        const url = '/product';
+        // 当前页菜单
+        const classify = _commonData.menu.find(item => item.href === url);
 
         await ctx.render('video.nj', {
             ..._commonData,
             ...data,
             page: params.page,
             pageSize: params.pageSize,
+            classify,
+            currentId: params.belong_id,
         });
     }
-    // 视频中心
+    // 视频详情
     public async videoDetail() {
         const { ctx } = this;
 
@@ -137,7 +196,7 @@ export default class WebController extends Controller {
         ctx.validate({
             id: 'string',
         }, query);
-        const id = Number.isNaN(Number(query.id)) ? 0 : Number(query.id);
+        const id = Number.isNaN(Number(query.id)) ? 0 : Number.parseInt(query.id);
         const data = await this.service.video.info(id);
 
         // 公共数据
@@ -146,7 +205,7 @@ export default class WebController extends Controller {
 
         await ctx.render('video-detail.nj', {
             ..._commonData,
-            data,
+            ...data,
         });
     }
 
@@ -183,7 +242,7 @@ export default class WebController extends Controller {
         ctx.validate({
             id: 'string',
         }, query);
-        const id = Number.isNaN(Number(query.id)) ? 0 : Number(query.id);
+        const id = Number.isNaN(Number(query.id)) ? 0 : Number.parseInt(query.id);
         const data = await this.service.news.info(id);
 
         // 公共数据
@@ -224,8 +283,13 @@ export default class WebController extends Controller {
         // 公共数据
         const _commonData = await this.commonData();
 
+        const body = ctx.request.query;
+
+        const currentId = Number.isNaN(Number(body.id)) ? 0 : parseInt(body.id);
+
         await ctx.render('company.nj', {
             ..._commonData,
+            currentId,
         });
     }
 
@@ -235,8 +299,25 @@ export default class WebController extends Controller {
         // 公共数据
         const _commonData = await this.commonData();
 
+        const body = ctx.request.query;
+
+        const currentId = Number.isNaN(Number(body.id)) ? 0 : parseInt(body.id);
+
+        const params = {
+            page: body.page || 1,
+            pageSize: body.pageSize || 10,
+            type: 2,
+        };
+
+        const data = await this.service.file.getList(params);
+
+
         await ctx.render('cooper.nj', {
             ..._commonData,
+            ...data,
+            page: params.page,
+            pageSize: params.pageSize,
+            currentId,
         });
     }
 

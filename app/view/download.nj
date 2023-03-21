@@ -77,21 +77,9 @@
                                         <div class="news-text">
                                             <h3 class="news-title">{{item.name}}</h3>
                                         </div>
-                                        <div class="news-time" style="margin:0 15px;padding:0 10px;">
+                                        <div class="news-time">
                                             <object>
                                                 <a href="{{item.url}}" download>立即下载</a>
-                                            </object>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a style="color:#1e50ae;">
-                                        <div class="news-text">
-                                            <h3 class="news-title">{{item.name}}</h3>
-                                        </div>
-                                        <div class="news-time" style="margin:0 15px;padding:0 10px;">
-                                            <object>
-                                                <a href="{{item.url}}" download>下载</a>
                                             </object>
                                         </div>
                                     </a>

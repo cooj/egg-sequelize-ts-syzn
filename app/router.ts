@@ -11,6 +11,7 @@ export default (app: Application) => {
     router.get('/download', controller.web.download); // 新闻资讯
     router.get('/news-detail', controller.web.newsDetail); // 新闻详情
     router.get('/product', controller.web.product); // 产品中心
+    router.get('/product-detail', controller.web.productDetail); // 产品详情
     router.get('/video', controller.web.video); // 视频中心
     router.get('/video-detail', controller.web.videoDetail); // 视频中心
     router.get('/case', controller.web.case); // 使用案例

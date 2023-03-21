@@ -8,8 +8,9 @@
     {% include  "./layout/sec-img.nj" %}
     <div id="navbar-box">
         <div class="inbox">
-            <a href="/company" class="cur">公司介绍</a>
-            <a href="/cooper" class="">合作客户</a>
+            {% for item in mostMenu.children %}
+                <a href="{{item.href}}?id={{item.id}}" class="{{ 'cur' if currentId==item.id }}">{{item.title}}</a>
+            {% endfor %}
         </div>
     </div>
 

@@ -95,6 +95,15 @@ export class MenuService extends Service {
 
     }
 
+    // 获取数据
+    public async getInfo(data: any) {
+        const _data = await this.Table.findOne({
+            where: data,
+        });
+
+        return _data;
+
+    }
 
     // 删除数据
     public async delete(id: number) {

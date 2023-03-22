@@ -7,7 +7,7 @@ export type DefaultConfig = PowerPartial<EggAppConfig & BizConfig>;
 
 // app special config scheme
 export interface BizConfig {
-    sourceUrl: string;
+    env: string;
     news: {
         pageSize: number;
         serverUrl: string;
@@ -20,18 +20,12 @@ export default (appInfo: EggAppConfig) => {
     config.env = 'local';
 
     // app special config
-    config.sourceUrl = `https://github.com/eggjs/examples/tree/master/${appInfo.name}`;
     config.news = {
         pageSize: 30,
         serverUrl: 'https://hacker-news.firebaseio.com/v0',
     };
 
     // 分页参数
-    config.pagination = {
-        is_paging: 0,
-        page: 1,
-        pageSize: 10,
-    };
 
     config.common = {
         is_paging: 0,

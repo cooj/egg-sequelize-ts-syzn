@@ -4,6 +4,17 @@ export default () => {
     const config: DefaultConfig = {};
     config.env = 'prod';
 
+    config.cluster = {
+        listen: {
+            path: '',
+            port: 7001,
+            hostname: '127.0.0.1',
+        },
+    };
+
+    // 文件主机
+    config.imgDomain = 'http://127.0.0.1:7001';
+
     // 数据库配置
     config.sequelize = {
         dialect: 'mysql',

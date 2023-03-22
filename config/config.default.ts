@@ -42,6 +42,14 @@ export default (appInfo: EggAppConfig) => {
     // override config from framework / plugin
     config.keys = appInfo.name + '123456';
 
+    config.cluster = {
+        listen: {
+            path: '',
+            port: 7001,
+            hostname: '127.0.0.1',
+        },
+    };
+
     // 文件主机
     config.imgDomain = 'http://127.0.0.1:7001';
     // 文件上传目录

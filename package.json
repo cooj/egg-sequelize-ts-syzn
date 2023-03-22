@@ -7,7 +7,8 @@
         "typescript": true
     },
     "scripts": {
-        "start": "egg-scripts start",
+        "start": "egg-scripts start  --daemon --title=egg-serve-syzn",
+        "stop": "egg-scripts stop --title=egg-serve-syzn",
         "dev": "egg-bin dev",
         "debug": "egg-bin debug",
         "test-local": "egg-bin test",

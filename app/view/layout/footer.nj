@@ -99,7 +99,6 @@ setTimeout(()=>{
 
 
         $('.share-link').on('click', function () {
-            console.log(1)
             copy(location.href)
         })
 

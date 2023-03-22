@@ -16,7 +16,7 @@ export class HomeService extends Service {
      */
     public async getList(body: any) {
         const { Op } = this.app.Sequelize;
-        console.log('data body:>> ', body);
+        // console.log('data body:>> ', body);
         const page = Number.parseInt(body.page || this.config.common.page);
         const pageSize = Number.parseInt(body.pageSize || this.config.common.pageSize);
 

@@ -59,7 +59,6 @@ export class CompanyService extends Service {
 
     // 修改数据
     async update(body: CompanyTableType) {
-        console.log('body :>> ', body);
         if (!body.id) {
             return await this.insert(body);
         }

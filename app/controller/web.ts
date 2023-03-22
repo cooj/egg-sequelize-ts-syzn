@@ -44,10 +44,9 @@ export default class WebController extends Controller {
         const { ctx } = this;
         // 公共数据
         const _commonData = await this.commonData();
-        console.log('_commonData :>> ', _commonData);
 
         const allData = await this.service.home.getList({ pageSize: 50 });
-        console.log('allData :>> ', allData);
+
         const data1 = {
             bgList: allData.list.filter(item => item.screen === 1 && item.type === 2),
             link: allData.list.filter(item => item.screen === 1 && item.type === 1),

@@ -71,7 +71,7 @@ export class FileService extends Service {
                 id,
             },
         });
-        console.log('_data :>> ', _data);
+        // console.log('_data :>> ', _data);
         // // 删除文件
         // await this.app.controller.common.deleteDiskFile({ _id: _data._id });
 

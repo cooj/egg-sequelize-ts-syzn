@@ -19,7 +19,6 @@
         <script src="/public/js/swiper-bundle.min.js"></script>
         <script src="/public/js/wow.min.js"></script>
         <script src="/public/js/utils.js"></script>
-        <script src="/public/js/common.js"></script>
     </head>
 
     <body class="main-box">

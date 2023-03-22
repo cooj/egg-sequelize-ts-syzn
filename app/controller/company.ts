@@ -74,7 +74,7 @@ export default class CompanyController extends Controller {
         // return;
 
         const data = await this.serviceFunc.getInfo(body);
-        console.log('data :>> ', data);
+
         ctx.body = {
             code: 200,
             message: '成功',

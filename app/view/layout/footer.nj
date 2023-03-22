@@ -35,7 +35,7 @@
                     <a href="javascript:;" class="hover-share">
                         <img src="/public/image/weixin.png" alt="" class="icon-img">
                         <div class="wx-img hover-hidden">
-                            <div id="wximg" class="wx-code"></div>
+                            <div id="wxImg" class="wx-code"></div>
                             <p class="share-text">扫一扫即可分享到朋友圈</p>
                         </div>
                     </a>
@@ -82,7 +82,7 @@
 
 <script src="/public/js/qrcode.min.js"></script>
 <script>
-    var winW = document.body.clientWidth
+
 
 setTimeout(()=>{
         // 分享
@@ -94,20 +94,9 @@ setTimeout(()=>{
                 colorLight: "#ffffff",
                 correctLevel: QRCode.CorrectLevel.H
             })
-},2000)
+},1000)
 
 
-         /*    */
-
-        var _title,
-            _source,
-            _sourceUrl,
-            _pic,
-            _showcount,
-            _desc,
-            _summary,
-            _site,
-            _url;
 
         $('.share-link').on('click', function () {
             console.log(1)
@@ -128,26 +117,5 @@ setTimeout(()=>{
                 jmMess.msg("复制成功")
         }
 
-        $('.fixed-nav').on('click', '.scroll-top', function () {
-            if (location.pathname != '/') {
-                $('html, body').animate({
-                    scrollTop: 0
-                }, 300);
-            } else {
-                $('#fullpage').css("transform", "translate3d(0px, 0px, 0px)")
-                $('#fullpage .section')
-                    .eq(0)
-                    .addClass('active fp-completely')
-                    .siblings()
-                    .removeClass('active fp-completely')
-                $('#fp-nav ul li')
-                    .eq(0)
-                    .find('a')
-                    .addClass('active')
-                    .parent()
-                    .siblings()
-                    .find('a')
-                    .removeClass('active')
-            }
-        })
+
 </script>

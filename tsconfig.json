@@ -5,6 +5,7 @@
   },
   "exclude": [
     "app/public",
-    "app/views"
+    "app/views",
+    "database"
   ]
 }

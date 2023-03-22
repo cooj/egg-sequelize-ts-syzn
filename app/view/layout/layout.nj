@@ -33,6 +33,37 @@
             {% include "./footer.nj" %}
         {% endif %}
 
+        <div class="go-top">
+            <div class="go-top-item scroll-top">
+                <i class="iconfont icon-shangyi"></i>
+            </div>
+        </div>
+        <script>
+        $('.go-top').on('click', '.scroll-top', function () {
+            if (location.pathname != '/') {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 300);
+            } else {
+                $('#fullpage').css("transform", "translate3d(0px, 0px, 0px)")
+                $('#fullpage .section')
+                    .eq(0)
+                    .addClass('active fp-completely')
+                    .siblings()
+                    .removeClass('active fp-completely')
+                $('#fp-nav ul li')
+                    .eq(0)
+                    .find('a')
+                    .addClass('active')
+                    .parent()
+                    .siblings()
+                    .find('a')
+                    .removeClass('active')
+            }
+        })
+
+        </script>
+
         {% block script %}{% endblock %}
 
     </body>

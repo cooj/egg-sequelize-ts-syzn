@@ -68,9 +68,9 @@
                                         {# <iframe style="display:block;width:100%;height:100%;" frameborder="0"
                                         src="{{item.video_url}}" referrerpolicy="unsafe-url"
                                         allowfullscreen=""></iframe> #}
-                                        <div class="pos">
+                                        <a  class="pos" href="/video-detail?id={{item.id}}">
                                             <img src="{{item.video_image_url}}" alt="">
-                                        </div>
+                                        </a>
                                     </div>
                                 {% endfor %}
                             </div>
@@ -83,19 +83,19 @@
             <div class="container">
                 <div class="index-b-box">
                     <div class="title">{{data4.bgList[0].title}}</div>
-                    <div class="produt-img">
+                    <div class="product-img">
                         <img src="{{data4.other[0].image_url}}" alt="">
                     </div>
                     <div class="text">{{data4.bgList[0].description|safe}}</div>
                     <div class="btn-box">
                         {% for item in goods %}
-                            <a href="/prroduct-detail?id={{item.id}}" class="btn">{{item.title}}</a>
+                            <a href="/product-detail?id={{item.id}}" class="btn">{{item.title}}</a>
                         {% endfor %}
                     </div>
                 </div>
             </div>
         </div>
-        <div class="index-b section"
+        <div class="index-b index-e section"
             style="background: url({{data5.bgList[0].image_url}}) no-repeat center center / cover;">
             <div class="container">
                 <div class="index-b-box">
@@ -162,7 +162,7 @@
             autoScrolling: true,
             scrollHorizontally: true,
             navigation: true,
-            responsiveWidth: 1024, // 屏幕小于时，正常网站
+            responsiveWidth: 1025, // 屏幕小于时，正常网站
         });
     </script>
 

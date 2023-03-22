@@ -817,12 +817,15 @@ textarea {
     padding: 0px 20px;
     box-sizing: initial;
 }
-
+.footer .code-img .share-icon a .wx-img .wx-code{
+    background: #fff;
+    padding: 3px;
+}
 .footer .code-img .share-icon a .wx-img .share-text {
     color: #fff;
     text-align: center;
     font-size: 14px;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 .footer .code-flex {
@@ -1710,7 +1713,7 @@ textarea {
 .case-detail-box {
     background-color: #fff;
     padding: 50px;
-    min-height: 300px;
+    min-height: 400px;
 }
 
 .case-detail-box .top .tle {
@@ -1841,6 +1844,13 @@ textarea {
         padding: 30px;
         font-size: 16px;
         line-height: 28px;
+    }
+    .index-a-box a{
+        font-size: 24px;
+    }
+    .index-a-box a i {
+        font-size: 24px;
+        margin-right: 8px;
     }
 }
 

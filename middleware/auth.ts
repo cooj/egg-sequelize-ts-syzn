@@ -16,9 +16,9 @@ export default function authMiddleware(options = { required: true }): any {
         if (user_token) {
             try {
                 // 3. token 有效，根据 userId 获取用户数据挂载到 ctx 对象中给后续中间件使用
-                const data = ctx.service.user.verifyToken(user_token);
-                // ctx.user = await ctx.model.User.findById(data._id);
-                ctx.user = await ctx.app.mysql.get('user', { id: data });
+                const data = await ctx.service.user.verifyToken(user_token);
+                ctx.user = await ctx.model.User.findByPk(Number(data));
+                // ctx.user = await ctx.app.mysql.get('user', { id: data });
             } catch (err) {
                 ctx.throw(401);
             }
